@@ -5,6 +5,8 @@ const cors = require('cors');
 
 const { connection } = require('./Config/db');
 
+const { qrRouter } = require('./Routes/qr.route');
+
 require('dotenv').config();
 
 
@@ -16,6 +18,9 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+
+
+app.use('/qrcode', qrRouter)
 
 
 app.listen(process.env.Port, async (req,res)=>{
