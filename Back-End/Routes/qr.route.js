@@ -6,6 +6,8 @@ const QRCode = require('qrcode');
 
 const qrRouter = Router();
 
+
+
 // Generate QR code for Text.
 
 qrRouter.post('/text', async (req, res) => {
@@ -119,6 +121,7 @@ qrRouter.post('/link', async (req, res) => {
 
 
 
+
 // // Generate QR code for Phone Number.
 
 
@@ -174,6 +177,8 @@ qrRouter.post('/phone', async (req, res) => {
 })
 
 
+
+
 // Generate QR code for WhatsApp.
 
 
@@ -197,6 +202,62 @@ qrRouter.post('/whatsapp', async (req, res) => {
     }
 
     const URL = `https://wa.me/${phone}/?text=${text}`
+
+    
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err){
+                return res.status(400).send({
+                    msg : "Something went wrong in data.",
+                    err : err
+                })
+            }
+    
+            console.log(url)
+    
+            res.status(200).send({ "qrcode": url })
+    
+        })
+        
+    } catch (error) {
+        
+        return res.status(500).send({
+            msg : "Something went wrong ",
+            error : error
+        })
+
+    }
+
+
+})
+
+
+
+// Generate QR code for UPI ID.
+
+
+qrRouter.post('/upi', async (req, res) => {
+
+    const { upi, amount, name, color } = req.body
+
+    if ( !upi ){
+        return res.status(400).send({error : "Provide all required details"})
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: {
+            dark: "#010599FF",
+            light: "#FFBF60FF"
+        }
+    }
+
+    const URL = `upi://pay?pa=${upi}&pn=${name}&am=${amount}`
 
     
     try {
