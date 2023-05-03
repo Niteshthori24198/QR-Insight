@@ -1,0 +1,91 @@
+* {
+    box-sizing:border-box;
+}
+
+html,body {
+    height: 100%;
+}
+a, button{
+    cursor: pointer;
+}
+
+@keyframes pan {
+    100% { background-position: 15% 50%;}
+}
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0 24px;
+    background-image:url("../images/low-poly-grid-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation:
+        pan 6s infinite alternate linear;
+}
+@media (width >= 500px){
+    body {
+    padding:0;
+    }
+}
+
+.login-card{
+    width: 100%;
+    padding: 30px 30px 30px;
+    border-radius: 24px;
+    background:#ffffff;
+    text-align:center;
+}
+@media (width >= 500px){
+    .login-card {
+    margin: 0;
+    width: 400px;
+    }
+}
+
+.login-card >h2{
+    margin: 0 0 12px;
+    font-size: 36px;
+    font-weight:600;
+}
+.login-card > h3 {
+    margin: 0 0 30px;
+    font-weight:500;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.38);
+}
+.login-form {
+    width: 100%;
+    margin:0;
+    display: grid;
+    gap: 16px;
+}
+
+.login-form > a { color:#216ce7;}
+
+.login-form > select,
+.login-form > input,
+.login-form > button {
+    width: 100%;
+    height:40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.login-form > select,
+.login-form > input {
+    border: 2px solid #ebebeb;
+}
+
+.login-form > select{
+    color: rgba(20, 20, 20, 0.863);
+}
+.login-form > button{
+    width:100%;
+    height: 45px;
+    border:0;
+    background:#216ce7;
+    color:#f9f9f9;
+    font-weight:600;   
+}
