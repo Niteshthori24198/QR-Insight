@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Insight</title>
+
+    <link rel="stylesheet" href="../Styles/qr.css">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+
+
+    <!-- Line Awesome CDN Link -->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+</head>
+
+<body>
+
+    <nav>
+        Navbar
+    </nav>
+
+
+    <!-- qr code heading -->
+    <div id="qr_heading">
+        <h2>QR Code Generator 💖</h2>
+        <p>Free generated QR codes</p>
+    </div>
+
+
+
+    <!-- qr code main section -->
+    <div id="qr_main">
+
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Text')" id="defaultOpen">Text</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Text" class="tabcontent">
+            <div class="qr_select_design"></div>
+
+            <h3>Text</h3>
+            <p>Text hai</p>
+        </div>
+
+        <div id="Paris" class="tabcontent">
+            <div class="qr_select_design"></div>
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+
+        <div id="Tokyo" class="tabcontent">
+            <div class="qr_select_design"></div>
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- <div class="main-container">
+        <h2>Select your favourite Design</h2>
+        <div class="radio-buttons">
+            <label class="custom-radio">
+                <input type="radio" name="design" value="blue" checked />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/blue-1.png" alt="">
+
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="design" value="black" />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/black-2.png" alt="">
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="design" value="pink" />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/pink-3.png" alt="">
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="design" value="brown" />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/brown-4.png" alt="">
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="design" value="red" />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/red-5.png" alt="">
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="design" value="crimson" />
+                <span class="radio-btn"><i class="las la-check"></i>
+                    <img src="../images/qr-design/chrimston-6.png" alt="">
+                </span>
+            </label>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+    <footer>
+        Footer
+    </footer>
+
+</body>
+
+</html>
+
+<script src="../Scripts/qr.js"></script>
