@@ -253,7 +253,8 @@ nav {
     width: 25%;
     display: block;
     margin: auto;
-
+    letter-spacing: 1px;
+    
 }
 
 
@@ -262,8 +263,8 @@ nav {
     cursor: pointer;
     color: blue;
     border: 1px solid black;
-    letter-spacing: 1px;
     font-weight: bolder;
+    letter-spacing: 3px;
 
 }
 
