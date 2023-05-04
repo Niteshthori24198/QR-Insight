@@ -16,6 +16,10 @@ body,
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    /* margin: 0px 10px; */
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 20px auto;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -25,8 +29,9 @@ body,
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 5px 10px;
     transition: 0.3s;
+    font-size: 18px;
 }
 
 /* Change background color of buttons on hover */
@@ -49,7 +54,7 @@ body,
 
 
 .tabcontent {
-    animation: fadeEffect 5s;
+    animation: fadeEffect 3s;
     /* Fading effect takes 1 second */
 }
 
@@ -173,8 +178,14 @@ nav {
 /* QR generation section */
 
 
-.qr_detail_section {
+#qr_main{
     width: 90%;
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.qr_detail_section {
+    width: 100%;
     margin: auto;
     display: grid;
     grid-template-columns: 3fr 2fr 1fr;
@@ -278,8 +289,8 @@ nav {
     margin-bottom: 20px;
 }
 
-#phone-number-qrl {
-    width: 65%;
+#phone-number-qrl, #wa-number-qrl {
+    width: 55%;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
@@ -287,14 +298,42 @@ nav {
     
 }
 
+#upi_qr_form{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#upi_qr_form > input {
+    /* width: 65%; */
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+#upi_qr_form > input[type="submit"] {
+    margin: auto;
+}
+
+
+#wa-text-message-qr{
+    padding: 10px;
+    margin: 20px auto 10px auto;
+    border-radius: 5px;
+}
 
 /* **************** box shadows ******************* */
 
 .qr_detail_section{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     margin: 15px auto;
+
 }
 
 .qr_detail_section > div{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
 }
