@@ -227,7 +227,9 @@ nav {
 
 .qr_detail_section>div:nth-child(3)>button {
     background-color: black;
+    background-color: #00A1E0;
     color: aqua;
+    color: white;
     font-size: 15px;
     padding: 5px 2px;
     border: none;
@@ -256,7 +258,9 @@ nav {
 
 .qr_detail_section>div>form>input[type="submit"] {
     background-color: black;
+    background-color: #00A1E0;
     color: aqua;
+    color: white;
     font-size: 15px;
     padding: 5px 2px;
     border: none;
@@ -384,8 +388,6 @@ nav {
 
 
     .qr_detail_section>div:nth-child(3)>button {
-        background-color: black;
-        color: aqua;
         font-size: 15px;
         padding: 1px 20px;
         border: none;
@@ -442,8 +444,6 @@ nav {
 
 
     .qr_detail_section>div:nth-child(3)>button {
-        background-color: black;
-        color: aqua;
         font-size: 15px;
         padding: 1px 20px;
         border: none;
