@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Sans&display=swap');
+
+
+*{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0; 
+  box-sizing: border-box; 
+  padding: 0;
+  
+}
+
+/* <---------------Navigation Start ------------> */
+nav{
+  position: fixed;
+  z-index: 1;
+  /* top: 0px; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 7px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  /* background-color: rgb(217, 224, 224); */
+}
+
+.dropdown-content {
+  width:16%;
+  cursor: pointer;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content p{
+  font-size: small;
+  padding: 20px 10px;
+}
+
+.dropdown-content img{
+  width: 40px;
+}
+
+.dropdown-content a {
+  color: black;
+  font-weight: bolder;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover{
+  background-color: #00a0e08d;
+  color: white;
+  border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#logo{
+  width: 200px;
+  /* border: solid red; */
+}
+
+.loginBtn{
+  padding: 10px;
+  background-color: #00A1E0;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border: 0px;
+}
+
+/*------------ maincontainer----------- */
+#mainContainer{
+  /* border:solid red; */
+  width:90%;
+  margin:auto;
+  position: relative;
+  top: 80px;
+}
+
+/* ----------Section1---------- */
+
+#sec1{
+  display: flex;
+  /* margin: 50px; */
+  height: 500px;
+}
+
+#welcome{
+  padding: 80px 20px 0 20px ;
+  border-radius: 10px;
+  margin: 5px;
+  width: 60%;
+}
+#welcome p{
+  margin-top: 20px;
+}
+#welcome h2{
+  font-size: 50px;
+}
+#welcome span{
+  color: #00A1E0;
+}
+
+#startNow{
+  margin-top: 40px;
+  padding: 10px;
+  background-color: #00A1E0;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border: 0px;
+}
+
+/* --------ChatBot--------- */
+
+#chatBot{
+  cursor: pointer;
+  display:flex;
+  padding: 8px;
+  background-color: #00A1E0;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  z-index: 1;
+  border-top:50px ;
+  border-radius: 0 25px 25px 25px;
+  top: 90%;
+  left: 94%;
+  transition: transform .5s;
+}
+#chatbot-icon{
+    font-size: 30px;
+}
+
+#chatBot:hover{
+  transform: scale(1.2);
+}
+
+/* --------section 4------------- */
+
+.sec4{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  text-align: center;
+}
+#sec4-title{
+    font-size: 35px;
+    margin: 50px 0px 50px 0px;
+    text-align: center;
+}
+#sec4-title span{
+    color: #00A1E0;
+}
+/* ----------- Section 5------------ */
+
+.sec5{
+    margin-top: 50px;
+    display: flex;
+}
+.sec5 img{
+    width: 400px;
+}
+.sec5 div:nth-child(2){
+    width: 35%;
+    margin-left: 20%;
+}
+.sec5 h3{
+    font-size: 50px;
+}
+/* ------------Footer---------------- */
+footer{
+  /* position: relative; */
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 120px;
+  padding: 30px;
+  background-color: rgb(217, 224, 224);
+}
+footer ion-icon{
+  font-size: 30px;
+  color: #00A1E0;
+ 
+}
+footer>div{
+  width: 20%;
+  /* text-align: center; */
+  /* border: solid red; */
+  /* margin: auto; */
+}
+
+#footer-contact{
+display: flex;
+
+/* margin-top: 30px; */
+}
+.chat-icon{
+  margin-top: 70px;
+}
+.mail-icon{
+  margin-top: 30px;
+}
+.chat-text{
+  margin-top: 25px;
+}
+.mail-text{
+  margin-top: 43px;
+}
+.socialmedia ion-icon{
+  margin-left: 20px;
+  /* color: aqua; */
+}
+
+
