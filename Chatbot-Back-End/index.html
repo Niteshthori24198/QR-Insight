@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #20a4d4;
+        }
+        #chatbox {
+            display: none;
+            margin: auto;
+            width: 90%;
+            /* justify-content: center; */
+        }
+        #chatbox1{
+            margin: auto;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        #mesbox {
+            height: 70vh;
+            width: 30%;
+            border: 1px solid rgb(22, 21, 21);
+            margin: auto;
+            /* background-color: rgb(239, 202, 159); */
+            background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTEhMVFRUXFxcYGBgYGBUVGBgXGBcXGBcYFxgYHSggGBolGxcXIjEhJSkrLi4uGB8zODMtNygtLisBCgoKDQ0NDg0NDisdFRkrNysrKysrKysrKysrKzctKysrKysrNy0rKy0rNy0rKysrKys3LSs3Ky0tLSs3KysrK//AABEIATMApAMBIgACEQEDEQH/xAAZAAADAQEBAAAAAAAAAAAAAAAAAQIDBAf/xAAwEAACAQIEBAYDAAEFAQAAAAAAAQIRIQMxQfBRYXGBEpGhscHRE+HxIgRCUmKyMv/EABYBAQEBAAAAAAAAAAAAAAAAAAABA//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APQo4pV+FOoKCT6icXUxaH4eLfsOKWlBSlawT4AJuttCgiTSgFmeJHhY0qJcAFht6hJ3BWsOS9gFFve+g9ScOWXGg3n0W2AsOdSyPDV34DpQCkyZZ70/voNDSuBNfMSlvIVK33v6KgA6V9gc0vgUBY3He/sDRCMlg1/aqwATk9/BeE62ejIcH18jTCjTqAsP33voHitbPIMPKmq+ArdeYDxGxxdglIHcAzFkOnYbhUBU/oo3VBqSJxHkwHJ0WRKnV0a9SpquW6ijB1uBVN8glLyHNMWYCiygokT4mBOlL7sEWW48kNgTlbUE6K5UpUMpTvlz3QCnKWi9gGp8mABfn6Bfh8ESnd3pQ0hXUAcOAk2ndZhOXDdhwlegBNquQQdX0oOcW8ghh0uASVyqWzGmnkyWgFGKeRSpl6ehLVQlHhbsA6UTor9TP8j9NE7M3aqCjQCIoIxHWlTJSfH25AW+gPmPNe4wJXsKSuVQnFjkANVJeGnSxUFwIxJaIDRCMk3z839ABq8PnzKjGgOSWYRxEwFOF7McIUu/4iqU6ClfuAk+A8SL08gw40tX2NKAZYFL+vqEYPgvnzNG6Jsj8j/RRDr0rvPvmW43Na5E4ktNQInJc68hqmrfe30So0KUQG4WpkYuHJ6aPeZo7ZenA0Tr9ARhwogSaDN5+/F8BxzpntEBQVLmcm6u+v8ACsO6YDkZ4kNVrvUpxfYEnz9AMvA+H/l+4Gt90ABYy9h1q7XVvg1oFP6A/CKEEhzdhYbrzKKpffkSnenoVPRb6CceQFtVMlgs1hhpOxSQEOyojPw0ZpG7dPVW4BKNL08vpgQ1uw5L+FKS674AoayAiMe/HfwUopZ76FV0W/oFBagZ48U6c2V4UskvYJK63vIU3nTpT7AU8KvElNKyuaQehm4cAJU78gxXSi4stQCa7U1IMUpaP2Av8PMAEnwNzOOG61fGpbZRVBu1wSoOSs+gAlXMcYbrUmLefnzLlh11AeooUvQG9fXeZDdenLUC4tZIqFdeLJ/EnZ/wvwOlK1fEDOMlw3x5DceW6epKi8qfRtQDOvKw0uRUkkrk+LjYDNf/AFXTJb8xYmHeq7mqS0o+ZniJ1ouG6gTCDW8gUNKl4llXOhl/qK2o7MBxjmJ2XEmnhyXJr6Zea6oDF4j4L3AJRlovVABu3bfkOC3z1BwtTbKrvgBk26u76L09DXB9geHepaVOICSS1KlkEVn1r2HFVrwy69QE48cgS8t3HHDWnsvo0pQCJS013kTGXHWi+8jTEw28s0KOFerpbLP1ApGcYVde/wBGkkvMU4vKuf0BOIjFpvKvwdMLohTosgIwvre+A/Beo4RztmwlBtgRGSdSFFNUzoa0WlKiUQMJYUencPx/8X8oKvTixSlxS9vcA8b1j5AXhuqEBSdrjbtaxMXo+z4mlOYERhy7msFv3IilXPlwNaARF5/Roo8dXoEIUGpPtkBTjmThxafImUmuJrOLzWYChJveg5scYpN2F4a16/r4QEpvdx556dUPD39hS9t7+QFJ04k/46UT7GmIrW0IwsPigFiZWZC7rfMvFrTnv5oDjRUAiSv3+/gnEhXOvY08Jz5O3f8AgDUGsmRKDtlnU2jlV560IgwJTSsAmpVdPgAG406acn9GkNa9yMJZ16FN0+H8MA/GzaOSEuPIjxPjTsBtJ2FlrvoEXVc/kUcHt0AEqvuuPXXubVVK6BGNPsWLzy9uoFRlWuvLgRK1t8fkWGqtebfojoAxjF7qivDTIIur6W5jlHSr838ARTwriCTd69hwTpf7/ZW/4BjLPfX3oMMHV7vcfG/6AlMzcaVdL78jQlgZqVakqPUMSNHVagpVfIAit9kAnicn2VQAcY0fMfiS4U8zByrutvYuL3wA2hNZUoP8b09yFcvDej7AaYcaKiB1WtelF7lInCu2/IC8N2pwNI9P0TGla9hYmJTJVYFtpWSuOCeosONBtuvIBLDV+t0XRArol4dNX6AFabyJSoXBLQmUqAZuyokZ2r337GzVSFxAmbytnuopAnqYTu35etAHOCddehFafP2EHdcy5J56r15AKnBgQq/7aU56cgAGrXy9P0xRdLM0cqCcNY7+gHF6+W9S4rRkW1ovfyLw7/b+lmBphy0efujVfwxUMqvyVDTSwF+LjwGklc55YTztbl8miikrqrA0U+76DXi5L1JhKvTIutarUBpcXX2CMq9CG6umhcnRWQDStkZTjW+TKUuPYKgYRxKWLfEWJHyC1OQEePl8Gc4J389R0yWaf9KAzUKXzfl3Jk3VCeI81kPO+X6AJQ5tADoAERTfU0j7kuo7gWnyLZnF6XKYGkWEk7XFFjqswLlOhKxvLqRi5p6Gf6XkB04jdLdvLUpO6fHaM5W8PVFNad1875gWmlVeYKayJw3m+L9rCilmgLpTQzb5VQpSKbtzATyv3JrQlJlTVQInGutsqb3YlyStXzZUJ1tqjmlK76v3A0cFp95DSXkLCyBT0AlPg9+QETw93ACxiTE0BaXAcnqhUKiwKw6gsYEwWIgKhK2VSk0tKdl8EUSTroJTWq+gNWqqlf6S5cc97qPpRcxPFXDfQC4UpZk1SdW0EUvP22zDxaenuB0t52yIjK++1BwVlxoLKoBiV0ISefoJ11bE5N7/AHYAlC7aCc0s/aooS02yZxruluoB+TgKar+xeBK6072DFnT9AUmBl+bkxgPQpGafEtfNwHCRaZl4r0rvdB+J5MBzz9hxVQrfLoNSdafwC5qqoiVXg1vkVUX5FxA0nlQw8Xzbe7GsZp3V9B14gOFkg8WZjiTdUaJ8mBDxG7Kw5Tsu3tUc1XlzBySzYGbnw8tfIanuo6qRKSS68e4Dw+O95CTfDyf2RiTpZd98TNKnLv8AQG0qvOxji5lVfHzCta1WXyBhOVNsDdQW2wAUbEtN5aD8aHUB42XMpRpqZ5y6b+vIp4mvqwLni0VSY4rs3SntwHK6IcJcvZgdKZhHtk+GaoEKx08i1JPg2BWHKvkvO/6HOtaoF6mc8ToBrFW9wrRExe+xLlW1fuwFxdUZ42dd22wTlpx8y0+IGeGnX04DnKll/P2VJsy3dfKsAoAg0v8AaCToqgJvefcnw8N9xxjq7b9BuXACo5XAz8L477ABLt0qWre3XdSZR4U5jjzdSCsHWpnG1rW3vqaIWFOvACoOzr69hznnmD5Gaz/yRRqsTg/OnwKz7aozm1R07Fwyb3QCqyX/AGXqOEk/XqhKQOla0uBonoTfdiJtV3oVGWoDhkEq6Ewk+FPMlu1K5Z70AvEjUWSS7GTnXp6sarWjVVpy6gVKGqsHgoRjPJBh7RA3fUYNEvqBYCADKvcam63IT3vsN73vIC5K1C4y0IlJ6BGCrW4Aptc6lwnWjyIULtv9FqVQGnfoDd6b6kKPIeb3xArxWrx4ehKxeVO/MJXTpuhHhbrYDWS7jRM5A+rAc5cciJJvkgTea7oaQBFdgc1vl/BowrTMDaTr09RZKxOHk3xY5MBwb1IlLdfYfjvSgpx32Azc3pl2YGvhXIAJ/EtPvgPw8DJX3vkbSdrdgEp14DkKGVX19Az+foC3/TN/4uuhdMyZ1dgL8aHcxg/ro+BbV8ugDnOgeJiHHmqAViSsyZSt/RYmWRSsA3qTKTVKCc95e4RlUB+NUqOplna1UW3RfIBKY/GjMbjveoFeH3qEo18wTqZSVHwdd/QF/iGOCeoARiSRWJv2Xv6DSoyE6y3p/WBdRpi1BgTiSpl3J/I079x4sNV3JUW/m1PIC8Ra6a/Y09PLmgnKgvDS3lyAeJUWHLQuoSdLgFeZM+Hf3FHET0pXigm3UAk+XPX4FhL2pveokm86+xoo2v3Ae6kyVvIhtvXpQuEqruBM5DTrYfhWf6GnwXwgJcuBUqZ6kOdNF5/opK9QKg6gMAAjD16sAAnEd+32agABQAACZ5opoQAZ4Lr5fY8Vez+BgBlN+/y/o6AAAAAAwxVR24N90atWQgAn/UO3dGgABEdOr9mOWnUAAsAAD//Z");
+            border-radius: 3px;
+            overflow-y: scroll;
+        }
+        input{
+            width: 340px;
+            padding: 10px;
+            margin: 2px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(240, 240, 231);
+
+        }
+         button{
+            width: 60px;
+            padding: 10px;
+            margin: 2px;
+            /* font-size: 20px; */
+            border-radius: 50px;
+            border: none;
+             background-color: rgb(45, 45, 227);
+             color: aliceblue;
+             transition: 0.3ms none;
+
+        }
+        button:hover{
+            background-color: rgb(105, 105, 237);
+        }
+
+        h2 {
+            color: brown;
+        }
+
+        h2>span {
+            color: black;
+        }
+        .div{
+            margin: 5px;
+            border-radius: 5px;
+            padding: 2px;
+            /* color: white; */
+        }
+        .div > p:nth-child(1){
+            margin: 0px;
+            padding: 0px;
+            font-size: 13px;
+        }
+        .div > p:nth-child(2){
+            margin: 0px;
+            padding: 0px;
+            font-size: 10px;
+            text-align: left;
+        }
+        .div > h3{
+            text-decoration: none;
+            margin: 0px;
+            padding: 2px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="namebox">
+        <input id="name" type="text" placeholder="please enter your name">
+        <button id="btn">ok</button>
+    </div>
+    <div id="chatbox">
+        <div  id="chatbox1">
+            <!-- <h2>Chat<span> Application</span></h2> -->
+            <div id="mainchat">
+                <div id="mesbox"></div>
+                <input id="mes" type="text" placeholder="Message........">
+                <button id="sendbtn">></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="socket.io/socket.io.js"></script>
+<script>
+
+    let socket = io();
+    var name;
+
+    let btn = document.getElementById("btn")
+
+    btn.addEventListener("click", () => {
+        name = document.getElementById("name").value
+        // console.log(message, name)           
+        document.getElementById("namebox").style.display = "none"
+        document.getElementById("chatbox").style.display = "block"
+
+    })
+
+    socket.on("chat2", (message) => {
+        // console.log(message)
+
+        person(message.msg, message.name, message.name == name ? true : false)
+
+    })
+
+    document.getElementById("sendbtn").addEventListener("click", () => {
+
+        let msg = document.getElementById("mes").value
+        if (msg && name) {
+            
+            socket.emit("chat", { msg, name })
+            console.log("yes")
+        }
+        
+        document.getElementById("mes").value=""
+    })
+
+    function person(mes, name, self) {
+        let div = document.createElement("div")
+        div.setAttribute("class","div")
+        let mess = document.createElement("h3")
+        let rname = document.createElement("p")
+        let time = document.createElement("p")
+        time.innerText = Date(Date.now()).slice(16).slice(0,5)
+        mes.innerText = mess
+        rname.innerText = self ? "Me" : name
+        div.style.textAlign = self ? "right" : "left"
+     
+        rname.style.color = self ? "green" : "red"
+        time.style.textAlign = self ? "left" : "right"
+        div.append(rname, mes, time)
+        document.getElementById("mesbox").append(div)
+        div.style.backgroundColor="white"
+        
+      
+    }
+
+</script>
