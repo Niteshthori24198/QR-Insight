@@ -24,6 +24,7 @@ let greeting = [
   "good evening",
 ];
 
+
 io.on("connection", (socket) => {
   console.log("server is connnect...");
   socket.on("chat", (message) => {
