@@ -74,6 +74,7 @@ nav {
 
 /* *************************  QR CODE HEADING ******************* */
 
+
 #qr_heading {
     margin: 15px 0px;
     text-align: center;
@@ -162,7 +163,138 @@ nav {
 }
 
 
-img{
+.qr_select_design img {
     width: 100%;
     height: 100%;
+}
+
+
+
+/* QR generation section */
+
+
+.qr_detail_section {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    gap: 15px;
+    /* border: 1px solid red; */
+}
+
+
+.qr_detail_section>div:nth-child(1)>form {
+    padding: 5px;
+    /* border: 2px solid red; */
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+
+.qr_detail_section>div:nth-child(3) {
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+   
+
+}
+
+
+.qr_detail_section>div:nth-child(3)>button {
+    background-color: black;
+    color: aqua;
+    font-size: 15px;
+    padding: 5px 2px;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 10px;
+
+}
+
+
+.qr_detail_section>div:nth-child(3)>button:hover {
+    background-color: transparent;
+    cursor: pointer;
+    color: blue;
+    border: 1px solid black;
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+
+
+
+#QR_Code_img {
+    width: 100%;
+}
+
+
+
+.qr_detail_section>div>form>input[type="submit"] {
+    background-color: black;
+    color: aqua;
+    font-size: 15px;
+    padding: 5px 2px;
+    border: none;
+    border-radius: 5px;
+    width: 25%;
+    display: block;
+    margin: auto;
+
+}
+
+
+.qr_detail_section>div>form>input[type="submit"]:hover {
+    background-color: transparent;
+    cursor: pointer;
+    color: blue;
+    border: 1px solid black;
+    letter-spacing: 1px;
+    font-weight: bolder;
+
+}
+
+#text-message-qr {
+    padding: 10px;
+    margin: 20px auto 10px auto;
+    border-radius: 5px;
+}
+
+#link-url-qrl {
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+
+}
+
+
+.qr_country_code_select {
+    width: 28%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+#phone-number-qrl {
+    width: 65%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    
+}
+
+
+/* **************** box shadows ******************* */
+
+.qr_detail_section{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 15px auto;
+}
+
+.qr_detail_section > div{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
