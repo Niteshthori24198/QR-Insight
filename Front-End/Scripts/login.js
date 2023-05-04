@@ -28,9 +28,11 @@ form.addEventListener("submit",(e)=>{
         console.log(data)
         alert(data.msg)
         let otp=prompt("enter the correct otp")
-        //verifyotp(otp)
+        verifyotp(otp)
     })
     .catch((err)=>{
         console.log(err)
     })
 })
+
+function verifyotp(otp)
