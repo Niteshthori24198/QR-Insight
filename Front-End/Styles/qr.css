@@ -205,6 +205,7 @@ nav {
 }
 
 
+
 .qr_detail_section>div:nth-child(1)>form {
     padding: 5px;
     /* border: 2px solid red; */
@@ -250,8 +251,10 @@ nav {
 
 
 
-#QR_Code_img {
+.QR_Code_img {
     width: 100%;
+    height: fit-content;
+    height: 100%;
 }
 
 
@@ -287,6 +290,7 @@ nav {
     padding: 10px;
     margin: 20px auto 10px auto;
     border-radius: 5px;
+    max-width: 80%;
 }
 
 #link-url-qrl {
