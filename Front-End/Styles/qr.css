@@ -8,6 +8,18 @@ body,
 
 
 
+/* anchor tag */
+a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: block;
+}
+
+a:hover {
+    color: blue;
+}
+
 
 /* QR Option Tabs */
 
@@ -356,17 +368,23 @@ nav {
     text-align: center;
 }
 
-#email_id_qr, #email_subject_qr, #zoom_meeting_id_qr, #zoom_meeting_url_qr, #wifi-ssid, #select_network_security_type, #wifi-password {
+#email_id_qr,
+#email_subject_qr,
+#zoom_meeting_id_qr,
+#zoom_meeting_url_qr,
+#wifi-ssid,
+#select_network_security_type,
+#wifi-password {
     width: 80%;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
     text-align: center;
-    
+
 }
 
 /* or */
-#zoom_meeting_id_qr + p{
+#zoom_meeting_id_qr+p {
     /* background-color: red; */
     margin-top: -10px;
     margin-bottom: 10px;
@@ -509,4 +527,37 @@ nav {
     }
 
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ............................Print QR CODE ...................... */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .qr_detail_section > div:nth-child(2),
+    .qr_detail_section  > div:nth-child(2) * {
+        
+        visibility: visible;
+    }
+    
+    .qr_detail_section  > div:nth-child(2) {
+        height: 200px;
+        position: absolute;
+        left: 40%;
+        top: 40%;
+    }
 }

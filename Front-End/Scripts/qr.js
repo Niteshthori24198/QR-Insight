@@ -188,6 +188,7 @@ text_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_text.src = res.qrcode;
+        document.getElementById('text_qr_download').href = res.qrcode;
 
     }, 5000);
 
@@ -234,6 +235,7 @@ link_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_link.src = res.qrcode;
+        document.getElementById('link_qr_download').href = res.qrcode;
 
     }, 5000);
 
@@ -284,6 +286,7 @@ phone_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_phone.src = res.qrcode;
+        document.getElementById('phone_qr_download').href = res.qrcode;
 
     }, 5000);
 
@@ -334,6 +337,7 @@ whatsapp_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_wa.src = res.qrcode;
+        document.getElementById('wa_qr_download').href = res.qrcode;
 
     }, 5000);
 })
@@ -387,6 +391,7 @@ upi_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_upi.src = res.qrcode;
+        document.getElementById('upi_qr_download').href = res.qrcode;
 
     }, 5000);
 })
@@ -445,6 +450,7 @@ email_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_email.src = res.qrcode;
+        document.getElementById('email_qr_download').href = res.qrcode;
 
     }, 5000);
 
@@ -501,6 +507,7 @@ zoom_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_zoom.src = res.qrcode;
+        document.getElementById('zoom_qr_download').href = res.qrcode;
 
     }, 5000);
 })
@@ -557,7 +564,24 @@ wifi_qr_form.addEventListener("submit", async (event) => {
     setTimeout(() => {
 
         QR_Code_img_wifi.src = res.qrcode;
+        document.getElementById('wifi_qr_download').href = res.qrcode;
 
     }, 5000);
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+// ......................... Print QR CODE ..................
+function HandlePrint(){
+    window.print();
+}
