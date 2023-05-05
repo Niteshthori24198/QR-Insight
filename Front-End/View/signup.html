@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="../Styles/signup.css">
 </head>
 <body>
-    <div class="login-card">
+    <div class="login-card" id="raj-form">
         <h2>SignUp</h2>
         <h3>Enter your Details......</h3>
         <form class="login-form">
-            <input type="text"placeholder="Enter your Name"/>
-            <input type="email"placeholder="Enter your Email"/>
-            <input type="password" placeholder="Password"/>
-            <input type="textarea" placeholder="Enter your Address"/>
-            <select name="" id="">
+            <input type="text" id="raj-username" placeholder="Enter your Name"/>
+            <input type="email" id="raj-email" placeholder="Enter your Email"/>
+            <input type="password" id="raj-pass" placeholder="Password"/>
+            <input type="textarea" id="raj-address" placeholder="Enter your Address"/>
+            <select name="" id="raj-gender">
                 <option value="">Select Gender</option>
-                <option value="">Male</option>
-                <option value="">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
-            <select name="" id="">
+            <select name="" id="raj-role">
                 <option value="">Select Role</option>
-                <option value="">User</option>
-                <option value="">Admin</option>
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
             </select>
             </select>
             <button>Register</button>
@@ -32,4 +32,5 @@
         </form>
     </div>
 </body>
+<script src="../Scripts/signup.js"></script>
 </html>

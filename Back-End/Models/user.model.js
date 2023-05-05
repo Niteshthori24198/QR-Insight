@@ -6,10 +6,11 @@ const userSchema = mongoose.Schema({
 
     Name : { type : String, required : true },
     Email : { type : String, required : true, unique : true },
-    password : { type : String, required : true },
+    Password : { type : String, required : true },
     Address : { type : String, required : true },
     Gender : { type : String, enum : ["Male", "Female", "Other"],  required : true, default : "Other" },
-    Role : { type : String, enum : ["User", "Admin"], required : true, default : "User" }
+    Role : { type : String, enum : ["User", "Admin"], required : true, default : "User" },
+    ismailverified:Boolean
 
 }, {
     versionKey : false,
