@@ -223,7 +223,14 @@ qrRouter.post('/whatsapp', async (req, res) => {
         color: COLOR_OBJ[color]
     }
 
-    const URL = `https://wa.me/${phone}/?text=${text}`
+
+    let msg = text.split(' ').join('%20');
+
+    msg = msg.split('\n').join('%0A')
+
+    const URL = `https://wa.me/${phone}/?text=${msg}`;
+    
+    // console.log(URL);
 
 
     try {
@@ -307,6 +314,137 @@ qrRouter.post('/upi', async (req, res) => {
 
 
 })
+
+
+
+
+
+// Generate QR code for Email
+
+
+qrRouter.post('/email', async (req, res) => {
+
+    const { mailto, subject, body, color } = req.body
+
+    
+
+    if ( !mailto ) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+    const URL = `mailto:${mailto}?subject=${subject}&body=${body}`
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+})
+
+
+
+
+
+
+
+// Generate QR code for Zoom
+
+
+qrRouter.post('/zoom', async (req, res) => {
+
+    const { meetingId, meetingLink, color } = req.body
+
+    
+
+    if ( !meetingId && !meetingLink ) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+
+
+    let URL;
+
+    if(meetingId){
+
+        URL = `https://zoom.us/j/${meetingId}`;
+
+    }else{
+
+        URL = meetingLink;
+    }
+
+
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+})
+
 
 
 
