@@ -4,202 +4,23 @@ const { Router } = require('express');
 
 const QRCode = require('qrcode');
 
+const { textQrRouter, linkQrRouter, phoneQrRouter } = require('../Controllers/qr.controller');
+
+
 const qrRouter = Router();
 
 
 
-// Color - Combinations
+qrRouter.post('/text', textQrRouter)
 
-const COLOR_OBJ = {
-    blue: {
-        dark: "#00F",
-        light: "#0000"
-    },
-    black: {
-        dark: "#000000ff",
-        light: "#ffffffff"
-    },
-    pink: {
-        dark: "#FF007Fff",
-        light: "#ffffffff"
-    },
-    brown: {
-        dark: "#8B4513ff",
-        light: "#ffffffff"
-    },
-    red: {
-        dark: "#FF4136ff",
-        light: "#ffffffff"
-    },
-    crimson: {
-        dark: "#DC143Cff",
-        light: "#ffffffff"
-    },
 
-}
 
+qrRouter.post('/link', linkQrRouter)
 
 
 
-// Generate QR code for Text.
 
-
-qrRouter.post('/text', async (req, res) => {
-
-    const { text, color } = req.body
-
-    if (!text) {
-        return res.status(400).send({ error: "Provide all required details" })
-    }
-
-    var opts = {
-        errorCorrectionLevel: 'H',
-        type: 'image/jpeg',
-        quality: 0.3,
-        margin: 1,
-        color: COLOR_OBJ[color]
-    }
-
-
-
-
-    try {
-
-        QRCode.toDataURL(text, opts, function (err, url) {
-
-            if (err) {
-                return res.status(400).send({
-                    msg: "Something went wrong in data.",
-                    err: err
-                })
-            }
-
-            // console.log(url)
-
-            res.status(200).send({ "qrcode": url })
-
-        })
-
-    } catch (error) {
-
-        return res.status(500).send({
-            msg: "Something went wrong ",
-            error: error
-        })
-
-    }
-
-
-})
-
-
-
-
-// Generate QR code for URL Provided.
-
-
-
-qrRouter.post('/link', async (req, res) => {
-
-    const { URL, color } = req.body
-
-    if (!URL) {
-        return res.status(400).send({ error: "Provide all required details" })
-    }
-
-    var opts = {
-        errorCorrectionLevel: 'H',
-        type: 'image/jpeg',
-        quality: 0.3,
-        margin: 1,
-        color: COLOR_OBJ[color]
-    }
-
-
-
-
-    try {
-
-        QRCode.toDataURL(URL, opts, function (err, url) {
-
-            if (err) {
-                return res.status(400).send({
-                    msg: "Something went wrong in data.",
-                    err: err
-                })
-            }
-
-            // console.log(url)
-
-            res.status(200).send({ "qrcode": url })
-
-        })
-
-    } catch (error) {
-
-        return res.status(500).send({
-            msg: "Something went wrong ",
-            error: error
-        })
-
-    }
-
-
-})
-
-
-
-
-// // Generate QR code for Phone Number.
-
-
-qrRouter.post('/phone', async (req, res) => {
-
-    const { phone, color } = req.body
-
-    if (!phone) {
-        return res.status(400).send({ error: "Provide all required details" })
-    }
-
-    var opts = {
-        errorCorrectionLevel: 'H',
-        type: 'image/jpeg',
-        quality: 0.3,
-        margin: 1,
-        color: COLOR_OBJ[color]
-    }
-
-    const URL = `tel:${phone}`
-
-
-    try {
-
-        QRCode.toDataURL(URL, opts, function (err, url) {
-
-            if (err) {
-                return res.status(400).send({
-                    msg: "Something went wrong in data.",
-                    err: err
-                })
-            }
-
-            // console.log(url)
-
-            res.status(200).send({ "qrcode": url })
-
-        })
-
-    } catch (error) {
-
-        return res.status(500).send({
-            msg: "Something went wrong ",
-            error: error
-        })
-
-    }
-
-
-})
+qrRouter.post('/phone', phoneQrRouter)
 
 
 
@@ -414,6 +235,60 @@ qrRouter.post('/zoom', async (req, res) => {
         color: COLOR_OBJ[color]
     }
 
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+})
+
+
+
+
+// Generate QR code for WIFI Network.
+
+
+qrRouter.post('/wifi', async (req, res) => {
+
+    const { ssid, password, encryption, color } = req.body
+
+    if (!ssid || !password) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+    const URL = `WIFI:T:${encryption};S:${ssid};P:${password};;`
 
 
     try {

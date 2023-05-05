@@ -906,7 +906,6 @@
 
         
 
-
         <div id="Zoom" class="tabcontent">
             <div class="qr_select_design"></div>
 
@@ -939,6 +938,67 @@
                 <div>
 
                     <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_zoom">
+
+                </div>
+
+                <!-- Feature Container -->
+
+                <div>
+
+                    <button onclick="HandleDownload()">Download QR</button>
+
+                    <button onclick="HandlePrint()">Print QR</button>
+
+                    <button onclick="HandleShareEmail()">Share via Email</button>
+
+                    <button onclick="HandleShareWhatsapp()">Share via Whatsapp</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="WI-FI" class="tabcontent">
+            <div class="qr_select_design"></div>
+
+
+            <!-- QR generation section -->
+
+            <div class="qr_detail_section">
+
+                <!-- Form container -->
+
+                <div>
+
+                    <form id="wifi_qr_form">
+
+                       <input type="text" placeholder="Enter SSID / Network Name" required id="wifi-ssid">
+
+                       <select id="select_network_security_type" required>
+                        <option value="">Network Type</option>
+                        <option value="WPA">WPA/WPA2</option>
+                        <option value="WEP">WEP</option>
+                        <option value="">No encryption</option>
+                    </select>
+
+                       <input type="password" placeholder="Enter Password" required id="wifi-password">
+
+                        <input type="submit" value="Generate">
+
+                    </form>
+
+
+
+
+                </div>
+
+                <!-- QR container -->
+
+                <div>
+
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_wifi">
 
                 </div>
 
