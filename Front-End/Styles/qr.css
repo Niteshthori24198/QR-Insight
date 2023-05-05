@@ -18,7 +18,7 @@ body,
     background-color: #f1f1f1;
     /* margin: 0px 10px; */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     margin: 20px auto;
 }
 
@@ -291,6 +291,7 @@ nav {
     margin: 20px auto 10px auto;
     border-radius: 5px;
     max-width: 80%;
+    text-align: center;
 }
 
 #link-url-qrl {
@@ -298,7 +299,7 @@ nav {
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
-
+    text-align: center;
 }
 
 
@@ -307,6 +308,7 @@ nav {
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #phone-number-qrl,
@@ -316,6 +318,7 @@ nav {
     padding: 5px;
     margin-bottom: 20px;
     margin-left: 10px;
+    text-align: center;
 
 }
 
@@ -326,6 +329,7 @@ nav {
     width: 80%;
     margin: auto;
     margin-top: 40px;
+    text-align: center;
 }
 
 #upi_qr_form>input {
@@ -334,6 +338,7 @@ nav {
     padding: 5px;
     margin-bottom: 20px;
     margin-left: 10px;
+    text-align: center;
 }
 
 #upi_qr_form>input[type="submit"] {
@@ -346,7 +351,36 @@ nav {
     margin: 20px auto 10px auto;
     border-radius: 5px;
     width: 85%;
+    text-align: center;
 }
+
+#email_id_qr, #email_subject_qr, #zoom_meeting_id_qr, #zoom_meeting_url_qr {
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+/* or */
+#zoom_meeting_id_qr + p{
+    /* background-color: red; */
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+#email-body-qr {
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+}
+
+
+
+
 
 /* **************** box shadows ******************* */
 
@@ -434,7 +468,7 @@ nav {
 @media only screen and (max-width: 800px) {
 
     .tab {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
 
     }
 
