@@ -46,6 +46,9 @@
             <button class="tablinks" onclick="openCity(event, 'Phone')">Phone</button>
             <button class="tablinks" onclick="openCity(event, 'UPI')">UPI</button>
             <button class="tablinks" onclick="openCity(event, 'Whatsapp')">Whatsapp</button>
+            <button class="tablinks" onclick="openCity(event, 'Email')">Email</button>
+            <button class="tablinks" onclick="openCity(event, 'Zoom')">Zoom</button>
+            <button class="tablinks" onclick="openCity(event, 'WI-FI')">WI-FI</button>
         </div>
 
         <!-- Tab content -->
@@ -63,7 +66,7 @@
 
                     <form id="text_qr_form">
 
-                        <textarea id="text-message-qr" cols="75" rows="3" placeholder="Enter tour text here"></textarea>
+                        <textarea id="text-message-qr" cols="75" rows="3" placeholder="Enter tour text here" required></textarea>
 
                         <input type="submit" value="Generate">
 
@@ -113,7 +116,7 @@
 
                     <form id="link_qr_form">
 
-                        <input type="text" id="link-url-qrl" placeholder="Enter URL here">
+                        <input type="url" id="link-url-qrl" placeholder="Enter URL here" required>
 
                         <input type="submit" value="Generate">
 
@@ -845,6 +848,118 @@
 
 
         </div>
+
+
+
+        <div id="Email" class="tabcontent">
+            <div class="qr_select_design"></div>
+
+
+            <!-- QR generation section -->
+
+            <div class="qr_detail_section">
+
+                <!-- Form container -->
+
+                <div>
+
+                    <form id="email_qr_form">
+
+                        <input type="email" id="email_id_qr" placeholder="Enter Email ID here" required>
+                        <input type="text" id="email_subject_qr" placeholder="Enter Subject">
+                        <textarea id="email-body-qr" cols="75" rows="3" placeholder="Enter Email Body"></textarea>
+
+                        <input type="submit" value="Generate">
+
+                    </form>
+
+
+
+
+                </div>
+
+                <!-- QR container -->
+
+                <div>
+
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_email">
+
+                </div>
+
+                <!-- Feature Container -->
+
+                <div>
+
+                    <button onclick="HandleDownload()">Download QR</button>
+
+                    <button onclick="HandlePrint()">Print QR</button>
+
+                    <button onclick="HandleShareEmail()">Share via Email</button>
+
+                    <button onclick="HandleShareWhatsapp()">Share via Whatsapp</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+
+        <div id="Zoom" class="tabcontent">
+            <div class="qr_select_design"></div>
+
+
+            <!-- QR generation section -->
+
+            <div class="qr_detail_section">
+
+                <!-- Form container -->
+
+                <div>
+
+                    <form id="zoom_qr_form">
+
+                        <input type="text" id="zoom_meeting_id_qr" placeholder="Enter Zoom Meeting ID">
+                        <p>or</p>
+                        <input type="url" id="zoom_meeting_url_qr" placeholder="Enter Zoom Meeting Link">
+
+                        <input type="submit" value="Generate">
+
+                    </form>
+
+
+
+
+                </div>
+
+                <!-- QR container -->
+
+                <div>
+
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_zoom">
+
+                </div>
+
+                <!-- Feature Container -->
+
+                <div>
+
+                    <button onclick="HandleDownload()">Download QR</button>
+
+                    <button onclick="HandlePrint()">Print QR</button>
+
+                    <button onclick="HandleShareEmail()">Share via Email</button>
+
+                    <button onclick="HandleShareWhatsapp()">Share via Whatsapp</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
 
     </div>
 

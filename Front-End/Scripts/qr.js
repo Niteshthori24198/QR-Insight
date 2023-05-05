@@ -137,6 +137,10 @@ const QR_Code_img_upi = document.getElementById('QR_Code_img_upi');
 
 const QR_Code_img_wa = document.getElementById('QR_Code_img_wa');
 
+const QR_Code_img_email = document.getElementById('QR_Code_img_email');
+
+const QR_Code_img_zoom = document.getElementById('QR_Code_img_zoom');
+
 // **************************************************************
 //    Text QR Code Generator
 
@@ -358,6 +362,8 @@ whatsapp_qr_form.addEventListener("submit", async (event) => {
         color : QrColorDesign
     }
 
+    console.log(payload);
+
     console.log(payload)
 
     const res = await fetch(`${QR_BASE_URL}/whatsapp`, {
@@ -443,6 +449,140 @@ upi_qr_form.addEventListener("submit", async (event) => {
     setTimeout(()=>{
 
         QR_Code_img_upi.src = res.qrcode;
+
+    },5000);
+
+    
+    // console.log(QrColorDesign);
+
+
+})
+
+
+
+
+
+// QR generation for Email
+
+const email_qr_form = document.getElementById('email_qr_form');
+
+email_qr_form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const mailto = email_qr_form['email_id_qr'].value.trim()
+
+    const subject = email_qr_form['email_subject_qr'].value.trim()
+
+    const body = email_qr_form['email-body-qr'].value.trim()
+    
+    
+   
+
+    if( !mailto ){
+        alert(`Please write a valid infomation ! `);
+        return
+    }
+
+
+    if( !QrColorDesign ) QrColorDesign = "black"
+
+
+    QR_Code_img_email.src = `https://cdn.dribbble.com/users/964000/screenshots/3675038/switcher_qr_barcode_alinashi_shot.gif`;
+
+
+
+    const payload = {
+        mailto,
+        subject,
+        body,
+        color : QrColorDesign
+    }
+
+    console.log(payload)
+
+    const res = await fetch(`${QR_BASE_URL}/email`, {
+        method : "POST",
+        headers : {
+            "Content-type" : "application/json"
+        },
+        body : JSON.stringify(payload)
+    }).then(res => res.json()).catch(err=>{
+        console.log(err);
+    })
+
+
+    // console.log(res);
+
+    setTimeout(()=>{
+
+        QR_Code_img_email.src = res.qrcode;
+
+    },5000);
+
+    
+    // console.log(QrColorDesign);
+
+
+})
+
+
+
+
+
+// QR generation for Email
+
+const zoom_qr_form = document.getElementById('zoom_qr_form');
+
+zoom_qr_form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const meetingId = zoom_qr_form['zoom_meeting_id_qr'].value.trim()
+
+    const meetingLink = zoom_qr_form['zoom_meeting_url_qr'].value.trim()
+
+    
+    
+   
+
+    if( !meetingId && !meetingLink ){
+        alert(`Please write a valid infomation ! `);
+        return
+    }
+
+
+    if( !QrColorDesign ) QrColorDesign = "black"
+
+
+    QR_Code_img_zoom.src = `https://cdn.dribbble.com/users/964000/screenshots/3675038/switcher_qr_barcode_alinashi_shot.gif`;
+
+
+
+    const payload = {
+        meetingId,
+        meetingLink,
+        color : QrColorDesign
+    }
+
+    console.log(payload)
+
+    const res = await fetch(`${QR_BASE_URL}/zoom`, {
+        method : "POST",
+        headers : {
+            "Content-type" : "application/json"
+        },
+        body : JSON.stringify(payload)
+    }).then(res => res.json()).catch(err=>{
+        console.log(err);
+    })
+
+
+    console.log(res);
+
+    setTimeout(()=>{
+
+        QR_Code_img_zoom.src = res.qrcode;
 
     },5000);
 
