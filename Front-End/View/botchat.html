@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../Styles/botchat.css">
+    <script src="../Scripts/chatbot.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../images/favicon1.png" />
+
+    <title>QR Insight | Chatbot </title>
+</head>
+
+<body onload="startFunction()">
+
+    <div id="fom-pankaj">
+        <div id="close-boxpankaj" ><img onclick="hidediv()" src="../images//icons8-close.svg" alt=""></div>
+        <div class="child-pankaj">
+            <input id="name-pankaj" type="text" placeholder="Enter your name">
+            <input id="email-pankaj" type="text" placeholder="Enter your email">
+            <textarea id="text-message" cols="21" rows="3" placeholder="Message...." required></textarea>
+            <br>
+            <button  onclick="savedata()">Submit</button>
+        </div>
+    </div>
+
+
+    <nav>
+
+        <div class="navbar">
+            <img class="dpimg" onclick="openFullScreenDP()" src="../images/logo.png" alt="">
+            <div class="personalInfo">
+                <label id="name">QR Insight</label>
+                <label id="lastseen">last seen today at 3:24 pms</label>
+            </div>
+        </div>
+        <button id="other-btn" onclick="showdiv()">Other Query</button>
+    </nav>
+
+
+    <div class="scrollable" id="myScrollable">
+
+        <div class="fullScreenDP" id="fullScreenDP">
+            <div class="insideDP">
+                <img class="dp" src="../images/logo.png" alt="">
+                
+               
+            </div>
+        </div>
+
+        <div id="chatting" class="chatting">
+            <ul id="listUL">
+            </ul>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="sendBar">
+            <input id="inputMSG" onkeypress="isEnter(event)" type="text" placeholder="Type a message" autofocus>
+            <svg onclick="sendMsg()" viewBox="0 0 24 24" width="24" height="24" class="">
+                <path fill="currentColor"
+                    d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
+            </svg>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
