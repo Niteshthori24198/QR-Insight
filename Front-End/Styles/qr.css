@@ -354,7 +354,7 @@ nav {
     text-align: center;
 }
 
-#email_id_qr, #email_subject_qr, #zoom_meeting_id_qr, #zoom_meeting_url_qr {
+#email_id_qr, #email_subject_qr, #zoom_meeting_id_qr, #zoom_meeting_url_qr, #wifi-ssid, #select_network_security_type, #wifi-password {
     width: 80%;
     border-radius: 5px;
     padding: 5px;
