@@ -1,5 +1,8 @@
 
 
+const QRCode = require('qrcode');
+
+
 
 // Color - Combinations
 
@@ -175,9 +178,276 @@ const phoneQrRouter = async (req, res) => {
 
 }
 
+const whatsappQrRouter = async (req, res) => {
+
+    const { phone, text, color } = req.body
+
+    if (!phone) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+
+    let msg = text.split(' ').join('%20');
+
+    msg = msg.split('\n').join('%0A')
+
+    const URL = `https://wa.me/${phone}/?text=${msg}`;
+    
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
+
+const upiQrRouter = async (req, res) => {
+
+    const { upi, amount, name, color } = req.body
+
+    if (!upi) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+    const URL = `upi://pay?pa=${upi}&pn=${name}&am=${amount}`
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
+
+const emailQrRouter = async (req, res) => {
+
+    const { mailto, subject, body, color } = req.body
+
+    
+
+    if ( !mailto ) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+    const URL = `mailto:${mailto}?subject=${subject}&body=${body}`
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
+
+const zoomQrRouter = async (req, res) => {
+
+    const { meetingId, meetingLink, color } = req.body
+
+    
+
+    if ( !meetingId && !meetingLink ) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+
+
+    let URL;
+
+    if(meetingId){
+
+        URL = `https://zoom.us/j/${meetingId}`;
+
+    }else{
+
+        URL = meetingLink;
+    }
+
+
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
+
+const wifiQrRouter = async (req, res) => {
+
+    const { ssid, password, encryption, color } = req.body
+
+    if (!ssid || !password) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+    const URL = `WIFI:T:${encryption};S:${ssid};P:${password};;`
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
 
 module.exports = {
     textQrRouter,
     linkQrRouter,
-    phoneQrRouter
+    phoneQrRouter,
+    whatsappQrRouter,
+    upiQrRouter,
+    emailQrRouter,
+    zoomQrRouter,
+    wifiQrRouter
 }
