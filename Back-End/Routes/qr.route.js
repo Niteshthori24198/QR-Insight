@@ -211,7 +211,7 @@ qrRouter.post('/whatsapp', async (req, res) => {
 
     const { phone, text, color } = req.body
 
-    if (!phone || !text) {
+    if (!phone) {
         return res.status(400).send({ error: "Provide all required details" })
     }
 

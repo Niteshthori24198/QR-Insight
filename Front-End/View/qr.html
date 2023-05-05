@@ -163,13 +163,13 @@
 
                 <div>
 
-                    <form id="link_qr_form">
+                    <form id="phone_qr_form">
 
 
 
                         <!-- select countrycode -->
 
-                        <select class="qr_country_code_select" name="countrycodetel">
+                        <select class="qr_country_code_select" name="countrycodetel" id="select_country_code_phone" required>
                             <option value="" label="">Select Country Code</option>
                             <option value="7840" label="Abkhazia (+7 840)">Abkhazia (+7 840)</option>
                             <option value="7940" label="Abkhazia (+7 940)">Abkhazia (+7 940)</option>
@@ -431,7 +431,7 @@
                             <option value="263" label="Zimbabwe (+263)">Zimbabwe (+263)</option>
                         </select>
 
-                        <input type="number" id="phone-number-qrl" placeholder="Enter Phone Number here">
+                        <input type="number" id="phone-number-qrl" placeholder="Enter Phone Number here" required>
 
                         <input type="submit" value="Generate">
 
@@ -483,9 +483,9 @@
 
                     <form id="upi_qr_form">
 
-                        <input type="text" id="upi-id-name" placeholder=" Enter Name here">
+                        <input type="text" id="upi-id-name" placeholder=" Enter Name here" required>
 
-                        <input type="text" id="upi-id-qrl" placeholder="Enter UPI ID here">
+                        <input type="text" id="upi-id-qrl" placeholder="Enter UPI ID here" required>
                         
                         <input type="number" id="upi-id-amount-qrl" placeholder="Enter Amount here" >
 
@@ -543,7 +543,7 @@
 
                         <!-- select countrycode -->
 
-                        <select class="qr_country_code_select" name="countrycodetel">
+                        <select class="qr_country_code_select" name="countrycodetel" id="select_country_code_wa" required>
                             <option value="" label="">Select Country Code</option>
                             <option value="7840" label="Abkhazia (+7 840)">Abkhazia (+7 840)</option>
                             <option value="7940" label="Abkhazia (+7 940)">Abkhazia (+7 940)</option>
@@ -805,7 +805,7 @@
                             <option value="263" label="Zimbabwe (+263)">Zimbabwe (+263)</option>
                         </select>
 
-                        <input type="number" id="wa-number-qrl" placeholder="Enter Phone Number here">
+                        <input type="number" id="wa-number-qrl" placeholder="Enter Phone Number here" required>
 
                         <textarea id="wa-text-message-qr" cols="80" rows="3" placeholder="Enter tour text here"></textarea>
 
