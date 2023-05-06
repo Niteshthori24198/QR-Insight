@@ -30,7 +30,7 @@ a:hover {
     background-color: #f1f1f1;
     /* margin: 0px 10px; */
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     margin: 20px auto;
 }
 
@@ -374,7 +374,7 @@ nav {
 #zoom_meeting_url_qr,
 #wifi-ssid,
 #select_network_security_type,
-#wifi-password {
+#wifi-password , .vcard-elements {
     width: 80%;
     border-radius: 5px;
     padding: 5px;
@@ -488,7 +488,7 @@ nav {
 @media only screen and (max-width: 800px) {
 
     .tab {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
 
     }
 

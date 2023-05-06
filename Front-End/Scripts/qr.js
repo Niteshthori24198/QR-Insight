@@ -143,6 +143,8 @@ const QR_Code_img_zoom = document.getElementById('QR_Code_img_zoom');
 
 const QR_Code_img_wifi = document.getElementById('QR_Code_img_wifi');
 
+const QR_Code_img_vcard = document.getElementById('QR_Code_img_vcard');
+
 
 
 // Text QR Code Generator
@@ -574,14 +576,67 @@ wifi_qr_form.addEventListener("submit", async (event) => {
 
 
 
+// QR code for Visiting Card
+
+const vcard_qr_form = document.getElementById('vcard_qr_form');
+
+vcard_qr_form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const name = vcard_qr_form['vcard-name'].value.trim()
+    const email = vcard_qr_form['vcard-email'].value.trim()
+    const phone = vcard_qr_form['vcard-phone-number'].value.trim()
+    const address = vcard_qr_form['vcard-address'].value.trim()
+    const company = vcard_qr_form['vcard-company'].value.trim()
+    const position = vcard_qr_form['vcard-position'].value.trim()
+    const website = vcard_qr_form['vcard-website-link'].value.trim()
+
+   
 
 
+    if (!name || !email || !phone) {
+        alert(`Please write a valid infomation ! `);
+        return
+    }
+
+
+    if (!QrColorDesign) QrColorDesign = "black"
+
+
+    QR_Code_img_vcard.src = `https://cdn.dribbble.com/users/964000/screenshots/3675038/switcher_qr_barcode_alinashi_shot.gif`;
+
+
+    const payload = { name, email, phone,address,company,position,website, color: QrColorDesign }
+    
+
+    const res = await fetch(`${QR_BASE_URL}/vcard`, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    }).then(res => res.json()).catch(err => {
+        console.log(err);
+    })
+
+
+    setTimeout(() => {
+
+        QR_Code_img_vcard.src = res.qrcode;
+        document.getElementById('vcard_qr_download').href = res.qrcode;
+
+    }, 5000);
+
+})
 
 
 
 
 
 // ......................... Print QR CODE ..................
+
+
 function HandlePrint(){
     window.print();
 }

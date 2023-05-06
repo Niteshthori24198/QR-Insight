@@ -41,7 +41,7 @@
 
         <!-- Tab links -->
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Text')" id="defaultOpen">Text</button>
+            <button class="tablinks" onclick="openCity(event, 'VCARD')" id="defaultOpen">V-Card</button>
             <button class="tablinks" onclick="openCity(event, 'Link')">Link</button>
             <button class="tablinks" onclick="openCity(event, 'Phone')">Phone</button>
             <button class="tablinks" onclick="openCity(event, 'UPI')">UPI</button>
@@ -49,6 +49,8 @@
             <button class="tablinks" onclick="openCity(event, 'Email')">Email</button>
             <button class="tablinks" onclick="openCity(event, 'Zoom')">Zoom</button>
             <button class="tablinks" onclick="openCity(event, 'WI-FI')">WI-FI</button>
+            <button class="tablinks" onclick="openCity(event, 'Text')">Text</button>
+
         </div>
 
         <!-- Tab content -->
@@ -1007,6 +1009,70 @@
                 <div>
 
                     <button onclick="HandleDownload()"><a href="" id="wifi_qr_download" download="QR_Insight_wifi.jpeg" > Download QR </a></button>
+
+                    <button onclick="HandlePrint()">Print QR</button>
+
+                    <button onclick="HandleShareEmail()">Share via Email</button>
+
+                    <button onclick="HandleShareWhatsapp()">Share via Whatsapp</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="VCARD" class="tabcontent">
+            <div class="qr_select_design"></div>
+
+            <!-- QR generation section -->
+
+            <div class="qr_detail_section">
+
+                <!-- Form container -->
+
+                <div>
+
+                    <form id="vcard_qr_form">
+
+                        <input type="text" id="vcard-name" placeholder=" Enter Your Full Name" class="vcard-elements" required>
+
+                        <input type="email" id="vcard-email" placeholder="Enter Email ID" class="vcard-elements" required>
+                        
+                        <input type="number" id="vcard-phone-number" placeholder="Enter Contact Number" class="vcard-elements" required>
+
+                        <input type="text" id="vcard-address" placeholder="Enter Your Address "  class="vcard-elements">
+
+                        <input type="text" id="vcard-company" placeholder="Enter Company Name" class="vcard-elements">
+
+                        <input type="text" id="vcard-position" placeholder="Enter Your Position" class="vcard-elements">
+
+                        <input type="url" id="vcard-website-link" placeholder="Enter Website Link" class="vcard-elements" >
+
+                        <input type="submit" value="Generate">
+
+                    </form>
+
+
+
+
+                </div>
+
+                <!-- QR container -->
+
+                <div>
+
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_vcard">
+
+                </div>
+
+                <!-- Feature Container -->
+
+                <div>
+
+                    <button onclick="HandleDownload()"><a href="" id="vcard_qr_download" download="QR_Insight_vcard.jpeg" > Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
