@@ -6,6 +6,95 @@
   margin: 0; 
   box-sizing: border-box; 
   padding: 0;
+  font-size: 20px;
+  
+}
+
+/* -----------Hamburger Menu----------- */
+
+.menu-icon{
+  display:none;
+  font-size: 55px;
+}
+.menu-icon:hover{
+  color: #00A1E0;
+}
+
+.menu-page{
+  background-color: rgb(255, 255, 255);
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: none;
+  transform: translateX(100%);
+  transition: transform 0.5s linear;
+}
+.menu-page.activate{
+  transform: translateX(0);
+  display:block ;
+}
+.menu-page h1{
+  margin-top:50px;
+  width: 85%;
+  border-bottom: solid rgba(133, 127, 127, 0.659);
+}
+.menu-page h1:hover{
+  color: #00A1E0;
+  cursor: pointer;
+}
+
+.menu-page div{
+  display: flex;
+  justify-content: space-between;
+}
+.menu-page ion-icon{
+  font-size: 40px;
+}
+.down-arrow{
+  margin:50px 40px 0 0;
+  color:#00A1E0;
+  z-index: -1;
+}
+
+.dropdown-menu{
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: fixed;
+  top: 22%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.dropdown-price{
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: fixed;
+  top: 33%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.dropdown-menu a,.dropdown-price a{
+  
+  text-decoration: none;
+  color:black;
+  line-height: 50px;  
+}
+.dropdown-menu div,.dropdown-price div{
+  display: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.dropdown-menu div:hover,.dropdown-price div:hover {
+  background-color: #00a0e0cc;
+  color: white;
+
+}
+.dropdown-menu.activate div,.dropdown-price.activate div{
+  display: block;
   
 }
 
@@ -13,19 +102,20 @@
 nav{
   position: fixed;
   z-index: 1;
-  /* top: 0px; */
+  top: 0px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 7px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: white;
+  transition: transform 0.9s ease-in;
   /* background-color: rgb(217, 224, 224); */
 }
 
 .dropdown-content {
-  width:16%;
+  width:20%;
   cursor: pointer;
   display: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -84,30 +174,12 @@ nav{
   top: 80px;
 }
 
-/* ----------Section1---------- */
+/* ----------landing---------- */
 
-#sec1{
-  display: flex;
-  /* margin: 50px; */
-  height: 500px;
+#welcome-img{
+  width: 400px;
+  /* border:solid red */
 }
-
-#welcome{
-  padding: 80px 20px 0 20px ;
-  border-radius: 10px;
-  margin: 5px;
-  width: 60%;
-}
-#welcome p{
-  margin-top: 20px;
-}
-#welcome h2{
-  font-size: 50px;
-}
-#welcome span{
-  color: #00A1E0;
-}
-
 #startNow{
   margin-top: 40px;
   padding: 10px;
@@ -132,7 +204,7 @@ nav{
   border-top:50px ;
   border-radius: 0 25px 25px 25px;
   top: 90%;
-  left: 94%;
+  left: 87%;
   transition: transform .5s;
 }
 #chatbot-icon{
@@ -157,65 +229,193 @@ nav{
 }
 #sec4-title span{
     color: #00A1E0;
+    font-size: 35px;
 }
-/* ----------- Section 5------------ */
+/* ----------- Section A------------ */
 
-.sec5{
+.sectionA{
     margin-top: 50px;
     display: flex;
 }
-.sec5 img{
+.sectionA img{
     width: 400px;
 }
-.sec5 div:nth-child(2){
-    width: 35%;
-    margin-left: 20%;
+.image, .text{
+  width: 45%;
+  margin: auto;
 }
-.sec5 h3{
+/* .sectionA div:nth-child(2){
+    width: 35%;
+    /* margin-left: 20%; 
+} */
+.sectionA h3{
     font-size: 50px;
 }
+.sectionA h3{
+  font-size: 50px;
+}
+.sectionA span{
+  color: #00A1E0;
+  font-size: 50px;
+}
+.sectionA{
+  display: flex;
+}
+#b,#d,#landing{
+  flex-direction: row-reverse;
+}
+
+
+
 /* ------------Footer---------------- */
 footer{
-  /* position: relative; */
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
   position: relative;
   top: 120px;
+  width: 100%;
   padding: 30px;
+  font-size: 20px;
   background-color: rgb(217, 224, 224);
 }
 footer ion-icon{
-  font-size: 30px;
+  font-size: 40px;
   color: #00A1E0;
  
 }
-footer>div{
-  width: 20%;
-  /* text-align: center; */
-  /* border: solid red; */
-  /* margin: auto; */
+footer p{
+  margin: 0 0 0px 20px;
+}
+footer h3{
+  margin-top: 20px;
+}
+footer div{
+  text-align: center;
+}
+footer div:nth-child(1){
+  text-align: left;
 }
 
 #footer-contact{
 display: flex;
 
-/* margin-top: 30px; */
+/* border:solid red */
 }
-.chat-icon{
-  margin-top: 70px;
+.contact{
+  display: flex;
+  margin: 20px 0 0 0;
 }
-.mail-icon{
-  margin-top: 30px;
-}
-.chat-text{
-  margin-top: 25px;
-}
-.mail-text{
-  margin-top: 43px;
-}
+
+
 .socialmedia ion-icon{
-  margin-left: 20px;
+  margin: 20px 20px 0 0;
   /* color: aqua; */
 }
+
+ 
+/*<------------------- Media Queries-----------------------> */
+
+/* ----------Medium Screen------- */
+@media screen and (min-width:750px) and (max-width:1120px) {
+  .sectionA h3{
+    font-size: 40px;
+}
+.sec4 img{
+  width: 200px;
+}
+#a .text,#c .text{
+  margin-left: 30px;
+}
+
+.sectionA div{
+  width: 70%;
+  margin: auto;
+}
+.sectionA div:nth-child(2){
+  width: 70%;
+  margin: auto;
+}
+}
+
+/*------------ Small Screen--------------- */
+@media screen and (min-width:320px) and (max-width:750px) {
+
+
+  .nav-elem{
+    display: none;
+    /* border:solid red */
+  }
+  #welcome-img{
+    width: 300px;
+    display: none;
+    /* border:solid red */
+  }
+  .sectionA{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .image{
+    width: 100%;
+    text-align: center;
+  }
+  .text{
+    width: 80%;
+    text-align: justify;
+  }
+  #startNow{
+   
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .menu-icon{
+    display:block;
+    /* background-color: #00A1E0; */
+    /* border: solid red; */
+  }
+  .loginBtn{
+    display: none;
+  }
+
+  .sectionA img{
+    width: 300px;
+  }
+  .sectionA h3{
+    font-size: 40px;
+    text-align: center;
+    /* letter-spacing: -2px; */
+  }
+ 
+  footer{
+    grid-template-columns: repeat(1,1fr);
+    /* border: solid red; */
+    font-size: 25px;
+    text-align: center;
+  }
+  footer ion-icon{
+    font-size: 45px;
+  }
+  footer div:nth-child(1){
+    text-align: center;
+  }
+  #footer-contact div{
+    justify-content: center;
+  }
+  .contact{
+    flex-direction:column ;
+  }
+  
+  .sec4{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .sec4 img{
+   width: 72%;
+  }
+}
+
+
+
 
 
