@@ -52,11 +52,11 @@ const textQrRouter = async (req, res) => {
     }
 
 
-
+    const URL = `https://display-msg-qrinsight.netlify.app/?text=${text}`
 
     try {
 
-        QRCode.toDataURL(text, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -441,6 +441,64 @@ const wifiQrRouter = async (req, res) => {
 
 }
 
+
+
+
+const vcardQrRouter = async (req, res) => {
+
+    const { name, email, phone,address,company,position,website,color } = req.body;
+
+    
+    if (!name || !email || !phone) {
+        return res.status(400).send({ error: "Provide all required details" })
+    }
+
+
+    const URL = `BEGIN:VCARD\nVERSION:3.0\nN:${name}\nTEL:${phone}\nEMAIL:${email}\nADR:${address}\nORG:${company}\nTITLE:${position}\nURL:${website}\nEND:VCARD`;
+
+    var opts = {
+        errorCorrectionLevel: 'H',
+        type: 'image/jpeg',
+        quality: 0.3,
+        margin: 1,
+        color: COLOR_OBJ[color]
+    }
+
+
+    try {
+
+        QRCode.toDataURL(URL, opts, function (err, url) {
+
+            if (err) {
+                return res.status(400).send({
+                    msg: "Something went wrong in data.",
+                    err: err
+                })
+            }
+
+            // console.log(url)
+
+            res.status(200).send({ "qrcode": url })
+
+        })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            msg: "Something went wrong ",
+            error: error
+        })
+
+    }
+
+
+}
+
+
+
+
+
+
 module.exports = {
     textQrRouter,
     linkQrRouter,
@@ -449,5 +507,6 @@ module.exports = {
     upiQrRouter,
     emailQrRouter,
     zoomQrRouter,
-    wifiQrRouter
+    wifiQrRouter,
+    vcardQrRouter
 }
