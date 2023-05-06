@@ -1,6 +1,5 @@
 const express = require("express");
 const Redis = require("ioredis");
-require("dotenv").config()
 
 const app = express();
 
@@ -13,9 +12,9 @@ const configuration={
 
 
 }
-const redisclient=new Redis(configuration)
+const client=new Redis(configuration)
 app.use(express.json());
 
 module.exports={
-    redisclient
+    client
 }

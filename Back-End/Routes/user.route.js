@@ -5,7 +5,10 @@ const bcrypt=require("bcrypt")
 const nodemailer = require("nodemailer");
 require("dotenv").config()
 const jwt=require("jsonwebtoken");
-const { redisclient } = require("../Config/redis");
+const cors = require('cors');
+const path=require("path")
+const {client } = require("../Config/redis");
+const {passport}=require("../Config/google-oauth")
 
 const userroute=express.Router()
 
@@ -115,26 +118,38 @@ userroute.post("/login",async (req,res)=>{
             return res.status(400).send({"msg":"incorrect password"})
         }
 
-        let otp = "";
-        for (let i = 0; i < 6; i++) {
-          otp += Math.floor(Math.random() * 10);
-        }
-        console.log(otp)
+        let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+        let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
 
-        sendotpmail(user.Name,Email,otp)
+        client.set('token', token, 'EX', 3600);
+        client.set('refreshtoken', refreshtoken, 'EX', 3600);
 
-        res.status(200).send({"msg":"check your mail for One Time Password"})
-        
-        // let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-        // let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+        res.status(200).send({"msg":"Login sucessfull","Name":user.Name})
+
     } catch (error) {
         res.status(400).send(error.message)
     }
 })
 
+
+//logout route===========================================================
+
+
+
+
+
+
+
 // sending otp mail=======================================================================
 
 let sendotpmail=async(Name,Email,otp)=>{
+            // let otp = "";
+        // for (let i = 0; i < 6; i++) {
+        //   otp += Math.floor(Math.random() * 10);
+        // }
+        // console.log(otp)
+
+        // sendotpmail(user.Name,Email,otp)
     try {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -165,6 +180,27 @@ let sendotpmail=async(Name,Email,otp)=>{
     }
 
 }
+//=====================================================================================
+
+userroute.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile','email'] }));
+
+userroute.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log(req.user)
+    res.redirect('/user');
+
+});
+
+// userroute.get('/profile', function(req, res) {
+//     if (req.user) {
+//       res.send(req.user._json);
+//     } else {
+//       res.status(401).send({ message: 'Unauthorized' });
+//     }
+// });
 
 
 
