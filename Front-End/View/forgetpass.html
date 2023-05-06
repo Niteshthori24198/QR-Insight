@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../Styles/forgetpass.css">
+</head>
+<body>
+  <div class="container">
+    <form id="form1">
+      <h3>enter your email</h3>
+      <input type="text" placeholder="Email" required>
+      
+      <div class="btn-box">
+        <button type="button" id="next1">Next </button>
+      </div>
+    </form>
+    <form id="form2">
+      <h3>enter one time password</h3>
+      <input type="number" placeholder="OTP" ><br>
+      
+      <div class="btn-box">
+        <button type="button" id="back1">verify</button>
+        <button type="button" id="next2">Next</button>
+      </div>
+    </form>
+    <form id="form3">
+      <h3>update password here</h3>
+      <input type="text" placeholder="new password" required>
+      <input type="text" placeholder="conform password" required>
+
+      <div class="btn-box">
+        
+      <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div class="step-row">
+      <div id="progress"></div>
+      <div class="step-col"><small>Step 1</small></div>
+      <div class="step-col"><small>Step 2</small></div>
+      <div class="step-col"><small>Step 3</small></div>
+    </div>
+  </div>
+  
+  
+  
+</body>
+<script src="../Scripts/forgetpass.js"></script>
+</html>

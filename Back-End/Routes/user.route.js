@@ -5,16 +5,18 @@ const bcrypt=require("bcrypt")
 const nodemailer = require("nodemailer");
 require("dotenv").config()
 const jwt=require("jsonwebtoken");
-const cors = require('cors');
-const path=require("path")
+
 const {client } = require("../Config/redis");
 const {passport}=require("../Config/google-oauth")
+const {passport1}=require("../Config/facebookauth")
+
+
 
 const userroute=express.Router()
 
 
 userroute.get("/",(req,res)=>{
-    res.send("user route")
+   res.send("user route")
 })
 
 
@@ -124,18 +126,12 @@ userroute.post("/login",async (req,res)=>{
         client.set('token', token, 'EX', 3600);
         client.set('refreshtoken', refreshtoken, 'EX', 3600);
 
-        res.status(200).send({"msg":"Login sucessfull","Name":user.Name})
+        res.status(200).send({"msg":"Login sucessfull","userdetails":user})
 
     } catch (error) {
         res.status(400).send(error.message)
     }
 })
-
-
-//logout route===========================================================
-
-
-
 
 
 
@@ -180,28 +176,61 @@ let sendotpmail=async(Name,Email,otp)=>{
     }
 
 }
-//=====================================================================================
+//google auth=====================================================================================
 
 userroute.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile','email'] }));
+  passport1.authenticate('google', { scope: ['profile','email'] }));
 
 userroute.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+  passport1.authenticate('google', { failureRedirect: '/login' ,session:false}),
   function(req, res) {
     // Successful authentication, redirect home.
     console.log(req.user)
-    res.redirect('/user');
+    const user=req.user
+    let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+
+    client.set('token', token, 'EX', 3600);
+    client.set('refreshtoken', refreshtoken, 'EX', 3600);
+    
+    res.send(`<a href="http://127.0.0.1:5501/Front-End/View/index.html?userid=${user._id}" id="myid">abc</a>
+    <script>
+        let a = document.getElementById('myid')
+        a.click()
+        console.log(a)
+    </script>`)
+
 
 });
 
-// userroute.get('/profile', function(req, res) {
-//     if (req.user) {
-//       res.send(req.user._json);
-//     } else {
-//       res.status(401).send({ message: 'Unauthorized' });
-//     }
-// });
 
+
+//find data by id=======================================
+
+userroute.get("/getdata/:id",async(req,res)=>{
+    try {
+        let {id}=req.params
+        let user=await UserModel.findById({_id:id})
+        res.send({"userdetails":user})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
+
+
+//facebook login===============================================================
+userroute.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+userroute.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' ,session:false}),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log("hi")
+    res.redirect('/user');
+});
 
 
 
