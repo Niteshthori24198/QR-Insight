@@ -1,0 +1,119 @@
+
+body,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alkatra', cursive;
+}
+
+
+nav,footer{
+    height: 50px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+
+#qr_scannar_section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+#qr_scannar_section > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#qr_scannar_section img{
+    width: 400px;
+    height: 80%;
+    
+}
+
+#reader{
+    background-color: #00A1E0;
+    width: 100%;
+    
+}
+#reader video{
+    width: 100%;
+}
+
+#backbtn{
+    font-size: 18px;
+    background-color:#00A1E0;
+    color: white;
+    padding: 5px 30px;
+    margin: 20px auto;
+    display: none;
+    border-radius: 4px;
+    border: none;
+}
+
+#backbtn:hover{
+    background-color: transparent;
+    color: blue;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+
+main{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#result{
+    /* border: 5px solid red; */
+    text-align: center;
+    margin: auto;
+    /* width: 100%; */
+    
+}
+
+#reader button{
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+}
+
+#reader button:hover{
+    background-color: #f9f9f9;
+    color: black;
+    border: 1px solid black;
+    letter-spacing: 2px;
+}
+#reader span{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 800px) {
+    #qr_scannar_section{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    #qr_scannar_section > main{
+        padding: 0px 20px;
+    }
+    #reader{
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* background-color: red; */
+        margin: auto;
+    }
+    
+}
