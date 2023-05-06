@@ -43,6 +43,6 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(4040, () => {
-  console.log("server is runnig at port 4040 ");
+httpServer.listen(8080, () => {
+  console.log("server is runnig at port 8080 ");
 });
