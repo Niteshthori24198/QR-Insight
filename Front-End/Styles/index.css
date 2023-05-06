@@ -10,7 +10,81 @@
   
 }
 
-/* -----------Hamburger Menu----------- */
+/* <---------------------------Navigation Start -------------------------> */
+nav{
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: white;
+  /* transform: rotate(45deg); */
+  /* background-color: rgb(217, 224, 224); */
+}
+nav div:hover{
+  cursor: pointer;
+  color:#00A1E0;
+  border-bottom:2px solid #00A1E0 ;
+ 
+}
+.dropdown-content {
+  /* border: solid red; */
+  width:20%;
+  cursor: pointer;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+}
+.dropdown-content p{
+  font-size: small;
+  padding: 20px 10px;
+}
+.dropdown-content img{
+  width: 40px;
+}
+.dropdown-content a {
+  color: black;
+  font-weight: bolder;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover{
+  color:#00A1E0;
+  background-color: rgb(217, 224, 224);
+  border-radius: 10px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#logo{
+  width: 200px;
+  /* border: solid red; */
+}
+.loginBtn{
+  padding: 10px;
+  cursor: pointer;
+  background-color: #00A1E0;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  border: 0px;
+  transition: transform .5s ease;
+}
+.loginBtn:hover{
+  background-color: rgb(217, 224, 224);
+  color: #00A1E0;
+  transform: scale(1.05);
+}
+
+/* ----------------------------Hamburger Menu-------------------------- */
 
 .menu-icon{
   display:none;
@@ -29,12 +103,18 @@
   height: 100%;
   padding: 20px;
   display: none;
-  transform: translateX(100%);
-  transition: transform 0.5s linear;
+  transition: all .4s ease-in-out;
+  transform: translateX(-100%);
+ 
 }
+
 .menu-page.activate{
-  transform: translateX(0);
   display:block ;
+  transform: translateX(0);
+}
+.menu-page a{
+  text-decoration: none;
+  color: black;
 }
 .menu-page h1{
   margin-top:50px;
@@ -89,8 +169,9 @@
   border-radius: 10px;
 }
 .dropdown-menu div:hover,.dropdown-price div:hover {
-  background-color: #00a0e0cc;
-  color: white;
+  color:#00A1E0;
+  background-color: rgb(217, 224, 224);
+ 
 
 }
 .dropdown-menu.activate div,.dropdown-price.activate div{
@@ -98,72 +179,6 @@
   
 }
 
-/* <---------------Navigation Start ------------> */
-nav{
-  position: fixed;
-  z-index: 1;
-  top: 0px;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 7px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: white;
-  transition: transform 0.9s ease-in;
-  /* background-color: rgb(217, 224, 224); */
-}
-
-.dropdown-content {
-  width:20%;
-  cursor: pointer;
-  display: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  z-index: 1;
-}
-
-.dropdown-content p{
-  font-size: small;
-  padding: 20px 10px;
-}
-
-.dropdown-content img{
-  width: 40px;
-}
-
-.dropdown-content a {
-  color: black;
-  font-weight: bolder;
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover{
-  background-color: #00a0e08d;
-  color: white;
-  border-radius: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-#logo{
-  width: 200px;
-  /* border: solid red; */
-}
-
-.loginBtn{
-  padding: 10px;
-  background-color: #00A1E0;
-  color: white;
-  font-size: large;
-  font-weight: bold;
-  border: 0px;
-}
 
 /*------------ maincontainer----------- */
 #mainContainer{
@@ -178,7 +193,11 @@ nav{
 
 #welcome-img{
   width: 400px;
+  transition: transform .5s ease;
   /* border:solid red */
+}
+#welcome-img:hover{
+  transform: scale(1.05);
 }
 #startNow{
   margin-top: 40px;
@@ -189,8 +208,12 @@ nav{
   font-weight: bold;
   border: 0px;
 }
+#startNow:hover{
+  background-color: rgb(217, 224, 224);
+  color: #00A1E0;
+}
 
-/* --------ChatBot--------- */
+/* --------------------ChatBot-------------------- */
 
 #chatBot{
   cursor: pointer;
@@ -207,13 +230,30 @@ nav{
   left: 87%;
   transition: transform .5s;
 }
-#chatbot-icon{
-    font-size: 30px;
+#chatBot a{
+  text-decoration: none;
+  color: white;
 }
-
+#chatbot-icon{
+    font-size: 40px;
+}
+#chatbot-icon:hover{
+  color: #00A1E0;
+  background-color: white;
+  border-radius: 15px;
+}
 #chatBot:hover{
+ 
   transform: scale(1.2);
 }
+/* .chatbot-container{
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+  background-color: #2cafe2;
+} */
+
 
 /* --------section 4------------- */
 
@@ -239,15 +279,19 @@ nav{
 }
 .sectionA img{
     width: 400px;
+    transition:transform .3s ease ;
+}
+.sectionA img:hover{
+  transform:scale(1.03)
 }
 .image, .text{
   width: 45%;
   margin: auto;
 }
-/* .sectionA div:nth-child(2){
-    width: 35%;
-    /* margin-left: 20%; 
-} */
+.text a{
+  text-decoration: none;
+  color:white;
+}
 .sectionA h3{
     font-size: 50px;
 }
@@ -282,6 +326,10 @@ footer ion-icon{
   font-size: 40px;
   color: #00A1E0;
  
+}
+footer ion-icon:hover{
+  color: white;
+  background-color: #00A1E0;
 }
 footer p{
   margin: 0 0 0px 20px;
@@ -339,8 +387,6 @@ display: flex;
 
 /*------------ Small Screen--------------- */
 @media screen and (min-width:320px) and (max-width:750px) {
-
-
   .nav-elem{
     display: none;
     /* border:solid red */
@@ -370,6 +416,7 @@ display: flex;
     margin: auto;
     margin-top: 20px;
   }
+  
   .menu-icon{
     display:block;
     /* background-color: #00A1E0; */
