@@ -6,8 +6,11 @@ const cors = require('cors');
 const { connection } = require('./Config/db');
 
 const { qrRouter } = require('./Routes/qr.route');
-const { userroute } = require('./Routes/user.route');
+
 const  {queryRouter} = require("./Routes/chatbot.route")
+
+const { userroute } = require('./Routes/user.route');
+
 require('dotenv').config();
 
 
@@ -20,7 +23,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/user",userroute)
+// app.use("/user",userroute)
 
 app.use('/qrcode', qrRouter)
 app.use("/query",queryRouter)
