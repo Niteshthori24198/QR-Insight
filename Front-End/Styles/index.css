@@ -6,8 +6,7 @@
   margin: 0; 
   box-sizing: border-box; 
   padding: 0;
-  font-size: 20px;
-  
+  font-size: 20px;  
 }
 
 /* <---------------------------Navigation Start -------------------------> */
@@ -21,9 +20,7 @@ nav{
   align-items: center;
   padding: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: white;
-  /* transform: rotate(45deg); */
-  /* background-color: rgb(217, 224, 224); */
+  background-color: white; 
 }
 nav div:hover{
   cursor: pointer;
@@ -33,7 +30,7 @@ nav div:hover{
 }
 .dropdown-content {
   /* border: solid red; */
-  width:20%;
+  width:18%;
   cursor: pointer;
   display: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -42,13 +39,17 @@ nav div:hover{
   position: absolute;
   z-index: 1;
 }
+#user-dropdown{
+  width:10%;
+}
 .dropdown-content p{
   font-size: small;
-  padding: 20px 10px;
+  padding: 10px
 }
 .dropdown-content img{
   width: 40px;
 }
+
 .dropdown-content a {
   color: black;
   font-weight: bolder;
@@ -61,14 +62,20 @@ nav div:hover{
   background-color: rgb(217, 224, 224);
   border-radius: 10px;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content ,.dropdown:hover #user-dropdown {
   display: block;
 }
 #logo{
   width: 200px;
   /* border: solid red; */
 }
-.loginBtn{
+#userIcon{
+  font-size: 40px;
+  margin-bottom: -10%;
+  display: none
+}
+.Btn{
+  /* display: none; */
   padding: 10px;
   cursor: pointer;
   background-color: #00A1E0;
@@ -76,15 +83,27 @@ nav div:hover{
   font-size: large;
   font-weight: bold;
   border: 0px;
-  transition: transform .5s ease;
+  transition: transform .5s ease-in;
+}
+#logoutBtn{
+  display: none;
 }
 .loginBtn:hover{
   background-color: rgb(217, 224, 224);
   color: #00A1E0;
-  transform: scale(1.05);
+  transform: scale(0.9);
 }
 
 /* ----------------------------Hamburger Menu-------------------------- */
+
+@keyframes slideInLeft{
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
 
 .menu-icon{
   display:none;
@@ -103,14 +122,12 @@ nav div:hover{
   height: 100%;
   padding: 20px;
   display: none;
-  transition: all .4s ease-in-out;
-  transform: translateX(-100%);
- 
+  animation: slideInLeft .5s ease-in 0s 1 normal forwards;
+  
 }
 
 .menu-page.activate{
   display:block ;
-  transform: translateX(0);
 }
 .menu-page a{
   text-decoration: none;
@@ -147,6 +164,7 @@ nav div:hover{
   display: flex;
   flex-direction: column;
   background-color: white;
+  
 }
 .dropdown-price{
   width: 75%;
@@ -157,8 +175,7 @@ nav div:hover{
   flex-direction: column;
   background-color: white;
 }
-.dropdown-menu a,.dropdown-price a{
-  
+.dropdown-menu a,.dropdown-price a{ 
   text-decoration: none;
   color:black;
   line-height: 50px;  
@@ -171,7 +188,6 @@ nav div:hover{
 .dropdown-menu div:hover,.dropdown-price div:hover {
   color:#00A1E0;
   background-color: rgb(217, 224, 224);
- 
 
 }
 .dropdown-menu.activate div,.dropdown-price.activate div{
@@ -200,6 +216,7 @@ nav div:hover{
   transform: scale(1.05);
 }
 #startNow{
+  cursor: pointer;
   margin-top: 40px;
   padding: 10px;
   background-color: #00A1E0;
@@ -207,10 +224,12 @@ nav div:hover{
   font-size: large;
   font-weight: bold;
   border: 0px;
+  transition: transform .5s ease;
 }
 #startNow:hover{
   background-color: rgb(217, 224, 224);
   color: #00A1E0;
+  transform: scale(0.9);
 }
 
 /* --------------------ChatBot-------------------- */
@@ -261,6 +280,12 @@ nav div:hover{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   text-align: center;
+}
+.sec4 img{
+  transition: transform .3s ease-in;
+}
+.sec4 img:hover{
+  transform: scale(1.05);
 }
 #sec4-title{
     font-size: 35px;
@@ -325,11 +350,14 @@ footer{
 footer ion-icon{
   font-size: 40px;
   color: #00A1E0;
+  transition: transform .5s ease-in;
  
 }
 footer ion-icon:hover{
-  color: white;
-  background-color: #00A1E0;
+  color: rgb(0, 0, 0);
+  /* background-color: #00A1E0; */
+  transform: scale(0.9);
+
 }
 footer p{
   margin: 0 0 0px 20px;

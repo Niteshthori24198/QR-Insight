@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./images/favicon1.png">
     <title>QR Insight</title>
- 
+                                <!---------Icons Import-----  -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
    
@@ -14,14 +14,15 @@
     <!-- <link rel="stylesheet" href="./Styles/botchat.css"> -->
 </head >
 <body>
+                              <!-- --------Navigation Part--------- -->
     <nav>
         <div ><img id="logo" src="./images/logo.png" alt=""></div>
         <div class="dropdown">
             <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
             <div class="dropdown-content">
-                <a href="./View/scannar.html"> <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc=" alt="">QR Scanner</a>
+                <a href="./View/scannar.html"> <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc=" alt=""> QR Scanner</a>
                 <a href="./View/qr.html"><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75" alt="">QR Code Genrator</a>
-                <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75" alt="">Detail Analysis</a>
+                <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75" alt="">Detail Analysis </a>
                 <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75" alt="">Dynamic QR Code</a>
             </div>
         </div>
@@ -34,73 +35,41 @@
             </div>            
         </div>
         <div><h4 class="nav-elem">About Us</h4></div>
-        <div><h4 class="nav-elem">Contact</h4></div>        
-        <div>
-            <a href="./View/login.html"><button class="loginBtn">Login</button></a>
-            
+        <div><h4 class="nav-elem">Contact</h4></div>  
+        <div><p class="userName2"></p></div>
+        <div>            
+            <div class="dropdown" >
+                <ion-icon id="userIcon" name="person-circle-outline"></ion-icon>
+                <div class="dropdown-content" id="user-dropdown">
+                    <a href=""><p class="userName1"></p></a>
+                    <a href=""><p id="userDetails">Profile</p></a> 
+                    <a href=""><p onclick="clearLocalStorage()"  id="logoutBtn" id="userDetails">Logout</p></a>  
+                               
+                </div>                
+            </div>          
         </div>
-            <div  onclick="hamburger()">
-                <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
-            </div>            
+        <div>
+            <a  href="./View/login.html">
+                <button  id="loginBtn" class="Btn">Login</button>
+            </a>  
+        </div>
+        <div  onclick="hamburger()">
+            <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+        </div>            
         </div>
     </nav>
+
+                            <!-- ------------ChatBot Icon-------- -->
+
     <div id="chatBot">
         <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon" name="chatbubble-ellipses-outline"></ion-icon></a>   
     </div>
-    <!-- <div class="chatbot-container">        
-        
-        <div id="fom-pankaj">
-            <div id="close-boxpankaj" ><img onclick="hidediv()" src="../images//icons8-close.svg" alt=""></div>
-            <div class="child-pankaj">
-                <input id="name-pankaj" type="text" placeholder="Enter your name">
-                <input id="email-pankaj" type="text" placeholder="Enter your email">
-                <textarea id="text-message" cols="21" rows="3" placeholder="Message...." required></textarea>
-                <br>
-                <button  onclick="savedata()">Submit</button>
-            </div>
-        </div>
-    
-        <div class="nav-pankaj">
-            <div class="navbar">
-                <img class="dpimg" onclick="openFullScreenDP()" src="../images/logo.png" alt="">
-                <div class="personalInfo">
-                    <label id="name">QR Insight</label>
-                    <label id="lastseen">last seen today at 3:24 pms</label>
-                </div>
-            </div>        
-            <button id="other-btn" onclick="showdiv()">Other Query</button>
-        </div>          
-    
-        <div class="scrollable" id="myScrollable">
-    
-            <div class="fullScreenDP" id="fullScreenDP">
-                <div class="insideDP">
-                    <img class="dp" src="../images/logo.png" alt="">
-                    
-                   
-                </div>
-            </div>
-    
-            <div id="chatting" class="chatting">
-                <ul id="listUL">
-                </ul>
-            </div>
-        </div>    
-        <div class="footer-pankaj">
-            <div class="sendBar">
-                <input id="inputMSG" onkeypress="isEnter(event)" type="text" placeholder="Type a message" autofocus>
-                <svg onclick="sendMsg()" viewBox="0 0 24 24" width="24" height="24" class="">
-                    <path fill="currentColor"
-                        d="M1.101 21.757 23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
-                </svg>
-            </div>
-        </div>     
-    </div> -->
    
-   <!-- -----------hamburger Menu------ -->
+                            <!-- -----------Hamburger Menu----------- -->
+
     <div class="menu-page">
         <div>
-            <img id="logo" src="../images/logo.png" alt="">
+            <img id="logo" src="./images/logo.png" alt="">
             <div onclick="remove()" ><ion-icon  name="close"></ion-icon></div>            
         </div>     
         <div class="dropdown-container">
@@ -131,6 +100,8 @@
         <h1><a href="./View/login.html">Login</a></h1>
         
     </div>
+
+                <!-- ---------------Content On Landing Page--------------- -->
 
     <div id="mainContainer">
         <div  class="sectionA" id="landing" >
@@ -188,33 +159,20 @@
         <div class="sec4">
             <div>
                 <img src="https://www.unitag.io/index/unity-1.svg" alt="">
-                <div>
-               
-                    <h3>Answer business needs</h3>
-                </div>
-               
+                <div><h3>Answer business needs</h3></div>               
             </div>
-
             <div>
                 <img src="https://www.unitag.io/index/unity-2.svg" alt="">
-                <div>
-              
-                    <h3>Adapt to business needs</h3>
-                </div>
-             
+                <div><h3>Adapt to business needs</h3></div>             
             </div>
             <div>
                 <img src="https://www.unitag.io/products/analytics.svg" alt="">
-                <div>
-                
-                    <h3>Increse your revenue</h3>
-                </div>
-               
+                <div><h3>Increse your revenue</h3></div>               
             </div>
-        </div>
-       
+        </div>       
     </div>
 
+                            <!-------------Footer-------------  -->
     <footer>
        
             <div id="footer-contact">
@@ -261,8 +219,14 @@
     </footer>
 </body>
 </html>
-<script src="../Scripts/userdisplay.js"></script>
+
+
+<script src="./Scripts/user.display.js"></script>
+
+
+<script src="./Scripts/userdisplay.js"></script>
 <script>
+
     const icon=document.querySelector(".menu-page")
     function hamburger(){
         console.log("menu-icon")
@@ -275,18 +239,33 @@
     const dropdownMenu=document.querySelector(".dropdown-menu")
     function openProduct(){
         console.log("open")
-        dropdownMenu.classList.toggle("activate")
-        
+        dropdownMenu.classList.toggle("activate")        
     }
     const menuPrice=document.querySelector(".dropdown-price")
     function openPrice(){
         console.log("open")
         menuPrice.classList.toggle("activate")        
+    }  
+
+
+    let userName=[{name:"venkat",role:"Admin"}]
+    localStorage.setItem("qrcodeuserdetails",JSON.stringify(userName));
+    const name1=document.querySelector(".userName1")
+    const name2=document.querySelector(".userName2")
+    details =JSON.parse(localStorage.getItem("qrcodeuserdetails"))
+    if(details){
+        name1.textContent =details[0].name
+        name2.textContent =details[0].name
+        logoutBtn.style.display="block"
+        document.getElementById("loginBtn").style.display="none"
+        document.getElementById("userIcon").style.display="block"
+        
     }
-    document.getElementById("chatBot").addEventListener("click",()=>{
-        console.log("chatBox")
-        chatBot.classList.toggle("activate")
-    })
+    function clearLocalStorage(){
+        localStorage.removeItem('qrcodeuserdetails');
+        alert("Logout Successfully")
+    }
+    
 
 </script>
 
