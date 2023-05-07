@@ -24,7 +24,7 @@ userroute.get("/",(req,res)=>{
 
 userroute.post("/register", async(req,res)=>{
     try {
-        let {Name,Email,Password,Address,Gender,Role}=req.body
+        let {Name,Email,Password,Address,Gender}=req.body
         let user=await UserModel.findOne({Email})
         console.log(user)
 
@@ -113,6 +113,10 @@ userroute.post("/login",async (req,res)=>{
 
         if(!user){
             return res.status(400).send({"msg":"register first then login"})
+        }
+
+        if(user.ismailverified==false){
+            return res.status(400).send({"msg":"verify your mail first"})
         }
 
         let decrupt=await bcrypt.compare(Password,user.Password)
