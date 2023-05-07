@@ -26,9 +26,11 @@ form.addEventListener("submit",(e)=>{
     })
     .then((data)=>{
         console.log(data)
-        if(data.Name){
+        if(data.userdetails){
             alert(data.msg)
-           // window.location.href="index.html"
+            window.location.href="../index.html"
+            localStorage.setItem("qrcodeuserdetails",JSON.stringify(data.userdetails))
+            
         }else{
             alert(data.msg)
         }
@@ -48,4 +50,4 @@ googlebtn.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href="http://localhost:3000/user/auth/google"
 
-  });
+});

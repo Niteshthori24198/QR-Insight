@@ -8,7 +8,9 @@ const jwt=require("jsonwebtoken");
 
 const {client } = require("../Config/redis");
 const {passport}=require("../Config/google-oauth")
-const {passport1}=require("../Config/facebookauth")
+const {passport1}=require("../Config/facebookauth");
+const { blackmodel } = require("../Models/blackmodel");
+const { middleware } = require("../Middlewares/auth.middleware");
 
 
 
@@ -139,13 +141,7 @@ userroute.post("/login",async (req,res)=>{
 // sending otp mail=======================================================================
 
 let sendotpmail=async(Name,Email,otp)=>{
-            // let otp = "";
-        // for (let i = 0; i < 6; i++) {
-        //   otp += Math.floor(Math.random() * 10);
-        // }
-        // console.log(otp)
 
-        // sendotpmail(user.Name,Email,otp)
     try {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -193,7 +189,7 @@ userroute.get('/auth/google/callback',
     client.set('token', token, 'EX', 3600);
     client.set('refreshtoken', refreshtoken, 'EX', 3600);
     
-    res.send(`<a href="http://127.0.0.1:5501/Front-End/View/index.html?userid=${user._id}" id="myid">abc</a>
+    res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${user._id}" id="myid">abc</a>
     <script>
         let a = document.getElementById('myid')
         a.click()
@@ -203,21 +199,87 @@ userroute.get('/auth/google/callback',
 
 });
 
-
-
-//find data by id=======================================
-
-userroute.get("/getdata/:id",async(req,res)=>{
+userroute.get("/getdata", async(req,res)=>{
     try {
-        let {id}=req.params
-        let user=await UserModel.findById({_id:id})
+        let {_id}=req.query
+        let user=await UserModel.findOne(_id)
         res.send({"userdetails":user})
+        
     } catch (error) {
         console.log(error)
     }
 })
 
 
+
+//find data =======================================
+
+userroute.post("/forgetpass",async(req,res)=>{
+    try {
+        let {Email}=req.body
+        let user=await UserModel.findOne({Email})
+        if(user){
+            let OTP = "";
+            for (let i = 0; i < 6; i++) {
+            OTP+= Math.floor(Math.random() * 10);
+            }
+            console.log(OTP)
+            client.set('OTP', OTP, 'EX', 3600);
+            sendotpmail(user.Name,user.Email,OTP)
+
+        }
+        res.send({"userdetails":user})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userroute.post("/verifyotp",async(req,res)=>{
+    try {
+        let {OTP}=req.body
+       let otp=await client.get('OTP')
+       if(OTP==otp){
+        res.status(200).send({"msg":"Otp verified"})
+       }else{
+        res.status(400).send({"msg":"incorrect verified"})
+       }
+       
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userroute.put("/updatepass",async(req,res)=>{
+    try {
+        let {id}=req.query
+        let {password}=req.body
+        let hashpass=bcrypt.hashSync(password,7)
+        let user=await UserModel.findById({_id:id})
+        user.Password=hashpass
+        await user.save()
+        console.log(user)
+         res.send({"msg":"password update successfull please login"})
+    } catch (error) {
+        res.send(error)
+    }
+})
+
+//logout======================================================================
+userroute.get("/logout",async(req,res)=>{
+    try {
+        let usertoken=await client.get('token');
+        let userrefreshtoken=await client.get('refreshtoken');
+        let blacklisttoken= new blackmodel({token:usertoken,refreshtoken:userrefreshtoken})
+        await blacklisttoken.save()
+        //console.log(usertoken,userrefreshtoken,blacklisttoken)
+        res.send({"msg":"logout sucessfull"})
+        
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+
+})
 
 
 //facebook login===============================================================
@@ -231,6 +293,7 @@ userroute.get('/auth/facebook/callback',
     console.log("hi")
     res.redirect('/user');
 });
+
 
 
 
