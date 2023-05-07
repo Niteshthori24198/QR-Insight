@@ -182,9 +182,9 @@ const whatsappQrRouter = async (req, res) => {
 
     const { phone, text, color } = req.body
 
-    if (!phone) {
-        return res.status(400).send({ error: "Provide all required details" })
-    }
+    // if (!phone) {
+    //     return res.status(400).send({ error: "Provide all required details" })
+    // }
 
     var opts = {
         errorCorrectionLevel: 'H',

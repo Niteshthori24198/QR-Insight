@@ -19,7 +19,7 @@ function slide() {
   images[n - 1].style = "display:block";
   button[n - 1].className += " active";
 
-  setTimeout(slide, 3000);
+  setTimeout(slide, 1000);
 }
 
 slide();

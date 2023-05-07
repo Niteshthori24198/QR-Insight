@@ -5,16 +5,20 @@ const bcrypt=require("bcrypt")
 const nodemailer = require("nodemailer");
 require("dotenv").config()
 const jwt=require("jsonwebtoken");
-const cors = require('cors');
-const path=require("path")
+
 const {client } = require("../Config/redis");
 const {passport}=require("../Config/google-oauth")
+const {passport1}=require("../Config/facebookauth");
+const { blackmodel } = require("../Models/blackmodel");
+const { middleware } = require("../Middlewares/auth.middleware");
+
+
 
 const userroute=express.Router()
 
 
 userroute.get("/",(req,res)=>{
-    res.send("user route")
+   res.send("user route")
 })
 
 
@@ -124,7 +128,7 @@ userroute.post("/login",async (req,res)=>{
         client.set('token', token, 'EX', 3600);
         client.set('refreshtoken', refreshtoken, 'EX', 3600);
 
-        res.status(200).send({"msg":"Login sucessfull","Name":user.Name})
+        res.status(200).send({"msg":"Login sucessfull","userdetails":user})
 
     } catch (error) {
         res.status(400).send(error.message)
@@ -132,24 +136,12 @@ userroute.post("/login",async (req,res)=>{
 })
 
 
-//logout route===========================================================
-
-
-
-
-
 
 
 // sending otp mail=======================================================================
 
 let sendotpmail=async(Name,Email,otp)=>{
-            // let otp = "";
-        // for (let i = 0; i < 6; i++) {
-        //   otp += Math.floor(Math.random() * 10);
-        // }
-        // console.log(otp)
 
-        // sendotpmail(user.Name,Email,otp)
     try {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -180,27 +172,127 @@ let sendotpmail=async(Name,Email,otp)=>{
     }
 
 }
-//=====================================================================================
+//google auth=====================================================================================
 
 userroute.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile','email'] }));
+  passport1.authenticate('google', { scope: ['profile','email'] }));
 
 userroute.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+  passport1.authenticate('google', { failureRedirect: '/login' ,session:false}),
   function(req, res) {
     // Successful authentication, redirect home.
     console.log(req.user)
-    res.redirect('/user');
+    const user=req.user
+    let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+
+    client.set('token', token, 'EX', 3600);
+    client.set('refreshtoken', refreshtoken, 'EX', 3600);
+    
+    res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${user._id}" id="myid">abc</a>
+    <script>
+        let a = document.getElementById('myid')
+        a.click()
+        console.log(a)
+    </script>`)
+
 
 });
 
-// userroute.get('/profile', function(req, res) {
-//     if (req.user) {
-//       res.send(req.user._json);
-//     } else {
-//       res.status(401).send({ message: 'Unauthorized' });
-//     }
-// });
+userroute.get("/getdata", async(req,res)=>{
+    try {
+        let {_id}=req.query
+        let user=await UserModel.findOne(_id)
+        res.send({"userdetails":user})
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
+
+//find data =======================================
+
+userroute.post("/forgetpass",async(req,res)=>{
+    try {
+        let {Email}=req.body
+        let user=await UserModel.findOne({Email})
+        if(user){
+            let OTP = "";
+            for (let i = 0; i < 6; i++) {
+            OTP+= Math.floor(Math.random() * 10);
+            }
+            console.log(OTP)
+            client.set('OTP', OTP, 'EX', 3600);
+            sendotpmail(user.Name,user.Email,OTP)
+
+        }
+        res.send({"userdetails":user})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userroute.post("/verifyotp",async(req,res)=>{
+    try {
+        let {OTP}=req.body
+       let otp=await client.get('OTP')
+       if(OTP==otp){
+        res.status(200).send({"msg":"Otp verified"})
+       }else{
+        res.status(400).send({"msg":"incorrect verified"})
+       }
+       
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+userroute.put("/updatepass",async(req,res)=>{
+    try {
+        let {id}=req.query
+        let {password}=req.body
+        let hashpass=bcrypt.hashSync(password,7)
+        let user=await UserModel.findById({_id:id})
+        user.Password=hashpass
+        await user.save()
+        console.log(user)
+         res.send({"msg":"password update successfull please login"})
+    } catch (error) {
+        res.send(error)
+    }
+})
+
+//logout======================================================================
+userroute.get("/logout",async(req,res)=>{
+    try {
+        let usertoken=await client.get('token');
+        let userrefreshtoken=await client.get('refreshtoken');
+        let blacklisttoken= new blackmodel({token:usertoken,refreshtoken:userrefreshtoken})
+        await blacklisttoken.save()
+        //console.log(usertoken,userrefreshtoken,blacklisttoken)
+        res.send({"msg":"logout sucessfull"})
+        
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+
+})
+
+
+//facebook login===============================================================
+userroute.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+userroute.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' ,session:false}),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log("hi")
+    res.redirect('/user');
+});
 
 
 

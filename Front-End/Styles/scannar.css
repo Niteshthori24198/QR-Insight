@@ -7,18 +7,31 @@ body,
     font-family: 'Alkatra', cursive;
 }
 
+body{
+    /* background-image: url('https://p.kindpng.com/picc/s/421-4210804_background-waves-yelom-myphonecompany-co-electric-blue-hd.png');
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/29/14/38/web-1012467_960_720.jpg'); */
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+}
 
 nav,footer{
     height: 50px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: center;
 }
 
+img{
+    border-radius: 15px;
+    margin: 10px 0px;
+    overflow: hidden;
+    width: 100%;
+}
 
 #qr_scannar_section{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 20px;
+    
 }
 
 #qr_scannar_section > div{
@@ -36,6 +49,9 @@ nav,footer{
 
 #reader{
     background-color: #00A1E0;
+    color: black;
+    background-image: url('https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg');
+   
     width: 100%;
     
 }
@@ -47,6 +63,7 @@ nav,footer{
     font-size: 18px;
     background-color:#00A1E0;
     color: white;
+    /* color: black; */
     padding: 5px 30px;
     margin: 20px auto;
     display: none;
@@ -57,23 +74,28 @@ nav,footer{
 #backbtn:hover{
     background-color: transparent;
     color: blue;
-    border: 1px solid blue;
+    border: 2px solid blue;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 main{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url('https://www.seekpng.com/png/detail/788-7888624_web-development-background-png.png');
+   
+    background-repeat: no-repeat, repeat;
 }
 
 #result{
-    /* border: 5px solid red; */
     text-align: center;
     margin: auto;
-    /* width: 100%; */
+    letter-spacing: 2px;
+    text-align: center;
+    
     
 }
 
@@ -82,18 +104,26 @@ main{
     font-size: 18px;
     padding: 3px 10px;
     margin-bottom: 10px;
+    background-color:#00A1E0;
+    border: none;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
 #reader button:hover{
     background-color: #f9f9f9;
     color: black;
     border: 1px solid black;
-    letter-spacing: 2px;
 }
 #reader span{
-    color: white;
+    color: rgb(55, 51, 51);
     text-decoration: none;
     cursor: pointer;
+}
+#reader span:hover{
+    color: rgb(14, 75, 205);
+    letter-spacing: 1px;
 }
 
 

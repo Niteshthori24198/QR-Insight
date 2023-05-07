@@ -21,16 +21,16 @@ passport.use(new GoogleStrategy({
           Email,
           Name:profile._json.name,
           Password:"12345678",
-          Address:"Default",
+          Address:"abc",
           Gender:"Male",
           Role:"User",
           ismailverified:profile._json.email_verified
         })
         await newuser.save()
-        return cb(null, profile)
+        return cb(null, newuser)
       }else{
         console.log("user is present db")
-        return cb(null, profile)
+        return cb(null, user)
 
       }
     } catch (error) {

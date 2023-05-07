@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../Styles/forgetpass.css">
+</head>
+<body>
+  <div class="raj-container">
+    <form id="raj-form1">
+      <h3>Enter your Registered email</h3>
+      <input type="text" id="raj-email" placeholder="Email" required>
+      <div class="raj-btn-box">
+        <button type="button" id="raj-next1">Next </button>
+      </div>
+    </form>
+    <form id="raj-form2">
+      <h3>enter one time password</h3>
+      <input type="number" id="raj-otp" placeholder="OTP" ><br>
+      <div class="raj-btn-box">
+        <button type="button" id="raj-next2">Verify</button>
+      </div>
+    </form>
+    <form id="raj-form3">
+      <h3>update password here</h3>
+      <input type="text" id="raj-new" placeholder="new password" required>
+      <input type="text" id="raj-cnew" placeholder="conform password" required>
+      <div class="raj-btn-box">
+        <button type="submit" id="raj-next3">Submit</button>
+      </div>
+    </form>
+    <div class="raj-step-row">
+      <div id="raj-progress"></div>
+      <div class="raj-step-col"><small>Step 1</small></div>
+      <div class="raj-step-col"><small>Step 2</small></div>
+      <div class="raj-step-col"><small>Step 3</small></div>
+    </div>
+  </div>
+  
+  
+  
+</body>
+<script src="../Scripts/forgetpass.js"></script>
+</html>
