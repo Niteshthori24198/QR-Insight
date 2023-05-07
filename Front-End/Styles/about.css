@@ -117,21 +117,32 @@ img {
 }
 
 #detail-data{
-     
+     /* width: 50%; */
+     margin: auto;
      margin: 25px;
      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
      padding: 20px;
      display: flex;
    
 }
-#detail-data div:nth-child(2){
-    padding-left: 50px;
+#detail-data>div{
+  width: 700px;
+  /* width: 700px; */
+  margin: auto;
+  /* align-items: center; */
+  display: flex;
 }
+
+
+
 #detail-data p{
      
-     margin: 10px;
-    
+  margin: 10px;
+  margin-bottom: 20px;
+ 
 }
+
+
 
 
 
@@ -287,6 +298,17 @@ span{
         margin: 10px;
         align-items: center;
     }
+    #dis-pankaj h3{
+      /* margin: 10px 1px 10px ; */
+      text-align: center;
+  }
+  #detail-data>div{
+    width: 700px;
+    /* width: 700px; */
+    margin: 10px;
+    /* align-items: center; */
+    display: flex;
+  }
   }
   
   /* Media query for screens smaller than 400px */
@@ -295,5 +317,31 @@ span{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+
+    #dis-pankaj h3{
+      /* margin: 10px 1px 10px ; */
+      justify-content: center;
+      text-align: center;
+    }
+    #detail-data div:nth-child(2){
+      padding-left: 10px;
+  }
+
+  #detail-data{
+     width: 95%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+    display: flex;
+  
+}
+
+#profile-pankaj>div{
+ 
+  width: 80%;
+  margin: auto;
+ 
+}
+    
   }
   
