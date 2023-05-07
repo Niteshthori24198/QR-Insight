@@ -309,7 +309,7 @@ whatsapp_qr_form.addEventListener("submit", async (event) => {
     const Message = whatsapp_qr_form['wa-text-message-qr'].value.trim()
 
 
-    if (!countrycode || !phoneNumber) {
+    if ((countrycode && !phoneNumber) || (!phoneNumber || !Message)) {
         alert(`Please write a valid infomation ! `);
         return
     }
@@ -645,9 +645,9 @@ function HandlePrint() {
 // ............................. Share via Email .......................
 
 function HandleShareEmail(ele_id) {
-    console.log(ele_id);
+
     const qrcode = document.getElementById(ele_id).src;
-    console.log(qrcode);
+
     if (qrcode == 'https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg') {
         return
     }
@@ -669,8 +669,41 @@ function HandleShareEmail(ele_id) {
 
             location.href = `mailto:?subject=<Important Read Required>Your%20QR&body=https://qr-insight-sharing.netlify.app/?id=${data.QR._id}`
 
-            // location.href = `https://qr-insight-sharing.netlify.app/?id=${data.QR._id}`
-
         })
 
+}
+
+
+
+// Sharing via Whatsapp
+
+
+function HandleShareWhatsapp(ele_id) {
+
+    const qrcode = document.getElementById(ele_id).src;
+
+    if (qrcode == 'https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg') {
+        return
+    }
+
+
+    fetch(`https://good-tan-fly-belt.cyclic.app/saveQr`, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            qrcode: qrcode
+        })
+    })
+        .then(res => res.json())
+        .then(data => {
+
+            console.log(data.QR._id);
+
+          
+
+            location.href =   `https://wa.me//?text=https://qr-insight-sharing.netlify.app/?id=${data.QR._id}`;
+
+        })
 }
