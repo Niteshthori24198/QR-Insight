@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.use(cors());
 
-// app.use("/user",userroute)
+app.use("/user",userroute)
 
 app.use('/qrcode', qrRouter)
 app.use("/query",queryRouter)

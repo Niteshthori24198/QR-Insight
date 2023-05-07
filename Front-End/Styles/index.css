@@ -453,6 +453,9 @@ display: flex;
   .loginBtn{
     display: none;
   }
+  #user-dropdown{
+    width:20%;
+  }
 
   .sectionA img{
     width: 300px;

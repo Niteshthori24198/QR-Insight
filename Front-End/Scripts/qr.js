@@ -309,10 +309,11 @@ whatsapp_qr_form.addEventListener("submit", async (event) => {
     const Message = whatsapp_qr_form['wa-text-message-qr'].value.trim()
 
 
-    if ((countrycode && !phoneNumber) || (!phoneNumber || !Message)) {
+    if ((countrycode && !phoneNumber) || (!phoneNumber && !Message && !countrycode)) {
         alert(`Please write a valid infomation ! `);
         return
     }
+
 
     if (!QrColorDesign) QrColorDesign = "black"
 

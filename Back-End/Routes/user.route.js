@@ -202,7 +202,7 @@ userroute.get('/auth/google/callback',
 userroute.get("/getdata", async(req,res)=>{
     try {
         let {_id}=req.query
-        let user=await UserModel.findOne(_id)
+        let user=await UserModel.findOne({_id})
         res.send({"userdetails":user})
         
     } catch (error) {
