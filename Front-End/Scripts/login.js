@@ -28,7 +28,7 @@ form.addEventListener("submit",(e)=>{
         console.log(data)
         if(data.Name){
             alert(data.msg)
-            window.location.href="index.html"
+           // window.location.href="index.html"
         }else{
             alert(data.msg)
         }
@@ -47,21 +47,5 @@ let googlebtn=document.getElementById("raj-google")
 googlebtn.addEventListener('click', function(e) {
     e.preventDefault();
     window.location.href="http://localhost:3000/user/auth/google"
-    // fetch('http://localhost:3000/user/auth/google')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data);
-    //     fetch('http://localhost:3000/user/profile', {
-    //     //   headers: {
-    //     //     Authorization: `Bearer ${data.accessToken}`
-    //     //   }
-    //     })
-    //       .then(res => res.json())
-    //       .then(profile => {
-    //         console.log(profile);
-    //         //profileName.textContent = profile.name;
-    //       })
-    //       .catch(err => console.error(err));
-    //   })
-    //   .catch(err => console.error(err));
+
   });
