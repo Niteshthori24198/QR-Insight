@@ -640,3 +640,10 @@ vcard_qr_form.addEventListener("submit", async (event) => {
 function HandlePrint(){
     window.print();
 }
+
+
+// ............................. Share via Email .......................
+
+function HandleShareEmail(ele_id){
+    console.log(ele_id);
+}
