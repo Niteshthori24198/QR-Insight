@@ -4,7 +4,7 @@ let email=document.getElementById("raj-email")
 let password=document.getElementById("raj-pass")
 let address=document.getElementById("raj-address")
 let gender=document.getElementById("raj-gender")
-let role=document.getElementById("raj-role")
+
 let form=document.getElementById("raj-form")
 
 form.addEventListener("submit",(e)=>{
@@ -17,7 +17,7 @@ form.addEventListener("submit",(e)=>{
         Password:password.value,
         Address:address.value,
         Gender:gender.value,
-        Role:role.value
+
     }
     console.log(userobj)
 
