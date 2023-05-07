@@ -21,7 +21,7 @@
             <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
             <div class="dropdown-content">
                 <a href="./View/scannar.html"> <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc=" alt=""> QR Scanner</a>
-                <a href="./View/qr.html"><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75" alt="">QR Code Genrator</a>
+                <a href="./View/qr.html"><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75" alt="">QR Code Generator</a>
                 <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75" alt="">Detail Analysis </a>
                 <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75" alt="">Dynamic QR Code</a>
             </div>
@@ -97,7 +97,7 @@
         </div>
         <h1><a href="./View/about.html"> About Us</a></h1>
         <h1><a href="">Contact</a> </h1>
-        <h1><a href="./View/login.html">Login</a></h1>
+        <h1><a  id="loginBtn"  href="./View/login.html">Login</a></h1>
         
     </div>
 
@@ -221,8 +221,6 @@
 </html>
 
 
-<script src="./Scripts/user.display.js"></script>
-
 
 <script src="./Scripts/userdisplay.js"></script>
 <script>
@@ -253,6 +251,7 @@
     const name1=document.querySelector(".userName1")
     const name2=document.querySelector(".userName2")
     details =JSON.parse(localStorage.getItem("qrcodeuserdetails"))
+
     if(details){
         name1.textContent =details.Name
         name2.textContent =details.Name
