@@ -592,7 +592,7 @@ vcard_qr_form.addEventListener("submit", async (event) => {
     const position = vcard_qr_form['vcard-position'].value.trim()
     const website = vcard_qr_form['vcard-website-link'].value.trim()
 
-   
+
 
 
     if (!name || !email || !phone) {
@@ -607,8 +607,8 @@ vcard_qr_form.addEventListener("submit", async (event) => {
     QR_Code_img_vcard.src = `https://cdn.dribbble.com/users/964000/screenshots/3675038/switcher_qr_barcode_alinashi_shot.gif`;
 
 
-    const payload = { name, email, phone,address,company,position,website, color: QrColorDesign }
-    
+    const payload = { name, email, phone, address, company, position, website, color: QrColorDesign }
+
 
     const res = await fetch(`${QR_BASE_URL}/vcard`, {
         method: "POST",
@@ -637,13 +637,40 @@ vcard_qr_form.addEventListener("submit", async (event) => {
 // ......................... Print QR CODE ..................
 
 
-function HandlePrint(){
+function HandlePrint() {
     window.print();
 }
 
 
 // ............................. Share via Email .......................
 
-function HandleShareEmail(ele_id){
+function HandleShareEmail(ele_id) {
     console.log(ele_id);
+    const qrcode = document.getElementById(ele_id).src;
+    console.log(qrcode);
+    if (qrcode == 'https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg') {
+        return
+    }
+
+
+    fetch(`https://good-tan-fly-belt.cyclic.app/saveQr`, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            qrcode: qrcode
+        })
+    })
+        .then(res => res.json())
+        .then(data => {
+
+            console.log(data.QR._id);
+
+            location.href = `mailto:?subject=<Important Read Required>Your%20QR&body=https://qr-insight-sharing.netlify.app/?id=${data.QR._id}`
+
+            // location.href = `https://qr-insight-sharing.netlify.app/?id=${data.QR._id}`
+
+        })
+
 }
