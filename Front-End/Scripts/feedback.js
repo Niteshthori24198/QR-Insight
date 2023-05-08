@@ -1,7 +1,8 @@
 
+
 //  submit fom 
 
-const url = "http://localhost:8080";
+const url = "http://localhost:3000";
 
 
 function feedback(){
@@ -14,13 +15,14 @@ function feedback(){
     email: email,
     message: message,
   };
-
+  console.log(signdata)
   fetch(`${url}/feed/savefeedback`, {
     method: "POST",
-    body: JSON.stringify(signdata),
     headers: {
       "Content-type": "application/json",
     },
+    body: JSON.stringify(signdata)
+
   })
     .then((res) => res.json())
     .then((res) => {
@@ -35,7 +37,8 @@ function feedback(){
      
     })
     .catch((err) => {
-      alert("some err")
+      alert( err)
+      console.log(err)
    
     });
 }

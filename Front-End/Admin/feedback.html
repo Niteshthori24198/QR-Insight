@@ -5,8 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        thead {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        }
+
+        th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+
+    </style>
 </head>
 <body>
+    <div id="raj-div">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>massage</th>
+                    <th>reply</th>
+                </tr>
+            </thead>
+            <tbody id="append">
+              
+            </tbody>
+        </table>
+    </div>
     
 </body>
+<script>
+
+    fetch("http://localhost:3000/feed/getdata")
+    .then((res)=>{
+        return res.json()
+    })
+    .then((data)=>{
+      //console.log(data.msg)
+        displaydata(data.msg)
+    })
+
+    function displaydata(data){
+        console.log(data)
+
+        let main=document.getElementById("append")
+        data.forEach((element) => {
+            let tr=document.createElement("tr")
+
+            let td1=document.createElement("td")
+            td1.innerText=element.name
+
+            let td2=document.createElement("td")
+            td2.innerText=element.email
+
+            let td3=document.createElement("td")
+            td3.innerText=element.message
+
+            let td4=document.createElement("td")
+            td4.innerText="Reply"
+            td4.addEventListener("click",()=>{
+                //replyuser(element.email)
+            })
+
+
+
+            tr.append(td1,td2,td3,td4)
+            main.append(tr)
+        });
+
+
+
+
+
+    }
+
+    
+</script>
 </html>

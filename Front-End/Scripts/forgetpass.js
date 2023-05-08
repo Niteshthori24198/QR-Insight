@@ -102,5 +102,7 @@ next3.addEventListener("click",(e)=>{
             window.location.href="../View/login.html"                  
         })
 
+    }else{
+        alert("password or conform password mismatch")
     }
 })
