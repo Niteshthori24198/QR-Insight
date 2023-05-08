@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Sans&display=swap');
+
 body,
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 15px;
     font-family: 'Alkatra', cursive;
 }
 
+
+
+nav *, #chatBot *, #menu-page *{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
 
 
 /* anchor tag */
@@ -86,16 +95,12 @@ a:hover {
 
 
 
-nav {
-    height: 50px;
-    border-bottom: 1px solid red;
-}
-
 /* *************************  QR CODE HEADING ******************* */
 
 
 #qr_heading {
     margin: 15px 0px;
+    margin-top: 100px;
     text-align: center;
     line-height: 25px;
 }
@@ -250,6 +255,7 @@ nav {
     border: none;
     border-radius: 5px;
     margin: 0px 10px;
+    /* font-size: 15px; */
 
 }
 

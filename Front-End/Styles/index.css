@@ -21,6 +21,8 @@ nav{
   padding: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: white; 
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 nav div:hover{
   cursor: pointer;
