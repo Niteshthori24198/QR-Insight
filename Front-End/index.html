@@ -43,14 +43,14 @@
                 <div class="dropdown-content" id="user-dropdown">
                     <a href=""><p class="userName1"></p></a>
                     <a href=""><p id="userDetails">Profile</p></a> 
-                    <a href=""><p onclick="clearLocalStorage()"  id="logoutBtn" id="userDetails">Logout</p></a>  
+                    <a href=""><p onclick="clearLocalStorage()"  id="logoutBtn">Logout</p></a>  
                                
                 </div>                
             </div>          
         </div>
         <div>
             <a  href="./View/login.html">
-                <button  id="loginBtn" class="Btn">Login</button>
+                <button   id="loginBtn" class="Btn">Login</button>
             </a>  
         </div>
         <div  onclick="hamburger()">
@@ -59,11 +59,7 @@
         </div>
     </nav>
 
-                            <!-- ------------ChatBot Icon-------- -->
-
-    <div id="chatBot">
-        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon" name="chatbubble-ellipses-outline"></ion-icon></a>   
-    </div>
+   
    
                             <!-- -----------Hamburger Menu----------- -->
 
@@ -97,8 +93,15 @@
         </div>
         <h1><a href="./View/about.html"> About Us</a></h1>
         <h1><a href="">Contact</a> </h1>
-        <h1><a  id="loginBtn"  href="./View/login.html">Login</a></h1>
-        
+        <h2><a  id="loginBtn-Hamburger"  href="./View/login.html">Login..</a></h2>
+        <h2  onclick="clearLocalStorage()"  id="logoutBtn-Hamburger" >Logout</h2>
+              
+    </div>
+
+                             <!-- ------------ChatBot Icon-------- -->
+
+    <div id="chatBot">
+        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon" name="chatbubble-ellipses-outline"></ion-icon></a>   
     </div>
 
                 <!-- ---------------Content On Landing Page--------------- -->
@@ -253,10 +256,12 @@
     details =JSON.parse(localStorage.getItem("qrcodeuserdetails"))
 
     if(details){
-        name1.textContent =details.Name
+        name1.textContent =details.Name.split(" ")[0]
         name2.textContent =details.Name
-        logoutBtn.style.display="block"
+        document.getElementById("logoutBtn").style.display="block"
+        document.getElementById("logoutBtn-Hamburger").style.display="block"
         document.getElementById("loginBtn").style.display="none"
+        document.getElementById("loginBtn-Hamburger").style.display="none"
         document.getElementById("userIcon").style.display="block"
         
     }
