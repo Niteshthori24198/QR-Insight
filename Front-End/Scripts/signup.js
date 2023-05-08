@@ -9,7 +9,13 @@ let form=document.getElementById("raj-form")
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    //console.log(name1.value,email.value,password.value,gender.value,role.value,address.value)
+
+
+    if(!name1.value || !email.value || !password.value || !gender.value || !address.value){
+        alert("Kindly provide all required details for registration !!")
+        return
+    }
+
 
     let userobj={
         Name:name1.value,
@@ -19,6 +25,9 @@ form.addEventListener("submit",(e)=>{
         Gender:gender.value,
 
     }
+
+
+
     console.log(userobj)
 
     fetch("http://localhost:3000/user/register",{

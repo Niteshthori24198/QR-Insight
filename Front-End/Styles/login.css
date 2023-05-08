@@ -9,6 +9,14 @@ a, button{
     cursor: pointer;
 }
 
+
+#qrinsight_logo_login{
+    width: 45%;
+    margin-bottom: 15px;
+}
+
+
+
 @keyframes pan {
     100% { background-position: 15% 50%;}
 }
@@ -17,7 +25,7 @@ body {
     place-items: center;
     margin: 0;
     padding: 0 24px;
-    background-image:url("../images/low-poly-grid-haikei.svg");
+    background-image:url("https://i.pinimg.com/originals/78/d4/97/78d4979ac0c05005b731a41e93199ccf.gif");
     background-repeat: no-repeat;
     background-size: cover;
     animation:

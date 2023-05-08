@@ -1,6 +1,6 @@
 //  text message open
 
-const url = "http://localhost:8080";
+const url = "http://localhost:3000";
 
 // let signbtn = document.getElementById("btn-pankaj");
 function savedata() {
@@ -28,13 +28,13 @@ function savedata() {
       document.getElementById("text-message").value = "";
       if (res.ok) {
         alert(
-          "Thanks for reaching out! I'll be happy to help! we will connect soon your mail"
+          "Thanks for reaching out! I'll be happy to help! we will connect soon on your mail"
         );
         document.getElementById("fom-pankaj").style.display = "none";
       }
     })
     .catch((err) => {
-      alert("plese fill the all query");
+      console.log(err)
       document.getElementById("fom-pankaj").style.display = "none";
     });
 }
@@ -206,6 +206,11 @@ function waitAndResponce(inputText) {
       );
       break;
     case "ok":
+      sendTextMessage(
+        "Hello there 👋🏻,<br>Thanks for reaching out! I'll be happy to help Is there any specific information or questions you need help with?"
+      );
+      break;
+    case "thank you":
       sendTextMessage(
         "Hello there 👋🏻,<br>Thanks for reaching out! I'll be happy to help Is there any specific information or questions you need help with?"
       );

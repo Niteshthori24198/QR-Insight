@@ -25,13 +25,18 @@ showUsername()
 
 setTimeout(() => {
     showUsername()
-}, 1000)
+}, 3000)
 
 
 function showUsername() {
     const name1 = document.querySelector(".userName1")
     const name2 = document.querySelector(".userName2")
-    const details = JSON.parse(localStorage.getItem("qrcodeuserdetails")) || null
+
+    let details = localStorage.getItem("qrcodeuserdetails") || null
+
+    if(details){
+        details =  JSON.parse(localStorage.getItem("qrcodeuserdetails"))
+    }
 
     if (details) {
         name1.textContent = details.Name.split(" ")[0]

@@ -79,13 +79,11 @@ function updateProfile(){
     })
     .then(res => res.json() )
     .then(data => {
-        if(data.success){
+        if(data?.user){
+
             localStorage.setItem('qrcodeuserdetails', JSON.stringify(data.user))
-            window.location.reload()
-        }else{
-            console.log(data?.error);
-            alert('something went wrong. try after some time')
         }
+        window.location.reload()
     }).catch(err => {
         console.error(err);
         alert('something went wrong. try after some time')

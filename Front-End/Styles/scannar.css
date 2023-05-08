@@ -13,12 +13,16 @@ body,
 
 
 
-nav *, #chatBot *, #menu-page *, footer *{
+
+nav *,
+#chatBot *,
+#menu-page *,
+footer * {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
 
-nav{
+nav {
     height: 65px;
 }
 
@@ -46,50 +50,51 @@ nav{
     letter-spacing: 2px;
 }
 
-img{
+img {
     border-radius: 15px;
     margin: 10px 0px;
     overflow: hidden;
     width: 100%;
 }
 
-#qr_scannar_section{
+#qr_scannar_section {
     /* margin-top: 120px; */
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: -50px;
-    
+
 }
 
 
-#qr_scannar_section > div{
+#qr_scannar_section>div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
 }
 
-#qr_scannar_section img{
+#qr_scannar_section img {
     width: 80%;
-    
+
 }
 
-#reader{
+#reader {
     background-color: #00A1E0;
     color: black;
     background-image: url('https://img.freepik.com/free-vector/white-abstract-background_23-2148810353.jpg');
-   
+
     width: 100%;
-    
+
 }
-#reader video{
+
+#reader video {
     width: 100%;
 }
 
-#backbtn{
+#backbtn {
     font-size: 18px;
-    background-color:#00A1E0;
+    background-color: #00A1E0;
     color: white;
     /* color: black; */
     padding: 5px 30px;
@@ -99,7 +104,7 @@ img{
     border: none;
 }
 
-#backbtn:hover{
+#backbtn:hover {
     background-color: transparent;
     color: blue;
     border: 2px solid blue;
@@ -107,64 +112,68 @@ img{
     letter-spacing: 1px;
 }
 
-main{
+main {
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-image: url('https://www.seekpng.com/png/detail/788-7888624_web-development-background-png.png');
-   
+
     background-repeat: no-repeat, repeat;
 }
 
-#result{
+#result {
     text-align: center;
     margin: auto;
     letter-spacing: 2px;
     text-align: center;
-    
-    
+
+
 }
 
-#reader button{
+#reader button {
     border-radius: 5px;
     font-size: 18px;
     padding: 3px 10px;
     margin-bottom: 10px;
-    background-color:#00A1E0;
+    background-color: #00A1E0;
     border: none;
     color: white;
     letter-spacing: 1px;
     cursor: pointer;
 }
 
-#reader button:hover{
+#reader button:hover {
     background-color: #f9f9f9;
     color: black;
     border: 1px solid black;
 }
-#reader span{
+
+#reader span {
     color: rgb(55, 51, 51);
     text-decoration: none;
     cursor: pointer;
 }
-#reader span:hover{
+
+#reader span:hover {
     color: rgb(14, 75, 205);
     letter-spacing: 1px;
 }
 
 
 @media only screen and (max-width: 750px) {
-    #qr_scannar_section{
+    #qr_scannar_section {
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    #qr_scannar_section > main{
+
+    #qr_scannar_section>main {
         padding: 0px 20px;
     }
-    #reader{
+
+    #reader {
         margin: auto;
         display: flex;
         align-items: center;
@@ -173,5 +182,5 @@ main{
         /* background-color: red; */
         margin: auto;
     }
-    
+
 }

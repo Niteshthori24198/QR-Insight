@@ -24,6 +24,8 @@ profileRouter.patch('/updateProfile/:ID',middleware, async (req,res) =>{
     const userid = req.id;
     const payload = req.body;
 
+    console.log("foolchand --->",ID,userid)
+
     if(ID !== userid){
         return  res.status(400).send({error:"Unauthorizated Access", success:false});
     }
