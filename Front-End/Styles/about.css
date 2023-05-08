@@ -7,6 +7,15 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+#about_section{
+  margin-top: 90px;
+}
+
+#about_footer_section{
+  margin-top: -125px;
+}
+
+
 *,
 *::before,
 *::after {
