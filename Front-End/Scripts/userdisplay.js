@@ -24,3 +24,17 @@ fetch(`http://localhost:3000/user/getdata/?_id=${b}`)
     console.log(err)
 })
 
+
+
+
+// function logout(){
+//     fetch("http://localhost:3000/user/logout")
+//     .then((res)=>{
+//         return res.json()
+//     })
+//     .then((data)=>{
+//         localStorage.removeItem("qrcodeuserdetails");
+//         alert(data.msg)
+//     })
+// }
+

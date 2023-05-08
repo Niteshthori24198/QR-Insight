@@ -51,3 +51,11 @@ googlebtn.addEventListener('click', function(e) {
     window.location.href="http://localhost:3000/user/auth/google"
 
 });
+
+
+//login with github=====================
+let githubbtn=document.getElementById("raj-github")
+
+githubbtn.addEventListener("click",()=>{
+    window.location.href="https://github.com/login/oauth/authorize?client_id=91d7325bd615799a7790&scope=user"
+})
