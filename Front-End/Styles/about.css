@@ -15,6 +15,11 @@ body {
   margin-top: -125px;
 }
 
+#detail-data, #contain-image, #contain-image > img{
+  border-radius: 10px;
+}
+
+
 
 *,
 *::before,
@@ -197,7 +202,17 @@ img {
 #hading {
   text-align: center;
   margin: 50px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
+
+#hading:hover{
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
 
 /* profile css hare */
 
