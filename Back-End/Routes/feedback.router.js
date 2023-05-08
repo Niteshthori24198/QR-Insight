@@ -1,5 +1,5 @@
 const express = require("express");
-const { feedmodel } = require("../Models/feedback.medel");
+const { feedmodel } = require("../Models/feedback.model");
 const feedbackRouter = express.Router();
 feedbackRouter.use(express.json());
 feedbackRouter.post("/savefeedback", async (req, res) => {
