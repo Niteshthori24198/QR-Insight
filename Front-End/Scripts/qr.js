@@ -10,6 +10,14 @@ if(!details){
 }
 
 
+const qrcodeuserdetails_qrpage = localStorage.getItem('qrcodeuserdetails') || null;
+console.log(qrcodeuserdetails_qrpage);
+if(!qrcodeuserdetails_qrpage){
+    alert('Kindly Login First');
+    location.href = '../View/login.html'
+}
+
+
 
 // QR Option tabs 
 

@@ -51,6 +51,7 @@
         </div>
         <div>
             <h4 class="nav-elem">Contact</h4>
+
         </div>
         <div>
             <p class="userName2"></p>
@@ -296,15 +297,11 @@
     details = JSON.parse(localStorage.getItem("qrcodeuserdetails"))
 
     if (details) {
-
-
         name1.textContent = details.Name
         name2.textContent = details.Name
         logoutBtn.style.display = "block"
         document.getElementById("loginBtn").style.display = "none"
         document.getElementById("userIcon").style.display = "block"
-
-
 
     }
     function clearLocalStorage() {
@@ -324,7 +321,6 @@
             // Update the URL without refreshing the page
             history.replaceState(null, null, newUrl);
         }
-
 
     }
 
