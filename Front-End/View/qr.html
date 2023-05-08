@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Insight</title>
 
+    <link rel="stylesheet" href="../Styles/index.css">
     <link rel="stylesheet" href="../Styles/qr.css">
 
 
@@ -14,6 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+
+    <!---------Icons Import-----  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
     <!-- Line Awesome CDN Link -->
@@ -23,9 +28,124 @@
 
 <body>
 
+
+
+
+    <!-- --------Navigation Part--------- -->
     <nav>
-        Navbar
+        <div><img id="logo" src="../images/logo.png" alt=""></div>
+        <div class="dropdown">
+            <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
+            <div class="dropdown-content">
+                <a href="./View/scannar.html"> <img
+                        src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc="
+                        alt=""> QR Scanner</a>
+                <a href="./View/qr.html"><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75"
+                        alt="">QR Code Generator</a>
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75"
+                        alt="">Detail Analysis </a>
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75"
+                        alt="">Dynamic QR Code</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h4 class="nav-elem">Pricing <ion-icon name="chevron-down-outline"></ion-icon> </h4>
+            <div class="dropdown-content">
+
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75"
+                        alt=""> Price Calculator</a>
+                <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
+            </div>
+        </div>
+        <div>
+            <h4 class="nav-elem">About Us</h4>
+        </div>
+        <div>
+            <h4 class="nav-elem">Contact</h4>
+        </div>
+        <div>
+            <p class="userName2"></p>
+        </div>
+        <div>
+            <div class="dropdown">
+                <ion-icon id="userIcon" name="person-circle-outline"></ion-icon>
+                <div class="dropdown-content" id="user-dropdown">
+                    <a href="">
+                        <p class="userName1"></p>
+                    </a>
+                    <a href="">
+                        <p id="userDetails">Profile</p>
+                    </a>
+                    <a href="">
+                        <p onclick="clearLocalStorage()" id="logoutBtn" id="userDetails">Logout</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="./View/login.html">
+                <button id="loginBtn" class="Btn">Login</button>
+            </a>
+        </div>
+        <div onclick="hamburger()">
+            <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+        </div>
+        </div>
     </nav>
+
+    <!-- ------------ChatBot Icon-------- -->
+
+    <!-- <div id="chatBot">
+        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon"
+                name="chatbubble-ellipses-outline"></ion-icon></a>
+    </div> -->
+
+    <!-- -----------Hamburger Menu----------- -->
+
+    <div class="menu-page">
+        <div>
+            <img id="logo" src="./images/logo.png" alt="">
+            <div onclick="remove()"><ion-icon name="close"></ion-icon></div>
+        </div>
+        <div class="dropdown-container">
+            <h1>Products</h1>
+            <div class="dropdown-menu">
+                <div><a href="./View/scannar.html">QR Scanner</a></div>
+                <div><a href="./View/qr.html">QR Code Generator</a></div>
+                <div><a href="">Detail Analysis</a></div>
+                <div><a href="">Dynamic QR Code</a></div>
+            </div>
+            <div onclick="openProduct()">
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+            </div>
+
+        </div>
+        <div>
+            <h1>Pricing</h1>
+            <div class="dropdown-price">
+                <div><a href="">Calculate Amount</a></div>
+                <div><a href="">Subscribe</a></div>
+            </div>
+            <div onclick="openPrice()">
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+            </div>
+        </div>
+        <h1><a href="./View/about.html"> About Us</a></h1>
+        <h1><a href="">Contact</a> </h1>
+        <h1><a id="loginBtn" href="./View/login.html" >Login</a></h1>
+
+    </div>
+
+
+
+
+
+
 
 
     <!-- qr code heading -->
@@ -68,7 +188,8 @@
 
                     <form id="text_qr_form">
 
-                        <textarea id="text-message-qr" cols="75" rows="3" placeholder="Enter tour text here" required></textarea>
+                        <textarea id="text-message-qr" cols="75" rows="3" placeholder="Enter tour text here"
+                            required></textarea>
 
                         <input type="submit" value="Generate">
 
@@ -83,7 +204,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_text">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_text">
 
                 </div>
 
@@ -91,7 +213,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"> <a href="" id="text_qr_download" download="QR_Insight_text.jpeg" > Download QR </a> </button>
+                    <button onclick="HandleDownload()"> <a href="" id="text_qr_download"
+                            download="QR_Insight_text.jpeg"> Download QR </a> </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -133,7 +256,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_link">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_link">
 
                 </div>
 
@@ -141,7 +265,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"> <a href="" id="link_qr_download" download="QR_Insight_link.jpeg" > Download QR </a> </button>
+                    <button onclick="HandleDownload()"> <a href="" id="link_qr_download"
+                            download="QR_Insight_link.jpeg"> Download QR </a> </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -174,7 +299,8 @@
 
                         <!-- select countrycode -->
 
-                        <select class="qr_country_code_select" name="countrycodetel" id="select_country_code_phone" required>
+                        <select class="qr_country_code_select" name="countrycodetel" id="select_country_code_phone"
+                            required>
                             <option value="" label="">Select Country Code</option>
                             <option value="7840" label="Abkhazia (+7 840)">Abkhazia (+7 840)</option>
                             <option value="7940" label="Abkhazia (+7 940)">Abkhazia (+7 940)</option>
@@ -451,7 +577,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_phone">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_phone">
 
                 </div>
 
@@ -459,7 +586,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="phone_qr_download" download="QR_Insight_phone.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="phone_qr_download"
+                            download="QR_Insight_phone.jpeg"> Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -491,8 +619,8 @@
                         <input type="text" id="upi-id-name" placeholder=" Enter Name here" required>
 
                         <input type="text" id="upi-id-qrl" placeholder="Enter UPI ID here" required>
-                        
-                        <input type="number" id="upi-id-amount-qrl" placeholder="Enter Amount here" >
+
+                        <input type="number" id="upi-id-amount-qrl" placeholder="Enter Amount here">
 
                         <input type="submit" value="Generate">
 
@@ -507,7 +635,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_upi">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_upi">
 
                 </div>
 
@@ -515,7 +644,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="upi_qr_download" download="QR_Insight_upi.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="upi_qr_download" download="QR_Insight_upi.jpeg">
+                            Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -812,7 +942,8 @@
 
                         <input type="number" id="wa-number-qrl" placeholder="Enter Phone Number here">
 
-                        <textarea id="wa-text-message-qr" cols="80" rows="3" placeholder="Enter tour text here"></textarea>
+                        <textarea id="wa-text-message-qr" cols="80" rows="3"
+                            placeholder="Enter tour text here"></textarea>
 
                         <input type="submit" value="Generate">
 
@@ -827,7 +958,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_wa">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_wa">
 
                 </div>
 
@@ -835,7 +967,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="wa_qr_download" download="QR_Insight_whatsapp.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="wa_qr_download"
+                            download="QR_Insight_whatsapp.jpeg"> Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -884,7 +1017,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_email">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_email">
 
                 </div>
 
@@ -892,7 +1026,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="email_qr_download" download="QR_Insight_email.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="email_qr_download"
+                            download="QR_Insight_email.jpeg"> Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -906,7 +1041,7 @@
 
         </div>
 
-        
+
 
         <div id="Zoom" class="tabcontent">
             <div class="qr_select_design"></div>
@@ -939,7 +1074,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_zoom">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_zoom">
 
                 </div>
 
@@ -947,7 +1083,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="zoom_qr_download" download="QR_Insight_zoom.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="zoom_qr_download" download="QR_Insight_zoom.jpeg">
+                            Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -976,16 +1113,16 @@
 
                     <form id="wifi_qr_form">
 
-                       <input type="text" placeholder="Enter SSID / Network Name" required id="wifi-ssid">
+                        <input type="text" placeholder="Enter SSID / Network Name" required id="wifi-ssid">
 
-                       <select id="select_network_security_type" required>
-                        <option value="">Network Type</option>
-                        <option value="WPA">WPA/WPA2</option>
-                        <option value="WEP">WEP</option>
-                        <option value="">No encryption</option>
-                    </select>
+                        <select id="select_network_security_type" required>
+                            <option value="">Network Type</option>
+                            <option value="WPA">WPA/WPA2</option>
+                            <option value="WEP">WEP</option>
+                            <option value="">No encryption</option>
+                        </select>
 
-                       <input type="password" placeholder="Enter Password" required id="wifi-password">
+                        <input type="password" placeholder="Enter Password" required id="wifi-password">
 
                         <input type="submit" value="Generate">
 
@@ -1000,7 +1137,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_wifi">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_wifi">
 
                 </div>
 
@@ -1008,7 +1146,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="wifi_qr_download" download="QR_Insight_wifi.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="wifi_qr_download" download="QR_Insight_wifi.jpeg">
+                            Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1037,19 +1176,23 @@
 
                     <form id="vcard_qr_form">
 
-                        <input type="text" id="vcard-name" placeholder=" Enter Your Full Name" class="vcard-elements" required>
+                        <input type="text" id="vcard-name" placeholder=" Enter Your Full Name" class="vcard-elements"
+                            required>
 
-                        <input type="email" id="vcard-email" placeholder="Enter Email ID" class="vcard-elements" required>
-                        
-                        <input type="number" id="vcard-phone-number" placeholder="Enter Contact Number" class="vcard-elements" required>
+                        <input type="email" id="vcard-email" placeholder="Enter Email ID" class="vcard-elements"
+                            required>
 
-                        <input type="text" id="vcard-address" placeholder="Enter Your Address "  class="vcard-elements">
+                        <input type="number" id="vcard-phone-number" placeholder="Enter Contact Number"
+                            class="vcard-elements" required>
+
+                        <input type="text" id="vcard-address" placeholder="Enter Your Address " class="vcard-elements">
 
                         <input type="text" id="vcard-company" placeholder="Enter Company Name" class="vcard-elements">
 
                         <input type="text" id="vcard-position" placeholder="Enter Your Position" class="vcard-elements">
 
-                        <input type="url" id="vcard-website-link" placeholder="Enter Website Link" class="vcard-elements" >
+                        <input type="url" id="vcard-website-link" placeholder="Enter Website Link"
+                            class="vcard-elements">
 
                         <input type="submit" value="Generate">
 
@@ -1064,7 +1207,8 @@
 
                 <div>
 
-                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error" class="QR_Code_img" id="QR_Code_img_vcard">
+                    <img src="https://cdn.qrplanet.com/proxy/qrcdr/images/placeholder.svg" alt="Error"
+                        class="QR_Code_img" id="QR_Code_img_vcard">
 
                 </div>
 
@@ -1072,7 +1216,8 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="vcard_qr_download" download="QR_Insight_vcard.jpeg" > Download QR </a></button>
+                    <button onclick="HandleDownload()"><a href="" id="vcard_qr_download"
+                            download="QR_Insight_vcard.jpeg"> Download QR </a></button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1106,3 +1251,4 @@
 </html>
 
 <script src="../Scripts/qr.js"></script>
+<script src="../Scripts/navbar.js"></script>
