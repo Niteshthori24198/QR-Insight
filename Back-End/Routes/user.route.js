@@ -5,7 +5,7 @@ const bcrypt=require("bcrypt")
 const nodemailer = require("nodemailer");
 require("dotenv").config()
 const jwt=require("jsonwebtoken");
-
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const {client } = require("../Config/redis");
 const {passport}=require("../Config/google-oauth")
 const {passport1}=require("../Config/facebookauth");
@@ -159,7 +159,7 @@ let sendotpmail=async(Name,Email,otp)=>{
             from: 'mr.rajeshkumar7678@gmail.com',
             to: Email,
             subject: 'OTP verifecation mail',
-            html:`<p>HI ${Name} <br> please use this OTP to login.<br> ${otp} </p>`
+            html:`<p>HI ${Name} <br> please use this OTP to update password.<br> ${otp} </p>`
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -299,7 +299,90 @@ userroute.get('/auth/facebook/callback',
 });
 
 
+//github oauth====================================================================
 
+userroute.get("/callback",async (req,res)=>{
+    let {code}=req.query
+    //console.log(code)
+   
+    const accessToken = await fetch("https://github.com/login/oauth/access_token", {
+        method : "POST",
+        headers : {
+            Accept : "application/json",
+            "content-type" : "application/json"
+        },
+        body : JSON.stringify({
+            client_id : process.env.githubclientid,
+            client_secret : process.env.githubclientsecret,
+            code
+        })
+    }).then((res) => res.json())
+    //console.log(accessToken)
+    
+    let user = await fetch(`https://api.github.com/user`,{
+        method:'GET',
+        headers:{
+            'Content-type':'application/json',
+            'Authorization': `bearer ${accessToken.access_token}`
+        }
+    })
+
+    user = await user.json()
+    //console.log(user)
+
+    let userEmail = await fetch(`https://api.github.com/user/emails`,{
+        method:'GET',
+        headers:{
+            'Content-type':'application/json',
+            'Authorization': `bearer ${accessToken.access_token}`
+        }
+    })
+
+    userEmail = await userEmail.json()
+    
+    //console.log(userEmail[0].email)
+    let Email=userEmail[0].email
+    let gitusser= await gituser(Email,user)
+    console.log(gitusser)
+
+    let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
+    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+
+    client.set('token', token, 'EX', 3600);
+    client.set('refreshtoken', refreshtoken, 'EX', 3600);
+    
+    res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${gitusser._id}" id="myid">abc</a>
+    <script>
+        let a = document.getElementById('myid')
+        a.click()
+        console.log(a)
+    </script>`)
+})
+
+async function gituser(Email,user){
+    //console.log(Email,user)
+    const gituser=await UserModel.findOne({Email})
+
+    if(!gituser){
+        console.log("adding new user")
+        let newuser=new UserModel({
+          Email,
+          Name:user.name,
+          Password:"12345678",
+          Address:user.location,
+          Gender:"Male",
+          Role:"User",
+          ismailverified:true
+        })
+        await newuser.save()
+        return newuser
+      }else{
+        console.log("user is present db")
+        return gituser
+        
+    }
+    
+}
 
 
 
