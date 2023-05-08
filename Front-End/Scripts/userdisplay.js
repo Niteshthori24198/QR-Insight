@@ -9,6 +9,7 @@ let obj={
     _id:b
 }
 
+
 if(b){
     fetch(`http://localhost:3000/user/getdata/?_id=${b}`)
     .then((res)=>{
@@ -23,6 +24,7 @@ if(b){
     .catch((err)=>{
         console.log(err)
     })
+
 
 }
 
