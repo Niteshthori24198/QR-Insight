@@ -1,79 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./images/favicon1.png">
     <title>QR Insight</title>
-                                <!---------Icons Import-----  -->
+    <!---------Icons Import-----  -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-   
+
     <link rel="stylesheet" href="./Styles/index.css">
     <!-- <link rel="stylesheet" href="./Styles/botchat.css"> -->
-</head >
+</head>
+
 <body>
-                              <!-- --------Navigation Part--------- -->
+    <!-- --------Navigation Part--------- -->
     <nav>
-        <div ><img id="logo" src="./images/logo.png" alt=""></div>
+        <div><img id="logo" src="./images/logo.png" alt=""></div>
         <div class="dropdown">
             <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
             <div class="dropdown-content">
-                <a href="./View/scannar.html"> <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc=" alt=""> QR Scanner</a>
-                <a href="./View/qr.html"><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75" alt="">QR Code Generator</a>
-                <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75" alt="">Detail Analysis </a>
-                <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75" alt="">Dynamic QR Code</a>
+                <a href="./View/scannar.html"> <img
+                        src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc="
+                        alt=""> QR Scanner</a>
+                <a href="./View/qr.html"><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75"
+                        alt="">QR Code Generator</a>
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75"
+                        alt="">Detail Analysis </a>
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75"
+                        alt="">Dynamic QR Code</a>
             </div>
         </div>
         <div class="dropdown">
             <h4 class="nav-elem">Pricing <ion-icon name="chevron-down-outline"></ion-icon> </h4>
             <div class="dropdown-content">
-                
-                <a href=""><img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75" alt=""> Price Calculator</a>
-            <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
-            </div>            
-        </div>
-        <div><h4 class="nav-elem">About Us</h4></div>
-        <div><h4 class="nav-elem">Contact</h4></div>  
-        <div><p class="userName2"></p></div>
-        <div>            
-            <div class="dropdown" >
-                <ion-icon id="userIcon" name="person-circle-outline"></ion-icon>
-                <div class="dropdown-content" id="user-dropdown">
-                    <a href=""><p class="userName1"></p></a>
-                    <a href=""><p id="userDetails">Profile</p></a> 
-                    <a href=""><p onclick="clearLocalStorage()"  id="logoutBtn" id="userDetails">Logout</p></a>  
-                               
-                </div>                
-            </div>          
+
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75"
+                        alt=""> Price Calculator</a>
+                <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
+            </div>
         </div>
         <div>
-            <a  href="./View/login.html">
-                <button  id="loginBtn" class="Btn">Login</button>
-            </a>  
+            <h4 class="nav-elem">About Us</h4>
         </div>
-        <div  onclick="hamburger()">
+        <div>
+            <h4 class="nav-elem">Contact</h4>
+        </div>
+        <div>
+            <p class="userName2"></p>
+        </div>
+        <div>
+            <div class="dropdown">
+                <ion-icon id="userIcon" name="person-circle-outline"></ion-icon>
+                <div class="dropdown-content" id="user-dropdown">
+                    <a href="">
+                        <p class="userName1"></p>
+                    </a>
+                    <a href="">
+                        <p id="userDetails">Profile</p>
+                    </a>
+                    <a href="">
+                        <p onclick="clearLocalStorage()" id="logoutBtn" id="userDetails">Logout</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="./View/login.html">
+                <button id="loginBtn" class="Btn">Login</button>
+            </a>
+        </div>
+        <div onclick="hamburger()">
             <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
-        </div>            
+        </div>
         </div>
     </nav>
 
-                            <!-- ------------ChatBot Icon-------- -->
+    <!-- ------------ChatBot Icon-------- -->
 
     <div id="chatBot">
-        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon" name="chatbubble-ellipses-outline"></ion-icon></a>   
+        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon"
+                name="chatbubble-ellipses-outline"></ion-icon></a>
     </div>
-   
-                            <!-- -----------Hamburger Menu----------- -->
+
+    <!-- -----------Hamburger Menu----------- -->
 
     <div class="menu-page">
         <div>
             <img id="logo" src="./images/logo.png" alt="">
-            <div onclick="remove()" ><ion-icon  name="close"></ion-icon></div>            
-        </div>     
+            <div onclick="remove()"><ion-icon name="close"></ion-icon></div>
+        </div>
         <div class="dropdown-container">
-            <h1 >Products</h1>
+            <h1>Products</h1>
             <div class="dropdown-menu">
                 <div><a href="./View/scannar.html">QR Scanner</a></div>
                 <div><a href="./View/qr.html">QR Code Generator</a></div>
@@ -81,10 +106,10 @@
                 <div><a href="">Dynamic QR Code</a></div>
             </div>
             <div onclick="openProduct()">
-                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
             </div>
-           
-        </div>   
+
+        </div>
         <div>
             <h1>Pricing</h1>
             <div class="dropdown-price">
@@ -92,29 +117,31 @@
                 <div><a href="">Subscribe</a></div>
             </div>
             <div onclick="openPrice()">
-                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
             </div>
         </div>
         <h1><a href="./View/about.html"> About Us</a></h1>
         <h1><a href="">Contact</a> </h1>
-        <h1><a  id="loginBtn"  href="./View/login.html">Login</a></h1>
-        
+        <h1><a id="loginBtn" href="./View/login.html">Login</a></h1>
+
     </div>
 
-                <!-- ---------------Content On Landing Page--------------- -->
+    <!-- ---------------Content On Landing Page--------------- -->
 
     <div id="mainContainer">
-        <div  class="sectionA" id="landing" >
-            <div class="image"> 
+        <div class="sectionA" id="landing">
+            <div class="image">
                 <img id="welcome-img" src="https://www.unitag.io/index/hero-main.svg" alt="">
             </div>
             <div class="text">
                 <h3>Welcome to the Home of QR codes solutions for <span>Enterprises</span></h3>
-                <p>Thanks to our set of tools tailored to business needs and resolving around the QR code, Unitag has been helping companies to revolutionise their way of interacting with customers while improving revenues since 2014, enhancing internal processes, networking and labelling.</p>
+                <p>Thanks to our set of tools tailored to business needs and resolving around the QR code, Unitag has
+                    been helping companies to revolutionise their way of interacting with customers while improving
+                    revenues since 2014, enhancing internal processes, networking and labelling.</p>
                 <a href="./View/scannar.html"><button id="startNow">Start Now For Free</button></a>
-                
+
             </div>
-           
+
         </div>
         <div class="sectionA" id="a">
             <div class="image">
@@ -122,18 +149,22 @@
             </div>
             <div class="text">
                 <h3>Discover</h3>
-                <p>Don't waste the exposure you paid for on television commercials, billboards, direct mails, or print collaterals. To prioritize spendings on OOH, transform brand awareness to performance-driven campaigns with QR Codes.</p>
+                <p>Don't waste the exposure you paid for on television commercials, billboards, direct mails, or print
+                    collaterals. To prioritize spendings on OOH, transform brand awareness to performance-driven
+                    campaigns with QR Codes.</p>
             </div>
         </div>
         <div class="sectionA" id="b">
             <div class="image">
                 <img src="https://static.beaconstac.com/assets/img/homepage-ctas/cta-big-3.png" alt="">
-            </div> 
+            </div>
             <div class="text">
                 <h3>Relationship building</h3>
-                <p>80% of first-time users never return or advocate a brand unless you build an ongoing relationship with them. Use QR Codes to know your users in the real world, make a direct-to-consumer connection & retarget them online to stay on top of mind.</p>
+                <p>80% of first-time users never return or advocate a brand unless you build an ongoing relationship
+                    with them. Use QR Codes to know your users in the real world, make a direct-to-consumer connection &
+                    retarget them online to stay on top of mind.</p>
             </div>
-                       
+
 
         </div>
         <div class="sectionA" id="c">
@@ -142,82 +173,94 @@
             </div>
             <div class="text">
                 <h3>Smart networking</h3>
-                <p>Let your customers instantly save your contact information on their smartphones with a QR Code on business cards. Leverage editable and trackable digital business cards to network in a smart and engaging manner.</p>
+                <p>Let your customers instantly save your contact information on their smartphones with a QR Code on
+                    business cards. Leverage editable and trackable digital business cards to network in a smart and
+                    engaging manner.</p>
             </div>
         </div>
         <div class="sectionA" id="d">
             <div class="image">
-                <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqrcode-football.c5688d05.png&w=1080&q=75" alt="">
+                <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqrcode-football.c5688d05.png&w=1080&q=75"
+                    alt="">
             </div>
             <div class="text">
                 <h3>Customize QR Code</h3>
-                <p>QR Insight will push the limits of the creative world by offering our clients with the most advanced tools in QR generation, management and analytics. We have helped thousands of users reach their dreams.</p>
-            </div>           
+                <p>QR Insight will push the limits of the creative world by offering our clients with the most advanced
+                    tools in QR generation, management and analytics. We have helped thousands of users reach their
+                    dreams.</p>
+            </div>
         </div>
-        <h2 id="sec4-title"><span>QR Insight</span>  makes all your material "clickable"
+        <h2 id="sec4-title"><span>QR Insight</span> makes all your material "clickable"
             We make your interactions with your customers <span>programmable</span> </h2>
         <div class="sec4">
             <div>
                 <img src="https://www.unitag.io/index/unity-1.svg" alt="">
-                <div><h3>Answer business needs</h3></div>               
-            </div>
-            <div>
-                <img src="https://www.unitag.io/index/unity-2.svg" alt="">
-                <div><h3>Adapt to business needs</h3></div>             
-            </div>
-            <div>
-                <img src="https://www.unitag.io/products/analytics.svg" alt="">
-                <div><h3>Increse your revenue</h3></div>               
-            </div>
-        </div>       
-    </div>
-
-                            <!-------------Footer-------------  -->
-    <footer>
-       
-            <div id="footer-contact">
-                <div> 
-                    <div class="contact">
-                        <div> <ion-icon name="location-sharp"></ion-icon></div>
-                       
-                        <p>House N0 1 Shivaji Nagar ,Gandhi Road ,Delhi ,New Delhi</p> 
-                    </div>
-                    <div class="contact">
-                        <div><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
-                        
-                        <p> Chat With Us</p>
-                    </div>
-                    <div class="contact">
-                        <div> <ion-icon class="mail-icon" name="mail-sharp"></ion-icon> </div>
-                       
-                        <p>Contact Us</p> 
-                    </div> 
+                <div>
+                    <h3>Answer business needs</h3>
                 </div>
             </div>
             <div>
-                <h3>Useful Links</h3>
-                <p>QR Scanner</p>
-                <p>QR Code Generator</p>
-                <p>Detail Analysis</p>
-                <p>Dynamic QR Code</p>
-    
+                <img src="https://www.unitag.io/index/unity-2.svg" alt="">
+                <div>
+                    <h3>Adapt to business needs</h3>
+                </div>
             </div>
             <div>
-                <h3>About</h3>
-                <p>About Us</p>
-                <p>Contact</p>
-                <p>Blog</p>
+                <img src="https://www.unitag.io/products/analytics.svg" alt="">
+                <div>
+                    <h3>Increse your revenue</h3>
+                </div>
             </div>
-            
-            <div class="socialmedia">
-                <h3>Social-Media</h3>
-                <ion-icon name="logo-facebook"></ion-icon>
-                <ion-icon name="logo-linkedin"></ion-icon>
-                <ion-icon name="logo-twitter"></ion-icon>
-                <ion-icon name="logo-github"></ion-icon>
-            </div>        
+        </div>
+    </div>
+
+    <!-------------Footer-------------  -->
+    <footer>
+
+        <div id="footer-contact">
+            <div>
+                <div class="contact">
+                    <div> <ion-icon name="location-sharp"></ion-icon></div>
+
+                    <p>House N0 1 Shivaji Nagar ,Gandhi Road ,Delhi ,New Delhi</p>
+                </div>
+                <div class="contact">
+                    <div><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
+
+                    <p> Chat With Us</p>
+                </div>
+                <div class="contact">
+                    <div> <ion-icon class="mail-icon" name="mail-sharp"></ion-icon> </div>
+
+                    <p>Contact Us</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Useful Links</h3>
+            <p>QR Scanner</p>
+            <p>QR Code Generator</p>
+            <p>Detail Analysis</p>
+            <p>Dynamic QR Code</p>
+
+        </div>
+        <div>
+            <h3>About</h3>
+            <p>About Us</p>
+            <p>Contact</p>
+            <p>Blog</p>
+        </div>
+
+        <div class="socialmedia">
+            <h3>Social-Media</h3>
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+            <ion-icon name="logo-twitter"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
+        </div>
     </footer>
 </body>
+
 </html>
 
 
@@ -225,47 +268,54 @@
 <script src="./Scripts/userdisplay.js"></script>
 <script>
 
-    const icon=document.querySelector(".menu-page")
-    function hamburger(){
+    const icon = document.querySelector(".menu-page")
+    function hamburger() {
         console.log("menu-icon")
         icon.classList.add("activate")
     }
-    function remove(){
+    function remove() {
         console.log("close")
         icon.classList.remove("activate")
     }
-    const dropdownMenu=document.querySelector(".dropdown-menu")
-    function openProduct(){
+    const dropdownMenu = document.querySelector(".dropdown-menu")
+    function openProduct() {
         console.log("open")
-        dropdownMenu.classList.toggle("activate")        
+        dropdownMenu.classList.toggle("activate")
     }
-    const menuPrice=document.querySelector(".dropdown-price")
-    function openPrice(){
+    const menuPrice = document.querySelector(".dropdown-price")
+    function openPrice() {
         console.log("open")
-        menuPrice.classList.toggle("activate")        
-    }  
+        menuPrice.classList.toggle("activate")
+    }
 
 
     // let userName=[{name:"venkat",role:"Admin"}]
     // localStorage.setItem("qrcodeuserdetails",JSON.stringify(userName));
-    const name1=document.querySelector(".userName1")
-    const name2=document.querySelector(".userName2")
-    details =JSON.parse(localStorage.getItem("qrcodeuserdetails"))
+    const name1 = document.querySelector(".userName1")
+    const name2 = document.querySelector(".userName2")
+    details = JSON.parse(localStorage.getItem("qrcodeuserdetails"))
 
-    if(details){
-        name1.textContent =details.Name
-        name2.textContent =details.Name
-        logoutBtn.style.display="block"
-        document.getElementById("loginBtn").style.display="none"
-        document.getElementById("userIcon").style.display="block"
-        
+    if (details) {
+        name1.textContent = details.Name
+        name2.textContent = details.Name
+        logoutBtn.style.display = "block"
+        document.getElementById("loginBtn").style.display = "none"
+        document.getElementById("userIcon").style.display = "block"
+
     }
-    function clearLocalStorage(){
+    function clearLocalStorage() {
         localStorage.removeItem('qrcodeuserdetails');
-        alert("Logout Successfully")
+        
+        // Get the current URL
+        // var url = window.location.href;
+        // console.log(url);
+        
+        alert("Logout Successfully done")
+        
+        // Redirect to the modified URL
+
+        // window.location.href = url;
     }
-    
+
 
 </script>
-
-

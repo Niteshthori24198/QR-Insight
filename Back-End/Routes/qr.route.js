@@ -8,7 +8,12 @@ const qrRouter = Router();
 const { textQrRouter, linkQrRouter, phoneQrRouter, whatsappQrRouter, upiQrRouter, emailQrRouter, zoomQrRouter, wifiQrRouter, vcardQrRouter } = require('../Controllers/qr.controller');
 
 
+const { middleware } = require('../Middlewares/auth.middleware');
 
+
+
+// protected route checking middleware
+qrRouter.use(middleware)
 
 qrRouter.post('/text', textQrRouter)
 
