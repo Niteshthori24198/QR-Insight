@@ -13,7 +13,6 @@ const { blackmodel } = require("../Models/blackmodel");
 const { middleware } = require("../Middlewares/auth.middleware");
 
 
-
 const userroute=express.Router()
 
 
@@ -206,6 +205,7 @@ userroute.get('/auth/google/callback',
 userroute.get("/getdata", async(req,res)=>{
     try {
         let {_id}=req.query
+       
         let user=await UserModel.findOne({_id})
         res.send({"userdetails":user})
         
@@ -339,6 +339,7 @@ userroute.get("/callback",async (req,res)=>{
     })
 
     userEmail = await userEmail.json()
+    console.log(userEmail);
     
     //console.log(userEmail[0].email)
     let Email=userEmail[0].email

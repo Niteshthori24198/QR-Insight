@@ -3,6 +3,12 @@
     margin: 0;
     font-family: Verdana, Tahoma, sans-serif;
 }
+body{
+    background-image: url('https://img.freepik.com/free-photo/pastel-blue-vignette-concrete-textured-background_53876-102637.jpg');
+    background-size: cover;
+    background-size: 100%;
+    /* height: 100vh; */
+}
 
 #close-boxpankaj img{
      width: 25px;

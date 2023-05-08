@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
+    <title>QR Insight</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
+        integrity="sha512-r6rDA7W6ZeQhvl8S7yRVQUKVHdexq+GAlNkNNqVC7YyIV+NwqCTJe2hDWCiffTyRNOeGEzRRJ9ifvRm/HCzGYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <!---------Icons Import-----  -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <!-- Line Awesome CDN Link -->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+    <link rel="stylesheet" href="../Styles/index.css">
+
+    <link rel="stylesheet" href="../Styles/blog.css">
+</head>
+
+<body>
+
+    <!-- --------Navigation Part--------- -->
+    <nav>
+        <div>
+            <a href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="dropdown">
+            <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
+            <div class="dropdown-content">
+                <a href="./scannar.html">
+                    <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc="
+                        alt="">
+                    QR Scanner
+                </a>
+                <a href="./qr.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75"
+                        alt="">
+                    QR Code Generator
+                </a>
+                <a href="./scannar.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75"
+                        alt="">
+                    Detail Analysis
+                </a>
+                <a href="./qr.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75"
+                        alt="">
+                    Dynamic QR Code
+                </a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <h4 class="nav-elem">Pricing <ion-icon name="chevron-down-outline"></ion-icon> </h4>
+            <div class="dropdown-content">
+
+                <a href=""><img
+                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75"
+                        alt=""> Price Calculator</a>
+                <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
+            </div>
+        </div>
+        <div>
+            <a href="./about.html" style="color: black;">
+                <h4 class="nav-elem">About Us</h4>
+            </a>
+        </div>
+        <div>
+            <a href="./feedback.html">
+                <h4 class="nav-elem">Contact</h4>
+            </a>
+        </div>
+        <div>
+            <p class="userName2"></p>
+        </div>
+        <div>
+            <div class="dropdown">
+                <ion-icon id="userIcon" name="person-circle-outline"></ion-icon>
+                <div class="dropdown-content" id="user-dropdown">
+                    <a href="">
+                        <p class="userName1"></p>
+                    </a>
+                    <a href="">
+                        <p id="userDetails">Profile</p>
+                    </a>
+                    <a href="">
+                        <p onclick="clearLocalStorage()" id="logoutBtn">Logout</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="./login.html">
+                <button id="loginBtn" class="Btn">Login</button>
+            </a>
+        </div>
+        <div onclick="hamburger()">
+            <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+        </div>
+        </div>
+    </nav>
+
+
+
+    <!-- -----------Hamburger Menu----------- -->
+
+    <div class="menu-page">
+        <div>
+            <img id="logo" src="../images/logo.png" alt="">
+            <div onclick="remove()"><ion-icon name="close"></ion-icon></div>
+        </div>
+        <div class="dropdown-container">
+            <h1>Products</h1>
+            <div class="dropdown-menu">
+                <div><a href="./scannar.html">QR Scanner</a></div>
+                <div><a href="./qr.html">QR Code Generator</a></div>
+                <div><a href="./scannar.html">Detail Analysis</a></div>
+                <div><a href="./qr.html">Dynamic QR Code</a></div>
+            </div>
+            <div onclick="openProduct()">
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+            </div>
+
+        </div>
+        <div>
+            <h1>Pricing</h1>
+            <div class="dropdown-price">
+                <div><a href="">Calculate Amount</a></div>
+                <div><a href="">Subscribe</a></div>
+            </div>
+            <div onclick="openPrice()">
+                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
+            </div>
+        </div>
+        <h1><a href="./about.html"> About Us</a></h1>
+        <h1><a href="">Contact</a> </h1>
+
+    </div>
+
+
+
+
+
+    <!-- blog -->
+    <!-- qr code heading -->
+    <div id="qr_heading">
+        <h2>Our Blogs 💖</h2>
+    </div>
+    <main>
+        <section class="blog-post">
+            <h2>Using QR Codes for Contactless Payments</h2>
+            <p>QR codes are also being used for contactless payments, especially in developing countries where mobile
+                payment infrastructure is still being built out. To use QR codes for payments, customers simply scan a
+                code displayed by the merchant or service provider with their mobile phone, and the payment is processed
+                via a linked bank account or mobile wallet. This can be a faster and more convenient alternative to cash
+                payments or traditional card payments, especially in areas where carrying cash is inconvenient or
+                unsafe.</p>
+            <p>QR codes can also be used to donate to charitable causes, by scanning a code displayed on a poster or on
+                a website. This can be an effective way to raise awareness and funds for a cause, as it makes it easy
+                for people to donate on the spot.</p>
+            <div class="author-info">
+                <img src="../images/developer/kishan.png" alt="Author Avatar">
+                <div class="author-name">By kishan Sharma</div>
+            </div>
+        </section>
+        <section class="blog-post">
+            <h2>How to use QR Codes for your Business</h2>
+            <p>QR codes can be a great way to market your business and engage with your customers. Here are some tips
+                for using QR codes effectively:</p>
+            <ul>
+                <li>Include a call-to-action: Tell customers what to expect when they scan the QR code, such as a
+                    discount or special offer.</li>
+                <li>Make it easy to scan: Ensure that the QR code is large enough and in a prominent location.</li>
+                <li>Use a mobile-optimized landing page: Make sure the landing page is optimized for mobile devices.
+                </li>
+            </ul>
+            <p>By following these tips, you can use QR codes to increase customer engagement and drive sales.</p>
+            <div class="author-info">
+                <img src="../images/developer/nitesh.jpg" alt="Author Avatar">
+                <div class="author-name">By Nitesh Kumar</div>
+            </div>
+        </section>
+        <section class="blog-post">
+            <h2>5 Creative Ways to Use QR Codes</h2>
+            <p>QR codes aren't just for marketing. Here are five creative ways to use QR codes:</p>
+            <ol>
+                <li>Use QR codes to track inventory</li>
+                <li>Include QR codes on business cards</li>
+                <li>Use QR codes for scavenger hunts</li>
+                <li>Create interactive menus with QR codes</li>
+                <li>Include QR codes on product packaging to provide additional information</li>
+            </ol>
+            <p>By thinking outside the box, you can use QR codes in a variety of creative ways.</p>
+            <div class="author-info">
+                <img src="../images/developer/rajesh.png" alt="Author Avatar">
+                <div class="author-name">By Rajesh Kumar</div>
+            </div>
+        </section>
+        <section class="blog-post">
+            <h2>How QR Codes are Used in Healthcare</h2>
+            <p>QR codes have become increasingly popular in the healthcare industry for a variety of purposes, such as:
+            </p>
+            <ul>
+                <li>Linking to patient records and medical histories</li>
+                <li>Providing access to medication instructions and dosages</li>
+                <li>Tracking medical equipment and supplies</li>
+                <li>Providing access to training materials for healthcare professionals</li>
+            </ul>
+            <p>By using QR codes, healthcare providers can streamline their workflows and improve patient care.</p>
+            <div class="author-info">
+                <img src="../images//developer/Venkatesh.jpg" alt="Author Avatar">
+                <div class="author-name">By Venkatesh</div>
+            </div>
+        </section>
+
+        <section class="blog-post">
+            <h2>QR Codes for Event Planning and Management</h2>
+            <p>QR codes can be used in event planning and management to simplify registration, provide access to event
+                schedules, and provide other useful information to attendees. Here are some ways QR codes can be used in
+                event planning:</p>
+            <ul>
+                <li>Link to event registration forms</li>
+                <li>Provide access to event schedules and maps</li>
+                <li>Provide access to event-related materials such as presentations and handouts</li>
+                <li>Enable networking by allowing attendees to exchange contact information</li>
+            </ul>
+            <p>By using QR codes, event planners can enhance the attendee experience and improve the efficiency of event
+                management.</p>
+            <div class="author-info">
+                <img src="../images/developer/pankaj.png" alt="Author Avatar">
+                <div class="author-name">By Pankaj</div>
+            </div>
+        </section>
+
+        <section class="blog-post">
+            <h2>Using QR Codes for Education and Learning</h2>
+            <p>QR codes can be used in education and learning to provide access to supplementary materials, such as:</p>
+            <ul>
+                <li>Online quizzes and assessments</li>
+                <li>Interactive maps and diagrams</li>
+                <li>Video tutorials and lectures</li>
+                <li>Additional reading materials</li>
+            </ul>
+            <p>By using QR codes, educators can provide students with a more engaging and interactive learning
+                experience.</p>
+            <div class="author-info">
+                <img src="../images/developer/kishan.png" alt="Author Avatar">
+                <div class="author-name">By Kishan Sharma</div>
+            </div>
+        </section>
+
+        <section class="blog-post">
+            <h2>QR Codes for Marketing Real Estate</h2>
+            <p>QR codes can be used in real estate marketing to provide potential buyerswith access to property
+                information and virtual tours. Here are some ways QR codes can be used in real estate:</p>
+            <ul>
+                <li>Link to property listings and details</li>
+                <li>Provide access to virtual tours and photos</li>
+                <li>Enable contactless communication with real estate agents</li>
+                <li>Link to mortgage and financing information</li>
+            </ul>
+            <p>By using QR codes, real estate agents can provide a more immersive and convenient home buying experience
+                for their clients.</p>
+            <div class="author-info">
+                <img src="../images/developer/nitesh.jpg" alt="Author Avatar">
+                <div class="author-name">By Nitesh Kumar</div>
+            </div>
+        </section>
+        <section class="blog-post">
+            <h2>QR Codes for Contact Tracing</h2>
+            <p>QR codes can be used for contact tracing during public health emergencies, such as the COVID-19 pandemic.
+                By scanning a QR code at a business or event, individuals can provide their contact information for
+                contact tracing purposes. Here are some benefits of using QR codes for contact tracing:</p>
+            <ul>
+                <li>Fast and efficient data collection</li>
+                <li>Reduced reliance on manual contact tracing methods</li>
+                <li>Increased accuracy and completeness of data</li>
+                <li>Improved public health outcomes through faster identification of potential exposures</li>
+            </ul>
+            <p>By using QR codes for contact tracing, businesses and organizations can help prevent the spread of
+                infectious diseases and protect public health.</p>
+            <div class="author-info">
+                <img src="../images/developer/kishan.png" alt="Author Avatar">
+                <div class="author-name">By Kishan Sharma</div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-------------Footer-------------  -->
+    <footer>
+
+        <div id="footer-contact">
+            <div>
+                <div class="contact">
+                    <div> <ion-icon name="location-sharp"></ion-icon></div>
+
+                    <p>House N0 1 Shivaji Nagar ,Gandhi Road ,Delhi ,New Delhi</p>
+                </div>
+                <div class="contact">
+                    <div><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
+
+                    <p><a href="./botchat.html" target="_blank">
+                            Chat With Us
+                        </a></p>
+                </div>
+                <div class="contact">
+                    <div> <ion-icon class="mail-icon" name="mail-sharp"></ion-icon> </div>
+
+                    <!-- Contact us page link -->
+                    <p>
+                        <a href="./feedback.html">
+                            Contact Us
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Useful Links</h3>
+            <p>
+                <a href="./scannar.html">
+                    QR Scanner
+                </a>
+            </p>
+            <p>
+                <a href="./qr.html">
+                    QR Code Generator
+                </a>
+            </p>
+            <p>
+                <a href="./scannar.html">
+                    Detail Analysis
+                </a>
+            </p>
+            <p>
+                <a href="./qr.html">
+                    Dynamic QR Code
+                </a>
+            </p>
+
+        </div>
+        <div>
+            <h3>About</h3>
+            <p>
+                <a href="./about.html">
+                    About Us
+                </a>
+            </p>
+            <p>
+                <a href="./feedback.html">
+                    Contact
+                </a>
+            </p>
+            <p>
+                <a href="./blog.html">
+                    Blog
+                </a>
+            </p>
+        </div>
+
+        <div class="socialmedia">
+            <h3>Social-Media</h3>
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+            <ion-icon name="logo-twitter"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
+
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
+
+<script src="../Scripts/navbar.js"></script>
