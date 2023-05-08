@@ -12,6 +12,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="../Styles/profile.css">
     <!-- <link rel="stylesheet" href="./Styles/botchat.css"> -->
 </head>
 
@@ -76,7 +77,7 @@
                     <a href="">
                         <p class="userName1"></p>
                     </a>
-                    <a href="">
+                    <a href="./profile.html">
                         <p id="userDetails">Profile</p>
                     </a>
                     <a href="" id="Dashboard_admin_nav">
@@ -90,7 +91,7 @@
             </div>
         </div>
         <div>
-            <a href="./View/login.html">
+            <a href="./login.html">
                 <button id="loginBtn" class="Btn">Login</button>
             </a>
         </div>
@@ -110,10 +111,10 @@
         <div class="dropdown-container">
             <h1>Products</h1>
             <div class="dropdown-menu">
-                <div><a href="./View/scannar.html">QR Scanner</a></div>
-                <div><a href="./View/qr.html">QR Code Generator</a></div>
-                <div><a href="./View/scannar.html">Detail Analysis</a></div>
-                <div><a href="./View/qr.html">Dynamic QR Code</a></div>
+                <div><a href="./scannar.html">QR Scanner</a></div>
+                <div><a href="./qr.html">QR Code Generator</a></div>
+                <div><a href="./scannar.html">Detail Analysis</a></div>
+                <div><a href="./qr.html">Dynamic QR Code</a></div>
             </div>
             <div onclick="openProduct()">
                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
@@ -130,15 +131,15 @@
                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
             </div>
         </div>
-        <h1><a href="./View/about.html"> About Us</a></h1>
-        <h1><a href="">Contact</a> </h1>
+        <h1><a href="./about.html"> About Us</a></h1>
+        <h1><a href="./feedback.html">Contact</a> </h1>
 
     </div>
 
     <!-- ------------ChatBot Icon-------- -->
 
     <div id="chatBot">
-        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon"
+        <a href="./botchat.html" target="_blank"><ion-icon id="chatbot-icon"
                 name="chatbubble-ellipses-outline"></ion-icon></a>
     </div>
 
@@ -150,39 +151,52 @@
                 <img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=900" alt="">
             </div>
             <div id="backgroung-img">
-                <img src="https://img.freepik.com/free-photo/navy-blue-concrete-wall-with-scratches_53876-102666.jpg?w=1380&t=st=1683553727~exp=1683554327~hmac=e88ce4295ca6d3e4215cfe09c38cfb7f792dc879f72968e5810b1bb8296f07ba" alt="">
+                <img src="https://img.freepik.com/free-photo/navy-blue-concrete-wall-with-scratches_53876-102666.jpg?w=1380&t=st=1683553727~exp=1683554327~hmac=e88ce4295ca6d3e4215cfe09c38cfb7f792dc879f72968e5810b1bb8296f07ba"
+                    alt="">
             </div>
-            <div><h2 id="login-user-name"></h2></div>
-        </div>        
+            <div>
+                <h2 id="login-user-name"></h2>
+            </div>
+        </div>
         <div>
             <form>
 
-                <label for="email">Email ID:</label>
-                <input type="email" id="login-user-email"  disabled><br>
-              
-                <label for="address">Address:</label>
-                <input type="text" id="login-user-address"  disabled><br>
-              
-                <label for="gender">Gender:</label>
-                <input type="text" id="login-user-gender"  disabled>
-              
-                <label for="role">Role:</label>
-                <input type="text" id="login-user-role"  disabled><br>
-              
-                <!-- <input type="submit" value="Submit"> -->
-               <div>
-                 <button id="user-profile-updateBtn">Update</button>    
-                 
-                    <button id="user-profile-updatePassword" onclick="updatePassword()"> Change Password</button>
-                   
-                 <button id="user-profile-deleteBtn">Delete My Account</button>
-               </div>
                 
-            </form>              
+                <label for="email">Name:</label>
+                <input type="email" id="login-user-name-input" ><br>
+
+
+                <label for="address">Address:</label>
+                <input type="text" id="login-user-address" ><br>
+                
+                
+                <label for="gender">Gender:</label>
+                <select id="login-user-gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <label for="role">Role:</label>
+                <input type="text" id="login-user-role" disabled style="color: rgb(6, 147, 234);"><br>
+
+                <label for="email">Email ID:</label>
+                <input type="email" id="login-user-email" disabled style="color: rgb(6, 147, 234);"><br>
+
+                <!-- <input type="submit" value="Submit"> -->
+                
+            </form>
+            <div>
+                <button id="user-profile-updateBtn" onclick="updateProfile()">Update</button>
+
+                <button id="user-profile-updatePassword" onclick="forgotPasswordBtnProfile()"> Change Password</button>
+
+                <button id="user-profile-deleteBtn" onclick="deleteProfile()">Delete My Account</button>
+            </div>
+
         </div>
 
     </div>
-
 
     <!-------------Footer-------------  -->
     <footer>
@@ -197,16 +211,16 @@
                 <div class="contact">
                     <div><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
 
-                    <p><a href="./View/botchat.html" target="_blank">
-                        Chat With Us
-                    </a></p>
+                    <p><a href="./botchat.html" target="_blank">
+                            Chat With Us
+                        </a></p>
                 </div>
                 <div class="contact">
                     <div> <ion-icon class="mail-icon" name="mail-sharp"></ion-icon> </div>
 
                     <!-- Contact us page link -->
                     <p>
-                        <a href="">
+                        <a href="./feedback.html">
                             Contact Us
                         </a>
                     </p>
@@ -216,22 +230,22 @@
         <div>
             <h3>Useful Links</h3>
             <p>
-                <a href="./View/scannar.html">
+                <a href="./scannar.html">
                     QR Scanner
                 </a>
             </p>
             <p>
-                <a href="./View/qr.html">
+                <a href="./qr.html">
                     QR Code Generator
                 </a>
             </p>
             <p>
-                <a href="./View/scannar.html">
+                <a href="./scannar.html">
                     Detail Analysis
                 </a>
             </p>
             <p>
-                <a href="./View/qr.html">
+                <a href="./qr.html">
                     Dynamic QR Code
                 </a>
             </p>
@@ -240,17 +254,17 @@
         <div>
             <h3>About</h3>
             <p>
-                <a href="./View/about.html">
+                <a href="./about.html">
                     About Us
                 </a>
             </p>
             <p>
-                <a href="">
+                <a href="./feedback.html">
                     Contact
                 </a>
             </p>
             <p>
-                <a href="./View/about.html">
+                <a href="./blog.html">
                     Blog
                 </a>
             </p>
@@ -271,88 +285,7 @@
 </html>
 
 
+<script src="../Scripts/profile.js"></script>
 
-<script src="./Scripts/userdisplay.js"></script>
-<script src="./Scripts//navbar.js"></script>
-
-<script>
-    
-    setTimeout(()=>{
-        showUsername();
-    populate();   
-    },1000)
-    
-
-    function showUsername() {
-        const name1 = document.querySelector(".userName1")
-        const name2 = document.querySelector(".userName2")
-        const details = JSON.parse(localStorage.getItem("qrcodeuserdetails")) || null
-
-        if (details) {
-            name1.textContent = details.Name.split(" ")[0]
-            name2.textContent = details.Name.split(" ")[0]
-            document.getElementById("logoutBtn").style.display = "block"
-            document.getElementById("loginBtn").style.display = "none"
-            document.getElementById("userIcon").style.display = "block"
-
-            if (details.Role === "Admin") {
-                document.getElementById('Dashboard_admin_nav').style.display = "block"
-            }
-
-        }
-    }
-
-    function clearLocalStorage() {
-        localStorage.removeItem('qrcodeuserdetails');
-        document.getElementById("logoutBtn").style.display = "none"
-        document.getElementById("loginBtn").style.display = "block"
-
-        document.getElementById('Dashboard_admin_nav').style.display = "none"
-
-        document.getElementById("userIcon").style.display = "none"
-
-        // clearing query from link
-
-        var currentUrl = window.location.href;
-
-        // Check if the URL contains the query parameter we want to remove
-        if (currentUrl.indexOf('?userid=') !== -1) {
-            // Remove the query parameter
-            var newUrl = currentUrl.replace(/(\?|&)userid=[^&]*(&|$)/, '$1');
-
-            // Update the URL without refreshing the page
-            history.replaceState(null, null, newUrl);
-        }
-
-        alert("Logout Successfully")
-    }
-    
-    
-
-    function populate(){
-        const details = JSON.parse(localStorage.getItem("qrcodeuserdetails")) || null
-        console.log(details)
-
-        if(details){
-            const userName=document.getElementById("login-user-name")
-            // const userPassword=document.getElementById("login-user-password")
-            const userEmail=document.getElementById("login-user-email")
-            const userAddress=document.getElementById("login-user-address")
-            const userRole=document.getElementById("login-user-role")
-            const userGender=document.getElementById("login-user-gender")
-
-            userName.value=details.Name;
-            // userPassword.value=details.Password;
-            userEmail.value=details.Email;
-            userAddress.value=details.Address;
-            userRole.value=details.Role;
-            userGender.value=details.Gender
-        }
-    }
-
-    function updatePassword(){
-        console.log("update")
-        location.href="./forgetpass.html"
-    }
-
-</script>
+<script src="../Scripts/userdisplay.js"></script>
+<script src="../Scripts/navbar.js"></script>
