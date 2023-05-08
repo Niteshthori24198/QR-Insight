@@ -88,7 +88,7 @@ nav div:hover{
 #logoutBtn{
   display: none;
 }
-.loginBtn:hover{
+#loginBtn:hover{
   background-color: rgb(217, 224, 224);
   color: #00A1E0;
   transform: scale(0.9);
@@ -450,7 +450,7 @@ display: flex;
     /* background-color: #00A1E0; */
     /* border: solid red; */
   }
-  .loginBtn{
+  #loginBtn{
     display: none;
   }
   #user-dropdown{
