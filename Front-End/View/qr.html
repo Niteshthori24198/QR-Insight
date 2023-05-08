@@ -28,27 +28,36 @@
 
 <body>
 
-
-
-
     <!-- --------Navigation Part--------- -->
     <nav>
-        <div><img id="logo" src="../images/logo.png" alt=""></div>
+        <div>
+            <a href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="">
+            </a>
+        </div>
         <div class="dropdown">
             <h4 class="nav-elem">Products <ion-icon name="chevron-down-outline"></ion-icon></h4>
             <div class="dropdown-content">
-                <a href="./View/scannar.html"> <img
-                        src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc="
-                        alt=""> QR Scanner</a>
-                <a href="./View/qr.html"><img
-                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75"
-                        alt="">QR Code Generator</a>
-                <a href=""><img
-                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75"
-                        alt="">Detail Analysis </a>
-                <a href=""><img
-                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75"
-                        alt="">Dynamic QR Code</a>
+                <a href="./scannar.html">
+                    <img src="https://media.istockphoto.com/id/1324087782/vector/qr-code-smartphone-in-hand-icon-abstract-vector-bar-code-vector-illustration.jpg?s=612x612&w=0&k=20&c=DxsBC2ZrRysegucpg5qHJd6BR_dxmPAWpSaRvVbLvLc="
+                        alt="">
+                    QR Scanner
+                </a>
+                <a href="./qr.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fqr-code-free.491f89af.png&w=96&q=75"
+                        alt="">
+                    QR Code Generator
+                </a>
+                <a href="./scannar.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fanalytics-blue.5188059c.png&w=96&q=75"
+                        alt="">
+                    Detail Analysis
+                </a>
+                <a href="./qr.html">
+                    <img src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdynamic_qr.ace7a1d3.png&w=96&q=75"
+                        alt="">
+                    Dynamic QR Code
+                </a>
             </div>
         </div>
         <div class="dropdown">
@@ -62,7 +71,9 @@
             </div>
         </div>
         <div>
-            <h4 class="nav-elem">About Us</h4>
+            <a href="./about.html" style="color: black;">
+                <h4 class="nav-elem">About Us</h4>
+            </a>
         </div>
         <div>
             <h4 class="nav-elem">Contact</h4>
@@ -81,7 +92,7 @@
                         <p id="userDetails">Profile</p>
                     </a>
                     <a href="">
-                        <p onclick="clearLocalStorage()" id="logoutBtn" id="userDetails">Logout</p>
+                        <p onclick="clearLocalStorage()" id="logoutBtn">Logout</p>
                     </a>
 
                 </div>
@@ -98,12 +109,7 @@
         </div>
     </nav>
 
-    <!-- ------------ChatBot Icon-------- -->
 
-    <!-- <div id="chatBot">
-        <a href="./View/botchat.html" target="_blank"><ion-icon id="chatbot-icon"
-                name="chatbubble-ellipses-outline"></ion-icon></a>
-    </div> -->
 
     <!-- -----------Hamburger Menu----------- -->
 
@@ -115,10 +121,10 @@
         <div class="dropdown-container">
             <h1>Products</h1>
             <div class="dropdown-menu">
-                <div><a href="./View/scannar.html">QR Scanner</a></div>
-                <div><a href="./View/qr.html">QR Code Generator</a></div>
-                <div><a href="">Detail Analysis</a></div>
-                <div><a href="">Dynamic QR Code</a></div>
+                <div><a href="./scannar.html">QR Scanner</a></div>
+                <div><a href="./qr.html">QR Code Generator</a></div>
+                <div><a href="./scannar.html">Detail Analysis</a></div>
+                <div><a href="./qr.html">Dynamic QR Code</a></div>
             </div>
             <div onclick="openProduct()">
                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
@@ -135,12 +141,10 @@
                 <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
             </div>
         </div>
-        <h1><a href="./View/about.html"> About Us</a></h1>
+        <h1><a href="./about.html"> About Us</a></h1>
         <h1><a href="">Contact</a> </h1>
-        <h1><a id="loginBtn" href="./View/login.html" >Login</a></h1>
 
     </div>
-
 
 
 
@@ -1242,8 +1246,86 @@
 
 
 
+    <!-------------Footer-------------  -->
     <footer>
-        Footer
+
+        <div id="footer-contact">
+            <div>
+                <div class="contact">
+                    <div> <ion-icon name="location-sharp"></ion-icon></div>
+
+                    <p>House N0 1 Shivaji Nagar ,Gandhi Road ,Delhi ,New Delhi</p>
+                </div>
+                <div class="contact">
+                    <div><ion-icon class="chat-icon" name="chatbubble-ellipses-outline"></ion-icon></div>
+
+                    <p><a href="./botchat.html" target="_blank">
+                            Chat With Us
+                        </a></p>
+                </div>
+                <div class="contact">
+                    <div> <ion-icon class="mail-icon" name="mail-sharp"></ion-icon> </div>
+
+                    <!-- Contact us page link -->
+                    <p>
+                        <a href="">
+                            Contact Us
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Useful Links</h3>
+            <p>
+                <a href="./scannar.html">
+                    QR Scanner
+                </a>
+            </p>
+            <p>
+                <a href="./qr.html">
+                    QR Code Generator
+                </a>
+            </p>
+            <p>
+                <a href="./scannar.html">
+                    Detail Analysis
+                </a>
+            </p>
+            <p>
+                <a href="./qr.html">
+                    Dynamic QR Code
+                </a>
+            </p>
+
+        </div>
+        <div>
+            <h3>About</h3>
+            <p>
+                <a href="./about.html">
+                    About Us
+                </a>
+            </p>
+            <p>
+                <a href="">
+                    Contact
+                </a>
+            </p>
+            <p>
+                <a href="./about.html">
+                    Blog
+                </a>
+            </p>
+        </div>
+
+        <div class="socialmedia">
+            <h3>Social-Media</h3>
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-linkedin"></ion-icon>
+            <ion-icon name="logo-twitter"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
+
+        </div>
     </footer>
 
 </body>

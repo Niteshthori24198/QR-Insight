@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Sans&display=swap');
 
 
-*{
+* {
   font-family: 'Open Sans', sans-serif;
-  margin: 0; 
-  box-sizing: border-box; 
+  margin: 0;
+  box-sizing: border-box;
   padding: 0;
-  font-size: 20px;  
+  font-size: 20px;
 }
 
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
 /* <---------------------------Navigation Start -------------------------> */
-nav{
+nav {
   position: fixed;
   z-index: 1;
   top: 0px;
@@ -20,19 +27,21 @@ nav{
   align-items: center;
   padding: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: white; 
+  background-color: white;
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
 }
-nav div:hover{
+
+nav div:hover {
   cursor: pointer;
-  color:#00A1E0;
-  border-bottom:2px solid #00A1E0 ;
- 
+  color: #00A1E0;
+  border-bottom: 2px solid #00A1E0;
+
 }
+
 .dropdown-content {
   /* border: solid red; */
-  width:18%;
+  width: 18%;
   cursor: pointer;
   display: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -41,14 +50,17 @@ nav div:hover{
   position: absolute;
   z-index: 1;
 }
-#user-dropdown{
-  width:10%;
+
+#user-dropdown {
+  width: 10%;
 }
-.dropdown-content p{
+
+.dropdown-content p {
   font-size: small;
   padding: 10px
 }
-.dropdown-content img{
+
+.dropdown-content img {
   width: 40px;
 }
 
@@ -59,24 +71,30 @@ nav div:hover{
   text-decoration: none;
   display: block;
 }
-.dropdown-content a:hover{
-  color:#00A1E0;
+
+.dropdown-content a:hover {
+  color: #00A1E0;
   background-color: rgb(217, 224, 224);
   border-radius: 10px;
 }
-.dropdown:hover .dropdown-content ,.dropdown:hover #user-dropdown {
+
+.dropdown:hover .dropdown-content,
+.dropdown:hover #user-dropdown {
   display: block;
 }
-#logo{
+
+#logo {
   width: 200px;
   /* border: solid red; */
 }
-#userIcon{
+
+#userIcon {
   font-size: 40px;
   margin-bottom: -10%;
   display: none
 }
-.Btn{
+
+.Btn {
   /* display: none; */
   padding: 10px;
   cursor: pointer;
@@ -87,10 +105,12 @@ nav div:hover{
   border: 0px;
   transition: transform .5s ease-in;
 }
-#logoutBtn{
+
+#logoutBtn {
   display: none;
 }
-#loginBtn:hover{
+
+#loginBtn:hover {
   background-color: rgb(217, 224, 224);
   color: #00A1E0;
   transform: scale(0.9);
@@ -98,24 +118,26 @@ nav div:hover{
 
 /* ----------------------------Hamburger Menu-------------------------- */
 
-@keyframes slideInLeft{
-  from{
+@keyframes slideInLeft {
+  from {
     transform: translateX(-100%);
   }
-  to{
+
+  to {
     transform: translateX(0);
   }
 }
 
-.menu-icon{
-  display:none;
+.menu-icon {
+  display: none;
   font-size: 55px;
 }
-.menu-icon:hover{
+
+.menu-icon:hover {
   color: #00A1E0;
 }
 
-.menu-page{
+.menu-page {
   background-color: rgb(255, 255, 255);
   top: 0;
   position: fixed;
@@ -125,40 +147,45 @@ nav div:hover{
   padding: 20px;
   display: none;
   animation: slideInLeft .5s ease-in 0s 1 normal forwards;
-  
+
 }
 
-.menu-page.activate{
-  display:block ;
+.menu-page.activate {
+  display: block;
 }
-.menu-page a{
+
+.menu-page a {
   text-decoration: none;
   color: black;
 }
-.menu-page h1{
-  margin-top:50px;
+
+.menu-page h1 {
+  margin-top: 50px;
   width: 85%;
   border-bottom: solid rgba(133, 127, 127, 0.659);
 }
-.menu-page h1:hover{
+
+.menu-page h1:hover {
   color: #00A1E0;
   cursor: pointer;
 }
 
-.menu-page div{
+.menu-page div {
   display: flex;
   justify-content: space-between;
 }
-.menu-page ion-icon{
+
+.menu-page ion-icon {
   font-size: 40px;
 }
-.down-arrow{
-  margin:50px 40px 0 0;
-  color:#00A1E0;
+
+.down-arrow {
+  margin: 50px 40px 0 0;
+  color: #00A1E0;
   z-index: -1;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   width: 75%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   position: fixed;
@@ -166,9 +193,10 @@ nav div:hover{
   display: flex;
   flex-direction: column;
   background-color: white;
-  
+
 }
-.dropdown-price{
+
+.dropdown-price {
   width: 75%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   position: fixed;
@@ -177,47 +205,57 @@ nav div:hover{
   flex-direction: column;
   background-color: white;
 }
-.dropdown-menu a,.dropdown-price a{ 
+
+.dropdown-menu a,
+.dropdown-price a {
   text-decoration: none;
-  color:black;
-  line-height: 50px;  
+  color: black;
+  line-height: 50px;
 }
-.dropdown-menu div,.dropdown-price div{
+
+.dropdown-menu div,
+.dropdown-price div {
   display: none;
   padding: 10px;
   border-radius: 10px;
 }
-.dropdown-menu div:hover,.dropdown-price div:hover {
-  color:#00A1E0;
+
+.dropdown-menu div:hover,
+.dropdown-price div:hover {
+  color: #00A1E0;
   background-color: rgb(217, 224, 224);
 
 }
-.dropdown-menu.activate div,.dropdown-price.activate div{
+
+.dropdown-menu.activate div,
+.dropdown-price.activate div {
   display: block;
-  
+
 }
 
 
 /*------------ maincontainer----------- */
-#mainContainer{
+#mainContainer {
   /* border:solid red; */
-  width:90%;
-  margin:auto;
+  width: 90%;
+  margin: auto;
   position: relative;
   top: 80px;
 }
 
 /* ----------landing---------- */
 
-#welcome-img{
+#welcome-img {
   width: 400px;
   transition: transform .5s ease;
   /* border:solid red */
 }
-#welcome-img:hover{
+
+#welcome-img:hover {
   transform: scale(1.05);
 }
-#startNow{
+
+#startNow {
   cursor: pointer;
   margin-top: 40px;
   padding: 10px;
@@ -228,7 +266,8 @@ nav div:hover{
   border: 0px;
   transition: transform .5s ease;
 }
-#startNow:hover{
+
+#startNow:hover {
   background-color: rgb(217, 224, 224);
   color: #00A1E0;
   transform: scale(0.9);
@@ -236,37 +275,42 @@ nav div:hover{
 
 /* --------------------ChatBot-------------------- */
 
-#chatBot{
+#chatBot {
   cursor: pointer;
-  display:flex;
+  display: flex;
   padding: 8px;
   background-color: #00A1E0;
   color: white;
   font-weight: bold;
   position: fixed;
   z-index: 1;
-  border-top:50px ;
+  border-top: 50px;
   border-radius: 0 25px 25px 25px;
   top: 90%;
   left: 87%;
   transition: transform .5s;
 }
-#chatBot a{
+
+#chatBot a {
   text-decoration: none;
   color: white;
 }
-#chatbot-icon{
-    font-size: 40px;
+
+#chatbot-icon {
+  font-size: 40px;
 }
-#chatbot-icon:hover{
+
+#chatbot-icon:hover {
   color: #00A1E0;
   background-color: white;
   border-radius: 15px;
 }
-#chatBot:hover{
- 
+
+#chatBot:hover {
+
   transform: scale(1.2);
 }
+
 /* .chatbot-container{
   position: fixed;
   width: 80%;
@@ -278,70 +322,88 @@ nav div:hover{
 
 /* --------section 4------------- */
 
-.sec4{
+.sec4 {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
 }
-.sec4 img{
+
+.sec4 img {
   transition: transform .3s ease-in;
+  height: 300px;
 }
-.sec4 img:hover{
+
+.sec4 img:hover {
   transform: scale(1.05);
 }
-#sec4-title{
-    font-size: 35px;
-    margin: 50px 0px 50px 0px;
-    text-align: center;
+
+#sec4-title {
+  font-size: 35px;
+  margin: 50px 0px 50px 0px;
+  text-align: center;
 }
-#sec4-title span{
-    color: #00A1E0;
-    font-size: 35px;
+
+#sec4-title span {
+  color: #00A1E0;
+  font-size: 35px;
 }
+
 /* ----------- Section A------------ */
 
-.sectionA{
-    margin-top: 50px;
-    display: flex;
+.sectionA {
+  margin-top: 50px;
+  display: flex;
 }
-.sectionA img{
-    width: 400px;
-    transition:transform .3s ease ;
+
+.sectionA img {
+  width: 400px;
+  transition: transform .3s ease;
 }
-.sectionA img:hover{
-  transform:scale(1.03)
+
+.sectionA img:hover {
+  transform: scale(1.03)
 }
-.image, .text{
+
+.image,
+.text {
   width: 45%;
   margin: auto;
 }
-.text a{
+
+.text a {
   text-decoration: none;
-  color:white;
+  color: white;
 }
-.sectionA h3{
-    font-size: 50px;
-}
-.sectionA h3{
+
+.sectionA h3 {
   font-size: 50px;
 }
-.sectionA span{
+
+.sectionA h3 {
+  font-size: 50px;
+}
+
+.sectionA span {
   color: #00A1E0;
   font-size: 50px;
 }
-.sectionA{
+
+.sectionA {
   display: flex;
 }
-#b,#d,#landing{
+
+#b,
+#d,
+#landing {
   flex-direction: row-reverse;
 }
 
 
 
 /* ------------Footer---------------- */
-footer{
+footer {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   position: relative;
   top: 120px;
   width: 100%;
@@ -349,153 +411,182 @@ footer{
   font-size: 20px;
   background-color: rgb(217, 224, 224);
 }
-footer ion-icon{
+
+footer ion-icon {
   font-size: 40px;
   color: #00A1E0;
   transition: transform .5s ease-in;
- 
+  /* border: 1px solid red; */
+
 }
-footer ion-icon:hover{
+
+footer ion-icon:hover {
   color: rgb(0, 0, 0);
   /* background-color: #00A1E0; */
   transform: scale(0.9);
 
 }
-footer p{
-  margin: 0 0 0px 20px;
+
+footer p {
+  margin: 5px 0 0px 50px;
 }
-footer h3{
+
+footer p:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+footer h3 {
   margin-top: 20px;
+  margin-left: 50px;
 }
-footer div{
-  text-align: center;
-}
-footer div:nth-child(1){
+
+
+
+
+footer div:nth-child(1) {
   text-align: left;
 }
 
-#footer-contact{
-display: flex;
 
-/* border:solid red */
-}
-.contact{
+#footer-contact {
   display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  /* border:solid red */
+}
+
+.contact {
+  display: flex;
+  /* border: 1px solid red; */
   margin: 20px 0 0 0;
 }
 
 
-.socialmedia ion-icon{
+.socialmedia ion-icon {
   margin: 20px 20px 0 0;
   /* color: aqua; */
 }
 
- 
+
 /*<------------------- Media Queries-----------------------> */
 
 /* ----------Medium Screen------- */
 @media screen and (min-width:750px) and (max-width:1120px) {
-  .sectionA h3{
+  .sectionA h3 {
     font-size: 40px;
-}
-.sec4 img{
-  width: 200px;
-}
-#a .text,#c .text{
-  margin-left: 30px;
-}
+  }
 
-.sectionA div{
-  width: 70%;
-  margin: auto;
-}
-.sectionA div:nth-child(2){
-  width: 70%;
-  margin: auto;
-}
+  .sec4 img {
+    width: 200px;
+  }
+
+  #a .text,
+  #c .text {
+    margin-left: 30px;
+  }
+
+  .sectionA div {
+    width: 70%;
+    margin: auto;
+  }
+
+  .sectionA div:nth-child(2) {
+    width: 70%;
+    margin: auto;
+  }
 }
 
 /*------------ Small Screen--------------- */
 @media screen and (min-width:320px) and (max-width:750px) {
-  .nav-elem{
+  .nav-elem {
     display: none;
     /* border:solid red */
   }
-  #welcome-img{
+
+  #welcome-img {
     width: 300px;
     display: none;
     /* border:solid red */
   }
-  .sectionA{
+
+  .sectionA {
     display: flex;
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
   }
-  .image{
+
+  .image {
     width: 100%;
     text-align: center;
   }
-  .text{
+
+  .text {
     width: 80%;
     text-align: justify;
   }
-  #startNow{
-   
+
+  #startNow {
+
     display: block;
     margin: auto;
     margin-top: 20px;
   }
-  
-  .menu-icon{
-    display:block;
+
+  .menu-icon {
+    display: block;
     /* background-color: #00A1E0; */
     /* border: solid red; */
   }
-  #loginBtn{
+
+  /* #loginBtn{
     display: none;
-  }
-  #user-dropdown{
-    width:20%;
+  } */
+  #user-dropdown {
+    width: 20%;
   }
 
-  .sectionA img{
+  .sectionA img {
     width: 300px;
   }
-  .sectionA h3{
+
+  .sectionA h3 {
     font-size: 40px;
     text-align: center;
     /* letter-spacing: -2px; */
   }
- 
-  footer{
-    grid-template-columns: repeat(1,1fr);
+
+  footer {
+    grid-template-columns: repeat(1, 1fr);
     /* border: solid red; */
     font-size: 25px;
     text-align: center;
   }
-  footer ion-icon{
-    font-size: 45px;
+
+  footer ion-icon {
+    font-size: 40px;
+    padding-left: 30px;
   }
-  footer div:nth-child(1){
+
+  footer div:nth-child(1) {
     text-align: center;
+    /* border: 1px solid red; */
   }
-  #footer-contact div{
+
+  #footer-contact div {
     justify-content: center;
   }
-  .contact{
-    flex-direction:column ;
+
+  .contact {
+    flex-direction: column;
   }
-  
-  .sec4{
-    grid-template-columns: repeat(1,1fr);
+
+  .sec4 {
+    grid-template-columns: repeat(1, 1fr);
   }
-  .sec4 img{
-   width: 72%;
+
+  .sec4 img {
+    width: 72%;
   }
 }
-
-
-
-
-
