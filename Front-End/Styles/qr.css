@@ -11,7 +11,7 @@ body,
 
 
 
-nav *, #chatBot *, #menu-page *{
+nav *, #chatBot *, #menu-page *, footer *{
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
 }
@@ -27,6 +27,12 @@ a {
 
 a:hover {
     color: blue;
+}
+footer a{
+    color: black;
+}
+footer a:hover{
+    color: black;
 }
 
 
@@ -138,6 +144,7 @@ a:hover {
     margin: 0 0 10px 0;
     color: #8373e6;
     font-weight: 400;
+    font-size: 20px;
 }
 
 .radio-buttons {
