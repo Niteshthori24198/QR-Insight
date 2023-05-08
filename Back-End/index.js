@@ -11,6 +11,8 @@ const  {queryRouter} = require("./Routes/chatbot.route")
 
 const { userroute } = require('./Routes/user.route');
 
+const  {feedbackRouter} = require("./Routes/feedback.router")
+
 require('dotenv').config();
 
 
@@ -27,6 +29,8 @@ app.use("/user",userroute)
 
 app.use('/qrcode', qrRouter)
 app.use("/query",queryRouter)
+
+app.use("/feed",feedbackRouter)
 
 app.listen(process.env.Port, async (req,res)=>{
 
