@@ -2,6 +2,13 @@
 const QR_BASE_URL = `http://localhost:3000/qrcode`;
 
 
+const details = JSON.parse(localStorage.getItem("qrcodeuserdetails")) || null;
+
+if(!details){
+    alert("Kindly login first !")
+    location.href = "../index.html"
+}
+
 
 
 // QR Option tabs 
