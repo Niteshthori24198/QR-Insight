@@ -27,10 +27,10 @@ app.use(cors());
 
 app.use("/user",userroute)
 
-app.use('/qrcode', qrRouter)
 app.use("/query",queryRouter)
 
 app.use("/feed",feedbackRouter)
+app.use('/qrcode', qrRouter)
 
 app.listen(process.env.Port, async (req,res)=>{
 

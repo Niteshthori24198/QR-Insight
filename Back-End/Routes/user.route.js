@@ -339,6 +339,7 @@ userroute.get("/callback",async (req,res)=>{
     })
 
     userEmail = await userEmail.json()
+    console.log(userEmail);
     
     //console.log(userEmail[0].email)
     let Email=userEmail[0].email

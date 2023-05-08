@@ -1,5 +1,20 @@
 
 
+
+
+
+nav *, #chatBot *, #menu-page *, footer *{
+   font-family: 'Open Sans', sans-serif;
+   font-size: 20px;
+}
+nav, #chatBot, #menu-page{
+   font-family: 'Open Sans', sans-serif;
+   font-size: 20px;
+   background-color: white;
+}
+
+
+
 #head {
     width: 90%;
     margin: auto;
@@ -32,16 +47,20 @@ body {
    padding: 0;
    /* background: linear-gradient(to right, rgb(5, 231, 157), rgb(83, 192, 251)); */
 }
-.container {
+.container__feedback_page {
    max-width: 100%;
    position: relative;
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100vh;
-   padding-top: 40px;
-   padding-bottom: 40px;
+   padding-top: 10px;
 }
+
+footer{
+   margin-top: -150px;
+}
+
 .form-container {
    display: flex;
    justify-content: center;
