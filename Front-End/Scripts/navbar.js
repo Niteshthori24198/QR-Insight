@@ -31,12 +31,18 @@
         document.getElementById("logoutBtn").style.display="block"
         document.getElementById("loginBtn").style.display="none"
         document.getElementById("userIcon").style.display="block"
+
+        if(details.Role === "Admin"){
+            document.getElementById('Dashboard_admin_nav').style.display = "block"
+        }
         
     }
     function clearLocalStorage(){
         localStorage.removeItem('qrcodeuserdetails');
         document.getElementById("logoutBtn").style.display="none"
         document.getElementById("loginBtn").style.display="block"
+
+        document.getElementById('Dashboard_admin_nav').style.display = "none"
 
         document.getElementById("userIcon").style.display="none"
        

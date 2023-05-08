@@ -116,6 +116,14 @@ nav div:hover {
   transform: scale(0.9);
 }
 
+
+
+#Dashboard_admin_nav{
+  display: none;
+}
+
+
+
 /* ----------------------------Hamburger Menu-------------------------- */
 
 @keyframes slideInLeft {
