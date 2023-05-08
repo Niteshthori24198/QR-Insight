@@ -51,6 +51,7 @@
         </div>
         <div>
             <h4 class="nav-elem">Contact</h4>
+
         </div>
         <div>
             <p class="userName2"></p>
@@ -305,16 +306,22 @@
     }
     function clearLocalStorage() {
         localStorage.removeItem('qrcodeuserdetails');
-        
-        // Get the current URL
-        // var url = window.location.href;
-        // console.log(url);
-        
-        alert("Logout Successfully done")
-        
-        // Redirect to the modified URL
+        alert("Logout Successfully")
 
-        // window.location.href = url;
+
+        // clearing query from link
+
+        var currentUrl = window.location.href;
+
+        // Check if the URL contains the query parameter we want to remove
+        if (currentUrl.indexOf('?userid=') !== -1) {
+            // Remove the query parameter
+            var newUrl = currentUrl.replace(/(\?|&)userid=[^&]*(&|$)/, '$1');
+
+            // Update the URL without refreshing the page
+            history.replaceState(null, null, newUrl);
+        }
+
     }
 
 
