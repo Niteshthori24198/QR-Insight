@@ -193,7 +193,7 @@ userroute.get('/auth/google/callback',
     client.set('token', token, 'EX', 3600);
     client.set('refreshtoken', refreshtoken, 'EX', 3600);
     
-    res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${user._id}" id="myid">abc</a>
+    res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${user._id}" id="myid">Loding...🕧</a>
     <script>
         let a = document.getElementById('myid')
         a.click()
