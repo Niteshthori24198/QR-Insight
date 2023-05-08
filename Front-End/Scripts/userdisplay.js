@@ -18,6 +18,7 @@ fetch(`http://localhost:3000/user/getdata/?_id=${b}`)
     userdetails=user
     console.log(user.userdetails.Name)
     localStorage.setItem("qrcodeuserdetails",JSON.stringify(user.userdetails))
+    // location.reload()
 })
 .catch((err)=>{
     console.log(err)

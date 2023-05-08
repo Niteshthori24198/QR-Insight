@@ -1,6 +1,7 @@
 
 
 const QRCode = require('qrcode');
+const { QRModel } = require('../Models/qr.model');
 
 
 
@@ -34,6 +35,15 @@ const COLOR_OBJ = {
 
 }
 
+async function saveQR_CodeIn_DB(UserID,QRCodes){
+    try {
+        await QRModel.findOneAndUpdate({UserID},{UserID, $push:{QRCodes:QRCodes}},{new:true, upsert:true, setDefaultsOnInsert:true})
+        return "ok"
+    } catch (error) {
+        return error
+    }
+}
+
 
 const textQrRouter = async (req, res) => {
 
@@ -56,7 +66,7 @@ const textQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -66,6 +76,22 @@ const textQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+            
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "text",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -82,6 +108,8 @@ const textQrRouter = async (req, res) => {
 
 
 }
+
+
 
 
 const linkQrRouter = async (req, res) => {
@@ -105,13 +133,29 @@ const linkQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
                     msg: "Something went wrong in data.",
                     err: err
                 })
+            }
+
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "link",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
             }
 
 
@@ -152,13 +196,29 @@ const phoneQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
                     msg: "Something went wrong in data.",
                     err: err
                 })
+            }
+
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "phone",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
             }
 
 
@@ -205,7 +265,7 @@ const whatsappQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -214,6 +274,21 @@ const whatsappQrRouter = async (req, res) => {
                 })
             }
 
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "whatsapp",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -252,7 +327,7 @@ const upiQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -262,6 +337,21 @@ const upiQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "upi",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -302,7 +392,7 @@ const emailQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -312,6 +402,21 @@ const emailQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "email",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -366,7 +471,7 @@ const zoomQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async  function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -376,6 +481,21 @@ const zoomQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "zoom",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -414,7 +534,7 @@ const wifiQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -424,6 +544,20 @@ const wifiQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "wifi",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
@@ -467,7 +601,7 @@ const vcardQrRouter = async (req, res) => {
 
     try {
 
-        QRCode.toDataURL(URL, opts, function (err, url) {
+        QRCode.toDataURL(URL, opts, async function (err, url) {
 
             if (err) {
                 return res.status(400).send({
@@ -477,6 +611,21 @@ const vcardQrRouter = async (req, res) => {
             }
 
             // console.log(url)
+
+            const UserID = req.id;
+            const QRCodes = {
+                Formate : "vcard",
+                Detail : URL,
+                QR : url
+            }
+
+            let r = await saveQR_CodeIn_DB(UserID,QRCodes);
+            console.log(r);
+            
+            if(r!=="ok"){
+                //    Logger for show error
+                console.log(r);
+            }
 
             res.status(200).send({ "qrcode": url })
 
