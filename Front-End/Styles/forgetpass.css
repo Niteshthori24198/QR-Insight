@@ -5,23 +5,26 @@
 
 }
 
+
 body{
   margin: 0;
   padding: 0 24px;
-  background:url("../images/low-poly-grid-haikei.svg");
+  background-image:url("https://i.pinimg.com/originals/78/d4/97/78d4979ac0c05005b731a41e93199ccf.gif");
   background-repeat: no-repeat;
   background-size: cover;
   animation:
       pan 6s infinite alternate linear;
 }
 .raj-container{
-  width:360px;
+  width:400px;
   height: 400px;
   margin: 8% auto;
   background:#fff;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
+  padding: 10px;
 }
 h3{
   text-align: center;
@@ -116,3 +119,26 @@ small{
   top:0;
   border-left:20px solid #216ce7;
 }
+
+/* 
+@media (width <= 800px){
+  .raj-container{
+    width:250px;
+    height: 250px;
+    margin: 8% auto;
+    background:#fff;
+    border-radius: 5px;
+    position: relative;
+    top: 40%;
+    left: 40%;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+} */

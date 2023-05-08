@@ -6,7 +6,13 @@ let form=document.getElementById("raj-form")
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
-    //console.log(email.value,password.value)
+
+    if(!email.value || !password.value){
+        alert("Kindly provide all required details for registration !!")
+        return
+    }
+
+
     let userobj={
         Email:email.value,
         Password:password.value
