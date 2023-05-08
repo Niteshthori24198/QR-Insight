@@ -8,7 +8,7 @@ console.log(b)
 let obj={
     _id:b
 }
-
+console.log(typeof b,b)
 
 fetch(`http://localhost:3000/user/getdata/?_id=${b}`)
 .then((res)=>{
