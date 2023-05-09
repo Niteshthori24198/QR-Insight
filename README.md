@@ -64,7 +64,7 @@
 
   ## Home Page
 
-  ![home-page](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1700c123-20fa-49d5-a878-e8f047a43936)
+  ![Homepage](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/a7f1163d-783b-4715-8c33-64e28fe0bbf9)
   
   # ChatBot
 
@@ -81,37 +81,37 @@
 
   The QR Code Generator page allows users to generate QR codes for text, URL, Wi-Fi, Zoom, WhatsApp, phone, vCard, and email. Users can     also download, print, or share the generated QR code via email or WhatsApp.
 
-  ![QRG](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/3e26054a-ea06-491e-9be8-cee0bf5066d6)
+  ![Qr-generator](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/635ba397-9c17-4b31-bcce-3bade2f0f483)
 
   ## QR Scanner and Analysis Page
 
   The QR Scanner page allows users to scan QR codes using their device's camera or by uploading an image. The Scanner and Analysis page     provides statistical data and analysis on the usage of generated QR codes. 
 
-  ![qrscanner](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/182046be-67af-4f0b-85d4-f2c05506f25f)
+  ![Scanner](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/ff3f1374-d092-4c17-a38d-9ee8d4a57a64)
   
   ## User Profile Section
 
   The User Profile section allows users to view their profile information, update their profile picture, and change their password.
 
-  ![up](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/cfeb3f0c-fda0-4ef3-bd92-205e2749daf6)
+  ![Profile-page](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/7308fc8c-9810-422e-8693-78cc79129df4)
 
   ## About Us Page
 
   The About Us page provides information about the project and the team behind it.
 
-  ![about](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/0ab871c5-f282-4ec5-9de3-683a60991a9b)
+  ![Aboutpage](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/0944264b-2c8f-4590-a963-f0bcc2b4a07b)
 
   ## Blog Page
 
   The Blog page displays articles and posts related to the website's content.
 
-  ![blog](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/17255bb0-1ef3-4cca-a146-7ceb9eab8986)
+  ![Blogpage](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/b12cc071-b1cc-4e0d-9277-18ddc35a1ba0)
 
   ## Contact Page
 
   The Contact page provides users with a form to contact the website's administrators.
 
-  ![contact](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1f2542db-e4b4-468f-98a1-66d10bfd721a)
+  ![contact](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1fd54e1f-4fe8-4aef-ac48-6358627629b6)
 
   # Technologies Used
 
