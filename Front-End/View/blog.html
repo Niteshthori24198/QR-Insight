@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
     <title>QR Insight</title>
+
+    <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="../Styles/blog.css">
 
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Source+Serif+Pro&display=swap" rel="stylesheet">
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
-        integrity="sha512-r6rDA7W6ZeQhvl8S7yRVQUKVHdexq+GAlNkNNqVC7YyIV+NwqCTJe2hDWCiffTyRNOeGEzRRJ9ifvRm/HCzGYg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
 
     <!---------Icons Import-----  -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -28,13 +25,14 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 
-        <link rel="stylesheet" href="../Styles/index.css">
+
+    <link rel="stylesheet" href="../Styles/index.css">
 
     <link rel="stylesheet" href="../Styles/blog.css">
+
 </head>
-
 <body>
-
+    
     <!-- --------Navigation Part--------- -->
     <nav>
         <div>
@@ -67,15 +65,10 @@
                 </a>
             </div>
         </div>
-        <div class="dropdown">
-            <h4 class="nav-elem">Pricing <ion-icon name="chevron-down-outline"></ion-icon> </h4>
-            <div class="dropdown-content">
-
-                <a href=""><img
-                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75"
-                        alt=""> Price Calculator</a>
-                <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
-            </div>
+        <div>
+            <a href="./blog.html">
+                <h4 class="nav-elem">Articles</h4>
+            </a>
         </div>
         <div>
             <a href="./about.html" style="color: black;">
@@ -83,7 +76,7 @@
             </a>
         </div>
         <div>
-            <a href="./feedback.html">
+            <a href="./feedback.html" style="color: black;">
                 <h4 class="nav-elem">Contact</h4>
             </a>
         </div>
@@ -143,21 +136,12 @@
             </div>
 
         </div>
-        <div>
-            <h1>Pricing</h1>
-            <div class="dropdown-price">
-                <div><a href="">Calculate Amount</a></div>
-                <div><a href="">Subscribe</a></div>
-            </div>
-            <div onclick="openPrice()">
-                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
-            </div>
-        </div>
+        
+        <h1><a href="./blog.html"> Articles </a></h1>
         <h1><a href="./about.html"> About Us</a></h1>
-        <h1><a href="">Contact</a> </h1>
+        <h1><a href="./feedback.html">Contact</a> </h1>
 
     </div>
-
 
 
 
@@ -310,6 +294,7 @@
 
 
 
+    
     <!-------------Footer-------------  -->
     <footer>
 
@@ -371,7 +356,7 @@
                 </a>
             </p>
             <p>
-                <a href="./feedback.html">
+                <a href="./feedback.html" >
                     Contact
                 </a>
             </p>
@@ -391,10 +376,7 @@
 
         </div>
     </footer>
-
-
 </body>
-
 </html>
 
 <script src="../Scripts/navbar.js"></script>

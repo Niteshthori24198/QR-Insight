@@ -40,7 +40,7 @@ userroute.post("/register", async(req,res)=>{
         console.log(dbnewuser)
         
         sendverificationmail(Name,Email,dbnewuser._id)
-        res.status(200).send({"msg":"User registered successfully. Please verify your email address."})
+        res.status(200).send({"msg":"User Registration Successfull. Please verify Your Email Address."})
 
 
     } catch (error) {
@@ -61,11 +61,13 @@ let sendverificationmail=async(Name,Email,userid)=>{
             }
         });
 
+        const BaseUrl_Backend = `https://angry-cummerbund-newt.cyclic.app`
+
         let mailOptions = {
             from: 'mr.rajeshkumar7678@gmail.com',
             to: Email,
-            subject: 'For verifecation mail',
-            html:`<p>hi ${Name} <br> please click here to <a href="http://localhost:3000/user/verify?id=${userid}">verify</a>  your mail. </p>`
+            subject: 'User Verifecation Mail From QR Insight',
+            html:`<p>hi ${Name} <br> Please click here to <a href="${BaseUrl_Backend}/user/verify?id=${userid}">verify</a>  your mail. </p>`
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
