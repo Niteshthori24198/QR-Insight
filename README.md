@@ -137,12 +137,16 @@
   # Deployment
 
   - The backend of this project has been deployed using Cyclick, and the front end has been deployed using Netlify.
-     - Netlify : 
+     - Netlify :  https://qr-insight-app.netlify.app/
+     - BackEnd :  https://angry-cummerbund-newt.cyclic.app/
      - Github  :  https://github.com/Niteshthori24198/substantial-money-3994
 
-  # Contributing
-
-    Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
+  # Team Members
+  - Nitesh Kumar
+  - Kishan Sharma
+  - Venkatesh Tiwari
+  - Rajesh Kumar
+  - Pankaj Jain
 
   # License
 
