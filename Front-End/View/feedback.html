@@ -100,6 +100,9 @@
                     <a href="./profile.html">
                         <p id="userDetails">Profile</p>
                     </a>
+                    <a href="../Admin/index.html" id="Dashboard_admin_nav">
+                        <p>Dashboard</p>
+                    </a>
                     <a href="">
                         <p onclick="clearLocalStorage()" id="logoutBtn">Logout</p>
                     </a>
@@ -159,16 +162,16 @@
 
     <div class="container__feedback_page">
 
-        <form class="form-container">
+        <form class="form-container" id="submitFeedback_user">
 
-            <div class="headline"><span>Feedback</span></div>
+            <div class="headline"><span>Contact Us</span></div>
             <div class="form-line success">
-                <input id="name-pankaj" type="text" class="form-input" value="">
+                <input id="name-pankaj" type="text" class="form-input" value="" required>
                 <label class="top">Name</label>
                 <div class="check-label"></div>
             </div>
             <div class="form-line">
-                <input id="email-pankaj" type="text" class="form-input" required>
+                <input id="email-pankaj" type="email" class="form-input" required>
                 <label>Your email *</label>
                 <div class="error-label">Field is required!</div>
                 <div class="check-label"></div>
@@ -181,7 +184,7 @@
                 <div class="error-label">Field is required!</div>
             </div>
 
-            <input onclick="feedback()" type="button" class="form-button" value="Submit">
+            <input  type="submit" class="form-button" value="Submit" >
         </form>
     </div>
 

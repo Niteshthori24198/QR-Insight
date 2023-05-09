@@ -9,9 +9,10 @@ const middleware=async (req,res,next)=>{
     try {
         let token=await client.get('token');
         let refreshtoken=await client.get('refreshtoken');
+        console.log(token, refreshtoken);
 
         if(!token){
-            return res.status(400).send({ "msg": "Please login first" });
+            return res.status(400).send({ "msg": "Please login first. access token not found" });
         }
 
         let istokenblacklist=await blackmodel.findOne({token})

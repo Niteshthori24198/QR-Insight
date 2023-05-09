@@ -16,6 +16,8 @@ a {
 }
 
 
+
+
 /* <---------------------------Navigation Start -------------------------> */
 nav {
   position: fixed;
@@ -605,4 +607,18 @@ footer div:nth-child(1) {
     width: 80%;
     margin-top: 20%;
   }
+}
+
+
+
+
+
+
+/*.................... User name .................... */
+
+.userName1, .userName2{
+  color: rgb(37, 6, 6);
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 1px;
 }
