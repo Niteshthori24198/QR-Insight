@@ -1,4 +1,6 @@
 
+// const BaseUrl_navbar = `https://angry-cummerbund-newt.cyclic.app`
+
 // const userIdInURL = new URLSearchParams(window.location.search)
 
 const icon = document.querySelector(".menu-page")

@@ -1,8 +1,10 @@
 
+const BaseUrl_feedbackjs = `https://angry-cummerbund-newt.cyclic.app`
+
 
 //  submit fom 
 
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
 
 
 document.getElementById('submitFeedback_user').addEventListener('submit', (e)=>{
@@ -21,7 +23,7 @@ function feedback() {
     message: message,
   };
   console.log(signdata)
-  fetch(`${url}/feed/savefeedback`, {
+  fetch(`${BaseUrl_feedbackjs}/feed/savefeedback`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

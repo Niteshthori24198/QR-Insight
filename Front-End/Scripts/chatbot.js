@@ -1,6 +1,8 @@
 //  text message open
 
-const url = "http://localhost:3000";
+const BaseUrl_chatbot = `https://angry-cummerbund-newt.cyclic.app`
+
+// const url = "http://localhost:3000";
 
 // let signbtn = document.getElementById("btn-pankaj");
 function savedata() {
@@ -14,7 +16,7 @@ function savedata() {
     message: pass,
   };
 
-  fetch(`${url}/query/savedata`, {
+  fetch(`${BaseUrl_chatbot}/query/savedata`, {
     method: "POST",
     body: JSON.stringify(signdata),
     headers: {

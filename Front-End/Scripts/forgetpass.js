@@ -1,3 +1,6 @@
+
+const BaseUrl_forgotPassword = `https://angry-cummerbund-newt.cyclic.app`
+
 var form1 = document.getElementById("raj-form1");
 var form2 = document.getElementById("raj-form2");
 var form3 = document.getElementById("raj-form3");
@@ -16,7 +19,7 @@ next1.addEventListener("click",()=>{
         Email:email
     }
     
-    fetch(`http://localhost:3000/user/forgetpass`,{
+    fetch(`${BaseUrl_forgotPassword}/user/forgetpass`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -50,7 +53,7 @@ next2.addEventListener("click",()=>{
     let obj={
         OTP:otp
     }
-    fetch(`http://localhost:3000/user/verifyotp`,{
+    fetch(`${BaseUrl_forgotPassword}/user/verifyotp`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -88,7 +91,7 @@ next3.addEventListener("click",(e)=>{
     }else if(pass==conpass ){
         console.log(USER)
 
-        fetch(`http://localhost:3000/user/updatepass/?id=${USER._id}`,{
+        fetch(`${BaseUrl_forgotPassword}/user/updatepass/?id=${USER._id}`,{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

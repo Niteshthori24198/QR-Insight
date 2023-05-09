@@ -1,4 +1,7 @@
-console.log("from login page")
+
+const BaseUrl_login = `https://angry-cummerbund-newt.cyclic.app`
+
+
 //simple login with mail and password=====================================
 let email=document.getElementById("raj-email")
 let password=document.getElementById("raj-pass")
@@ -19,7 +22,7 @@ form.addEventListener("submit",(e)=>{
     }
     console.log(userobj)
 
-    fetch("http://localhost:3000/user/login",{
+    fetch(`${BaseUrl_login}/user/login`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,7 +57,7 @@ let googlebtn=document.getElementById("raj-google")
 
 googlebtn.addEventListener('click', function(e) {
     e.preventDefault();
-    window.location.href="http://localhost:3000/user/auth/google"
+    window.location.href=`${BaseUrl_login}/user/auth/google`
 
 });
 

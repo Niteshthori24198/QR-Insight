@@ -1,4 +1,6 @@
 
+const BaseUrl_profile = `https://angry-cummerbund-newt.cyclic.app`
+
 
 const qrcodeuserdetails_qrpage11 = localStorage.getItem('qrcodeuserdetails') || null;
 // console.log(qrcodeuserdetails_qrpage);
@@ -70,7 +72,7 @@ function updateProfile(){
     }
 
     
-    fetch(`http://localhost:3000/profile/updateProfile/${detailsforuserid._id}`, {
+    fetch(`${BaseUrl_profile}/profile/updateProfile/${detailsforuserid._id}`, {
         method : "PATCH",
         headers : {
             "Content-type" : "application/json",
@@ -110,7 +112,7 @@ function deleteProfile(){
     }
 
     
-    fetch(`http://localhost:3000/profile/deleteProfile/${detailsforuserid._id}`, {
+    fetch(`${BaseUrl_profile}/profile/deleteProfile/${detailsforuserid._id}`, {
         method : "DELETE"
     })
     .then(res => res.json() )

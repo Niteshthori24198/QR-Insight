@@ -1,4 +1,7 @@
-console.log("form signup")
+
+const BaseUrl_signup = `https://angry-cummerbund-newt.cyclic.app`
+
+
 let name1=document.getElementById("raj-username")
 let email=document.getElementById("raj-email")
 let password=document.getElementById("raj-pass")
@@ -30,7 +33,7 @@ form.addEventListener("submit",(e)=>{
 
     console.log(userobj)
 
-    fetch("http://localhost:3000/user/register",{
+    fetch(`${BaseUrl_signup}/user/register`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
