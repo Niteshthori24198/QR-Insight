@@ -76,8 +76,8 @@
     
   # Deployment
     The backend of this project has been deployed using Cyclick, and the front end has been deployed using Netlify.
-    * Netlify : 
-    * Github : 
+   *Netlify : 
+   *Github : 
 
   # Contributing
     Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
