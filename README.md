@@ -71,9 +71,9 @@
   ![home-page](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1700c123-20fa-49d5-a878-e8f047a43936)
   
   ## Sign In / Sign Up Page
-    The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts.
-    ![login](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/52eea794-8ce2-4df0-a177-40a18d85d35d)
-    ![signup](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/f3c6cbcb-99d8-46bf-a34b-ed0b7c70a370)
+  The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts.
+  ![login](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/52eea794-8ce2-4df0-a177-40a18d85d35d)
+  ![signup](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/f3c6cbcb-99d8-46bf-a34b-ed0b7c70a370)
 
   ## QR Code Generator Page
     The QR Code Generator page allows users to generate QR codes for text, URL, Wi-Fi, Zoom, WhatsApp, phone, vCard, and email. Users can     also download, print, or share the generated QR code via email or WhatsApp.
