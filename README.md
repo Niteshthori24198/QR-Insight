@@ -1,4 +1,7 @@
 # QR-Insight
+# Logo 
+![logo](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/b0916c4d-8e36-4b6e-b90c-22cbafde918b)
+
 # QR Code Generator, Scanner and Analysis
   This project is a collaborative effort by a team of 5 members, completed in a time span of 6 days. It is a web application that allows   users to generate and scan QR codes, as well as provide analysis on QR code usage. 
 
@@ -30,7 +33,7 @@
   
  # Table of contents
  
-  QR-Insight/
+  # QR-Insight/
   ├── backend/
   │   ├── config/
   │   │   └── database.js
@@ -63,8 +66,8 @@
   ├── README.md
   └── server.js
 
-
   ## Home Page
+  ![home-page](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1700c123-20fa-49d5-a878-e8f047a43936)
   
   ## Sign In / Sign Up Page
     The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts
@@ -97,6 +100,7 @@
    - Express.js
    - MongoDB
    - Mongoose
+   - Redis
    - HTML
    - CSS
    - JavaScript
@@ -111,7 +115,7 @@
   # Deployment
   - The backend of this project has been deployed using Cyclick, and the front end has been deployed using Netlify.
      - Netlify : 
-     - Github : 
+     - Github  :  
 
   # Contributing
     Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
