@@ -1,8 +1,7 @@
 const mongoose=require("mongoose")
 
 const blackschema=mongoose.Schema({
-    token:String,
-    refreshtoken:String
+    token:{type:String}
 })
 
 const blackmodel=mongoose.model("blacktoken",blackschema)
