@@ -29,6 +29,40 @@
     - User-friendly
   
  # Table of contents
+ 
+QR-Insight/
+├── backend/
+│   ├── config/
+│   │   └── database.js
+│   ├── controllers/
+│   │   ├── QRController.js
+│   │   ├── userController.js
+│   │   └── ...
+│   ├── middlewares/
+│   │   ├── authentication.js
+│   │   ├── authorization.js
+│   │   └── ...
+│   ├── models/
+│   │   ├── userModel.js
+│   │   ├── QRModel.js
+│   │   └── ...
+│   └── routes/
+│       ├── QRRoutes.js
+│       ├── userRoutes.js
+│       └── ...
+     ├── index.js
+├── frontend/
+│   ├── public/
+│   ├── src/
+    ├── css/
+│   └── ...
+    ├── index.html
+├── node_modules/
+├── .gitignore
+├── package.json
+├── README.md
+└── server.js
+
 
   ## Home Page
   
