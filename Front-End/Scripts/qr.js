@@ -1,6 +1,5 @@
 
-const QR_BASE_URL = `http://localhost:3000/qrcode`;
-
+const QR_BASE_URL = `https://angry-cummerbund-newt.cyclic.app`;
 
 
 

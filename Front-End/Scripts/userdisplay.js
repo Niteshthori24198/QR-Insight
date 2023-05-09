@@ -1,6 +1,5 @@
-console.log("hello")
-{/* <script src="../Scripts/userdisplay.js"></script> */}
 
+const BaseUrl_UserDisplay = `https://angry-cummerbund-newt.cyclic.app`
 
 let a = new URLSearchParams(window.location.search)
 let b=a.get('userid')
@@ -10,8 +9,9 @@ let obj={
 }
 
 
+
 if(b){
-    fetch(`http://localhost:3000/user/getdata/?_id=${b}`)
+    fetch(`${BaseUrl_UserDisplay}/user/getdata/?_id=${b}`)
     .then((res)=>{
         return res.json()
     })
@@ -32,7 +32,7 @@ if(b){
 
 
 // function logout(){
-//     fetch("http://localhost:3000/user/logout")
+//     fetch(`${BaseUrl_UserDisplay}/user/logout`)
 //     .then((res)=>{
 //         return res.json()
 //     })

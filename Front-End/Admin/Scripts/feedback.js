@@ -1,5 +1,8 @@
 
-fetch("http://localhost:3000/feed/getdata")
+const BaseUrl_feedbackadmin = `https://angry-cummerbund-newt.cyclic.app`
+
+
+fetch(`${BaseUrl_feedbackadmin}/feed/getdata`)
     .then((res) => {
         return res.json()
     })

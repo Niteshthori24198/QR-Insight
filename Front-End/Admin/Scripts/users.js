@@ -1,6 +1,6 @@
+const BaseUrl_adminusers = `https://angry-cummerbund-newt.cyclic.app`
 
-
-fetch("http://localhost:3000/user/getallusers")
+fetch(`${BaseUrl_adminusers}/user/getallusers`)
     .then((res) => {
         return res.json()
     })

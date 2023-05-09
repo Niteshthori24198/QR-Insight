@@ -50,7 +50,9 @@
 </body>
 <script>
 
-    fetch("http://localhost:3000/feed/getdata")
+    const BaseUrl_feedbackadmin1 = `https://angry-cummerbund-newt.cyclic.app`
+
+    fetch(`${BaseUrl_feedbackadmin1}/feed/getdata`)
     .then((res)=>{
         return res.json()
     })
