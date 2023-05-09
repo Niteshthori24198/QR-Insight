@@ -37,26 +37,26 @@
 
   - backend/
     - config/
-       database.js
+       - database.js
     - controllers/
-       QRController.js
-       userController.js
+       - QRController.js
+       - userController.js
     - middlewares/
-       authentication.js
-       authorization.js
+       - authentication.js
+       - authorization.js
     - models/
-       userModel.js
-       QRModel.js
+       - userModel.js
+       - QRModel.js
     - routes/
-       QRRoutes.js
-       userRoutes.js
+       - QRRoutes.js
+       - userRoutes.js
     - index.js
 
   -  frontend/
-    - public/
-    - src/
-    - css/
-    - index.html
+     - public/
+     - src/
+     - css/
+     - index.html
   - node_modules/
   - gitignore
   - package.json
@@ -67,8 +67,9 @@
   ![home-page](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/1700c123-20fa-49d5-a878-e8f047a43936)
   
   # ChatBot
-  
-  
+
+  ![cb](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/64e691cf-9ab5-4049-bc66-d888ef01ed7e)
+
   ## Sign In / Sign Up Page
 
   The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts.
