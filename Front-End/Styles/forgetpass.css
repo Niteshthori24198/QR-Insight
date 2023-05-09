@@ -1,3 +1,5 @@
+
+
 *{
   margin:0;
   padding:0;
@@ -5,26 +7,24 @@
 
 }
 
-
 body{
   margin: 0;
   padding: 0 24px;
-  background-image:url("https://i.pinimg.com/originals/78/d4/97/78d4979ac0c05005b731a41e93199ccf.gif");
-  background-repeat: no-repeat;
+  height: 1vh;
+  background:url("https://i.pinimg.com/originals/78/d4/97/78d4979ac0c05005b731a41e93199ccf.gif");
+ 
   background-size: cover;
   animation:
       pan 6s infinite alternate linear;
 }
 .raj-container{
-  width:400px;
+  width:360px;
   height: 400px;
   margin: 8% auto;
   background:#fff;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  padding: 10px;
 }
 h3{
   text-align: center;
@@ -120,25 +120,16 @@ small{
   border-left:20px solid #216ce7;
 }
 
-/* 
-@media (width <= 800px){
+@media (width <= 500px){
+  body {
+  padding:0;
+  display: grid;
+  place-items: center;
+  }
   .raj-container{
-    width:250px;
-    height: 250px;
-    margin: 8% auto;
-    background:#fff;
-    border-radius: 5px;
-    position: relative;
-    top: 40%;
-    left: 40%;
-    overflow: hidden;
-    border-radius: 10px;
-    padding: 10px;
+    margin:100px auto;
   }
 
-  body{
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
+}
 
-} */
+

@@ -83,7 +83,9 @@ next3.addEventListener("click",(e)=>{
     let conpass=document.getElementById("raj-cnew").value
     console.log(pass,conpass)
     console.log(USER)
-    if(pass==conpass){
+    if(pass=="" && conpass==""){
+        alert("all field should be filled")
+    }else if(pass==conpass ){
         console.log(USER)
 
         fetch(`http://localhost:3000/user/updatepass/?id=${USER._id}`,{
