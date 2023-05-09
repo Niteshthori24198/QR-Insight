@@ -740,7 +740,7 @@ function HandleDownload(ele_id) {
         console.log('all good');
         let a = document.createElement('a')
         a.href = qrcode 
-        a.download = true
+        a.download = "QR_Insight.jpg"
         a.click()
     }
    
