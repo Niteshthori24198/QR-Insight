@@ -46,8 +46,8 @@ function displaydataUsers(data) {
         td7.innerText = "Reply"
         td7.setAttribute('class',"anouncemnetbtnUser");
         td7.addEventListener("click", () => {
-            let subject = ('QR Insight Follow-Up: Your Feedback Query').split(' ').join('%20')
-            let name = element.name.split(' ').join('%20')
+            let subject = 'Important QR Insight Announcement'
+            let name = element.Name.split(' ').join('%20')
             let body = `Dear%20${name}`
             const url = `mailto:${element.Email}?subject=${subject}&body=${body}`
             console.log(url);

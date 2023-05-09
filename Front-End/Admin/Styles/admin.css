@@ -318,10 +318,29 @@ th {
 
 
 .anouncemnetbtnUser{
-  background-color: red;
+  background-color: rgb(175, 175, 241);
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: bolder;
+  color: white;
+}
+
+.anouncemnetbtnUser:hover{
+  background-color: transparent;
+  color: blue;
+  font-weight: bold;
 }
 
 .updateRoleBtn{
-  
-  background-color: blue;
+  background-color: rgb(133, 133, 174);
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: bolder;
+  color: white;
+}
+
+.updateRoleBtn:hover{
+  background-color: transparent;
+  color: blue;
+  font-weight: bold;
 }

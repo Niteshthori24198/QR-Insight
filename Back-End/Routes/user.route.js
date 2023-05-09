@@ -126,10 +126,10 @@ userroute.post("/login",async (req,res)=>{
         }
 
         let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-        let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+        let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"1d"})
 
-        client.set('token', token, 'EX', 3600);
-        client.set('refreshtoken', refreshtoken, 'EX', 3600);
+        client.set('token', token, 'EX', 21600);
+        client.set('refreshtoken', refreshtoken, 'EX', 86400);
 
         res.status(200).send({"msg":"Login sucessfull","userdetails":user})
 
@@ -187,10 +187,10 @@ userroute.get('/auth/google/callback',
     console.log(req.user)
     const user=req.user
     let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"1d"})
 
-    client.set('token', token, 'EX', 3600);
-    client.set('refreshtoken', refreshtoken, 'EX', 3600);
+    client.set('token', token, 'EX', 21600);
+    client.set('refreshtoken', refreshtoken, 'EX', 86400);
     
     res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${user._id}" id="myid">Loding...🕧</a>
     <script>
@@ -271,12 +271,20 @@ userroute.put("/updatepass",async(req,res)=>{
 //logout======================================================================
 userroute.get("/logout",async(req,res)=>{
     try {
-        let usertoken=await client.get('token');
-        let userrefreshtoken=await client.get('refreshtoken');
-        let blacklisttoken= new blackmodel({token:usertoken,refreshtoken:userrefreshtoken})
-        await blacklisttoken.save()
+
+        let usertoken = await client.get('token');
+
+        let userrefreshtoken = await client.get('refreshtoken');
+
+        let blacklisttoken1 = new blackmodel( { token : usertoken } );
+        let blacklisttoken2 = new blackmodel( { token : userrefreshtoken } );
+
+        await blacklisttoken1.save();
+        await blacklisttoken2.save();
+
         //console.log(usertoken,userrefreshtoken,blacklisttoken)
-        res.send({"msg":"logout sucessfull"})
+
+        res.send({"msg":"logout successfull"})
         
     } catch (error) {
         console.log(error)
@@ -347,10 +355,10 @@ userroute.get("/callback",async (req,res)=>{
     console.log(gitusser)
 
     let token=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6hr"})
-    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"6d"})
+    let refreshtoken=jwt.sign({id:user._id,verified:user.ismailverified,role:user.Role},process.env.secretkey,{expiresIn:"1d"})
 
-    client.set('token', token, 'EX', 3600);
-    client.set('refreshtoken', refreshtoken, 'EX', 3600);
+    client.set('token', token, 'EX', 21600);
+    client.set('refreshtoken', refreshtoken, 'EX', 86400);
     
     res.send(`<a href="http://127.0.0.1:5502/Front-End/index.html?userid=${gitusser._id}" id="myid">Loading ... 🕧</a>
     <script>
@@ -390,6 +398,11 @@ async function gituser(Email,user){
 
 userroute.get('/getallusers', middleware, async (req,res)=>{
     const Role = req.role;
+    console.log(Role);
+    console.log(req.id);
+    const user = await UserModel.findById({_id:req.id})
+    console.log(user);
+
     if(Role !== 'Admin'){
         const user = []
         return res.status(400).send({msg:"Only Admin Can Access. UnAuthorized Access", users:user})
