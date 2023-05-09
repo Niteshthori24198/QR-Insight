@@ -17,6 +17,11 @@
 # Features
   This project has the following features:
 
+  ## Home Page
+  
+  ## Sign In Sign Up Page
+  The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts
+  
   ## QR Code Generator Page
   The QR Code Generator page allows users to generate QR codes for text, URL, Wi-Fi, Zoom, WhatsApp, phone, vCard, and email. Users can     also download, print, or share the generated QR code via email or WhatsApp.
 
@@ -25,6 +30,9 @@
 
   ## Analysis Page
   The Analysis page provides statistical data and analysis on the usage of generated QR codes. This includes information on the number of   scans, location of scans, time of scans, and the type of device used for scanning.
+  
+  ## User Profile Section
+  The User Profile section allows users to view their profile information, update their profile picture, and change their password.
 
   ## About Us Page
   The About Us page provides information about the project and the team behind it.
@@ -34,12 +42,6 @@
 
   ## Contact Page
   The Contact page provides users with a form to contact the website's administrators.
-
-  ## User Profile Section
-  The User Profile section allows users to view their profile information, update their profile picture, and change their password.
-
-  ## OAuth and GitHub Authentication
-  The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts.
 
   # Technologies Used
   This project was built using the following technologies:
@@ -58,8 +60,11 @@
     JWT
     OAuth
     GitHub auth
+    
   # Deployment
   The backend of this project has been deployed using Cyclick, and the front end has been deployed using Netlify.
+    ### Netlify : 
+    ### Github : 
 
   # Contributing
   Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
