@@ -61,15 +61,11 @@
                 </a>
             </div>
         </div>
-        <div class="dropdown">
-            <h4 class="nav-elem">Pricing <ion-icon name="chevron-down-outline"></ion-icon> </h4>
-            <div class="dropdown-content">
-
-                <a href=""><img
-                        src="https://www.unitag.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpackaging-blue.284a8c8b.png&w=96&q=75"
-                        alt=""> Price Calculator</a>
-                <p>QR Insight - Price Calculator , Check Which Plan Suits You</p>
-            </div>
+        
+        <div>
+            <a href="./blog.html">
+                <h4 class="nav-elem">Articles</h4>
+            </a>
         </div>
         <div>
             <a href="./about.html" style="color: black;">
@@ -121,7 +117,7 @@
 
     <div class="menu-page">
         <div>
-            <img id="logo" src="./images/logo.png" alt="">
+            <img id="logo" src="../images/logo.png" alt="">
             <div onclick="remove()"><ion-icon name="close"></ion-icon></div>
         </div>
         <div class="dropdown-container">
@@ -137,18 +133,10 @@
             </div>
 
         </div>
-        <div>
-            <h1>Pricing</h1>
-            <div class="dropdown-price">
-                <div><a href="">Calculate Amount</a></div>
-                <div><a href="">Subscribe</a></div>
-            </div>
-            <div onclick="openPrice()">
-                <ion-icon class="down-arrow" name="chevron-down-circle-outline"></ion-icon>
-            </div>
-        </div>
+        
+        <h1><a href="./blog.html"> Articles </a></h1>
         <h1><a href="./about.html"> About Us</a></h1>
-        <h1><a href="">Contact</a> </h1>
+        <h1><a href="./feedback.html">Contact</a> </h1>
 
     </div>
 
@@ -223,8 +211,10 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"> <a href="" id="text_qr_download"
-                            download="QR_Insight_text.jpeg"> Download QR </a> </button>
+                    <button onclick="HandleDownload('QR_Code_img_text')"> Download QR  </button>
+
+                    <!-- <button onclick="HandleDownload()"> <a href="" id="text_qr_download"
+                            download="QR_Insight_text.jpeg"> Download QR </a> </button> -->
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -275,8 +265,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"> <a href="" id="link_qr_download"
-                            download="QR_Insight_link.jpeg"> Download QR </a> </button>
+                    <button onclick="HandleDownload('QR_Code_img_link')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -596,8 +585,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="phone_qr_download"
-                            download="QR_Insight_phone.jpeg"> Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_phone')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -654,8 +642,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="upi_qr_download" download="QR_Insight_upi.jpeg">
-                            Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_upi')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -977,8 +964,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="wa_qr_download"
-                            download="QR_Insight_whatsapp.jpeg"> Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_wa')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1036,8 +1022,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="email_qr_download"
-                            download="QR_Insight_email.jpeg"> Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_email')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1093,8 +1078,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="zoom_qr_download" download="QR_Insight_zoom.jpeg">
-                            Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_zoom')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1156,8 +1140,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="wifi_qr_download" download="QR_Insight_wifi.jpeg">
-                            Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_wifi')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 
@@ -1226,8 +1209,7 @@
 
                 <div>
 
-                    <button onclick="HandleDownload()"><a href="" id="vcard_qr_download"
-                            download="QR_Insight_vcard.jpeg"> Download QR </a></button>
+                    <button onclick="HandleDownload('QR_Code_img_vcard')"> Download QR  </button>
 
                     <button onclick="HandlePrint()">Print QR</button>
 

@@ -50,7 +50,7 @@ nav {
     letter-spacing: 2px;
 }
 
-img {
+#qr_scannar_section img {
     border-radius: 15px;
     margin: 10px 0px;
     overflow: hidden;
