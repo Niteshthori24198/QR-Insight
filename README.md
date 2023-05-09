@@ -4,18 +4,31 @@
 
 
 # Prerequisites
-  Node.js
-  npm modules
-  MongoDB
-  Git
+  - Node.js
+  - npm modules
+  - MongoDB
+  - Git
   
 # Installation
-  Clone the repository: git clone https://github.com/your-username/your-project.git
-  Install dependencies: npm install
-  Start the server: npm start
+  - Clone the repository: git clone https://github.com/your-username/your-project.git
+  - Install dependencies: npm install
+  - Start the server: npm start
   
 # Features
   This project has the following features:
+    - QR Code Generation
+    - QR Code Scanner
+    - QR Code Analysis
+    - Download and Sharing
+    - User Accounts
+    - About Us Page
+    - Blog Page
+    - Contact Page
+    - Good UI
+    - Responsiveness
+    - User-friendly
+  
+ # Table of contents
 
   ## Home Page
   
