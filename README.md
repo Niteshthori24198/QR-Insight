@@ -15,24 +15,24 @@
   - Start the server: npm start
   
 # Features
-  This project has the following features:
-  - QR Code Generation
-  - QR Code Scanner
-  - QR Code Analysis
-  - Download and Sharing
-  - User Accounts
-  - About Us Page
-  - Blog Page
-  - Contact Page
-  - Good UI
-  - Responsiveness
-  - User-friendly
+  - This project has the following features:
+    - QR Code Generation
+    - QR Code Scanner
+    - QR Code Analysis
+    - Download and Sharing
+    - User Accounts
+    - About Us Page
+    - Blog Page
+    - Contact Page
+    - Good UI
+    - Responsiveness
+    - User-friendly
   
  # Table of contents
 
   ## Home Page
   
-  ## Sign In Sign Up Page
+  ## Sign In / Sign Up Page
     The OAuth and GitHub Authentication features allow users to sign up and log in to the website using their Google or GitHub accounts
   
   ## QR Code Generator Page
