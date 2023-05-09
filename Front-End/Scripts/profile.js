@@ -116,9 +116,13 @@ function deleteProfile(){
     .then(res => res.json() )
     .then(data => {
         console.log(data);
-
-        localStorage.removeItem('qrcodeuserdetails');
-        location.href = '../index.html'
+        if(data.success){
+            console.log('Your Accout Successfully Deleted');
+            localStorage.removeItem('qrcodeuserdetails');
+            location.href = '../index.html'
+        }else{
+            alert(`You can't Able to Delete Account Yet. Please Contact To Manager`)
+        }
         
     }).catch(err => {
         console.error(err);

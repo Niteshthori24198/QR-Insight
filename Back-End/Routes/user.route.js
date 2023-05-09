@@ -388,6 +388,26 @@ async function gituser(Email,user){
 
 
 
+userroute.get('/getallusers', middleware, async (req,res)=>{
+    const Role = req.role;
+    if(Role !== 'Admin'){
+        const user = []
+        return res.status(400).send({msg:"Only Admin Can Access. UnAuthorized Access", users:user})
+    } 
+
+    try {
+        const users = await UserModel.find()
+        return res.status(200).send({
+            msg:"All Users Details",
+            users : users
+        })
+
+    } catch (error) {
+        return res.status(400).send({msg:error.message, users:user})
+    }
+})
+
+
 module.exports={
     userroute
 }

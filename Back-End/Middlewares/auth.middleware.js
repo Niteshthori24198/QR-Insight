@@ -9,6 +9,7 @@ const middleware=async (req,res,next)=>{
     try {
         let token=await client.get('token');
         let refreshtoken=await client.get('refreshtoken');
+        console.log(token, refreshtoken);
 
         if(!token ){
             if(!refreshtoken){
