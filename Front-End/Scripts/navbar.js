@@ -41,22 +41,48 @@ function showUsername() {
     }
 
     if (details) {
-        name1.textContent = details.Name.split(" ")[0]
-        name2.textContent = details.Name.split(" ")[0]
-        document.getElementById("logoutBtn").style.display = "block"
-        document.getElementById("loginBtn").style.display = "none"
-        document.getElementById("userIcon").style.display = "block"
 
-        if (details.Role === "Admin") {
-            document.getElementById('Dashboard_admin_nav').style.display = "block"
-        }
+        fetch(`${BaseUrl_navbarJS}/user/checkAccessToken`)
+        .then(res => res.json())
+        .then(data =>{
+
+            console.log(data);
+
+            if(data.isValidToken){
+
+                name1.textContent = details.Name.split(" ")[0]
+                name2.textContent = details.Name.split(" ")[0]
+                document.getElementById("logoutBtn").style.display = "block"
+                document.getElementById("loginBtn").style.display = "none"
+                document.getElementById("userIcon").style.display = "block"
+        
+                if (details.Role === "Admin") {
+                    document.getElementById('Dashboard_admin_nav').style.display = "block"
+                }
+
+            }else{
+
+                localStorage.removeItem('qrcodeuserdetails')
+                alert('Please Login Again (Session Time Out)');
+
+            }
+
+        }).catch(err => {
+            console.error(err);
+            localStorage.removeItem('qrcodeuserdetails')
+            alert('Please Login Again (Session Time Out)');
+        })
+
 
     }
 }
 
+
+
+
+
 function clearLocalStorage() {
     
-    // localStorage.removeItem('qrcodeuserdetails');
 
     document.getElementById("logoutBtn").style.display = "none";
     document.getElementById("loginBtn").style.display = "block";
@@ -82,13 +108,12 @@ function clearLocalStorage() {
 
     
     logoutUser()
-    // alert("Logout Successfully");
 
 }
 
 
 function logoutUser(){
-    console.log('fetch request call huvi');
+
     fetch(`${BaseUrl_navbarJS}/user/logout`)
     .then((res)=>{
         return res.json()

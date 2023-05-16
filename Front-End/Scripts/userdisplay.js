@@ -1,9 +1,12 @@
 
 const BaseUrl_UserDisplay = `https://angry-cummerbund-newt.cyclic.app`
 
-let a = new URLSearchParams(window.location.search)
-let b=a.get('userid')
-console.log(b)
+let a = new URLSearchParams(window.location.search);
+
+let b=a.get('userid');
+
+// console.log(b)
+
 let obj={
     _id:b
 }
