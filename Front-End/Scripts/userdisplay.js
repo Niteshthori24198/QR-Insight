@@ -31,14 +31,3 @@ if(b){
 
 
 
-// function logout(){
-//     fetch(`${BaseUrl_UserDisplay}/user/logout`)
-//     .then((res)=>{
-//         return res.json()
-//     })
-//     .then((data)=>{
-//         localStorage.removeItem("qrcodeuserdetails");
-//         alert(data.msg)
-//     })
-// }
-

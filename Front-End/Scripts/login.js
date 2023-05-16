@@ -15,6 +15,9 @@ form.addEventListener("submit",(e)=>{
         return
     }
 
+    document.getElementById('qr-loginbtn').innerHTML = `<i class="fa fa-refresh fa-spin"></i> Login`
+    document.getElementById('qr-loginbtn').disabled = true;
+
 
     let userobj={
         Email:email.value,
@@ -36,17 +39,25 @@ form.addEventListener("submit",(e)=>{
     .then((data)=>{
         console.log(data)
         if(data.userdetails){
-            alert(data.msg)
-            window.location.href="../index.html"
             localStorage.setItem("qrcodeuserdetails",JSON.stringify(data.userdetails))
+
+            document.getElementById('qr-loginbtn').innerHTML = `Login`
+            document.getElementById('qr-loginbtn').disabled = false;
+            
+            alert(data.msg);
+            window.location.href="../index.html"
             
         }else{
+            document.getElementById('qr-loginbtn').innerHTML = `Login`
+            document.getElementById('qr-loginbtn').disabled = false;
             alert(data.msg)
         }
         
-       //window.location.href="index.html"
+        //window.location.href="index.html"
     })
     .catch((err)=>{
+        document.getElementById('qr-loginbtn').innerHTML = `Login`
+        document.getElementById('qr-loginbtn').disabled = false;
         console.log(err)
     })
 })
@@ -57,8 +68,9 @@ let googlebtn=document.getElementById("raj-google")
 
 googlebtn.addEventListener('click', function(e) {
     e.preventDefault();
-    window.location.href=`${BaseUrl_login}/user/auth/google`
-
+    document.getElementById('raj-google').innerHTML = `<i class="fa fa-refresh fa-spin"></i> Google`;
+    window.location.href=`${BaseUrl_login}/user/auth/google`;
+    
 });
 
 
@@ -66,5 +78,6 @@ googlebtn.addEventListener('click', function(e) {
 let githubbtn=document.getElementById("raj-github")
 
 githubbtn.addEventListener("click",()=>{
+    document.getElementById('raj-github').innerHTML = `<i class="fa fa-refresh fa-spin"></i> Github`;
     window.location.href="https://github.com/login/oauth/authorize?client_id=91d7325bd615799a7790&scope=user"
 })

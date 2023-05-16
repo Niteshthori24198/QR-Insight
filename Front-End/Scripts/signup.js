@@ -19,6 +19,9 @@ form.addEventListener("submit",(e)=>{
         return
     }
 
+    document.getElementById('qr-Registerbtn').innerHTML = `<i class="fa fa-refresh fa-spin"></i> Register`
+    document.getElementById('qr-Registerbtn').disabled = true;
+
 
     let userobj={
         Name:name1.value,
@@ -46,9 +49,13 @@ form.addEventListener("submit",(e)=>{
     })
     .then((data)=>{
         console.log(data)
+        document.getElementById('qr-Registerbtn').innerHTML = `Register`
+        document.getElementById('qr-Registerbtn').disabled = false;
         alert(data.msg)
     })
     .catch((err)=>{
+        document.getElementById('qr-Registerbtn').innerHTML = `Register`
+        document.getElementById('qr-Registerbtn').disabled = false;
         console.log(err)
     })
 

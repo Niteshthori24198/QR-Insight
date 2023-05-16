@@ -67,7 +67,7 @@ nav div:hover {
   width: 40px;
 }
 
-.dropdown-content a {
+.dropdown-content a, .dropdown-content > p {
   color: black;
   font-weight: bolder;
   padding: 10px;
@@ -75,7 +75,7 @@ nav div:hover {
   display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover, .dropdown-content > p:hover {
   color: #00A1E0;
   background-color: rgb(217, 224, 224);
   border-radius: 10px;
