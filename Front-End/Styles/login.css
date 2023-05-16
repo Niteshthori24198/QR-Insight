@@ -82,10 +82,12 @@ body {
     gap: 16px;
 }
 
+
 .login-form > a { color:#216ce7;}
 
 .login-form > input,
 .login-form > button {
+    text-align: center;
     width: 100%;
     height:40px;
     padding: 0 16px;
@@ -103,6 +105,17 @@ body {
     color:#f9f9f9;
     font-weight:600;
     
+}
+
+#forgotPassBtn{
+    float: right;
+    padding-left: 65%;
+    text-decoration: none;
+    /* border: 1px solid red; */
+}
+#forgotPassBtn:hover{
+    cursor: pointer;
+    color: green;
 }
 
 .hr-text {
@@ -137,5 +150,26 @@ body {
 
 button:hover {
     background: #043e9b;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+}
+
+#raj-google{
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 40%;
+    margin-right: 20px;
+}
+#raj-github{
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 40%;
+    margin-left: 20px;
+}
+
+#qr-loginbtn{
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-size: 14px;
 }

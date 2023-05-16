@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,29 @@
   <title>QR Insight</title>
   <link rel="stylesheet" href="../Styles/forgetpass.css">
 </head>
+
 <body>
   <div class="raj-container">
     <form id="raj-form1">
-      <h3>Enter your Registered email</h3>
-      <input type="text" id="raj-email" placeholder="Email" required>
+      <h3>Enter your Registered Email ID</h3>
+      <input type="email" id="raj-email" placeholder="Enter Registered Email" required>
       <div class="raj-btn-box">
         <button type="button" id="raj-next1">Next </button>
       </div>
     </form>
     <form id="raj-form2">
-      <h3>enter one time password</h3>
-      <input type="number" id="raj-otp" placeholder="OTP" ><br>
+      <h3>Enter Your OTP</h3>
+      <input type="number" id="raj-otp" placeholder="Enter Your OTP"><br>
       <div class="raj-btn-box">
         <button type="button" id="raj-next2">Verify</button>
       </div>
     </form>
     <form id="raj-form3">
-      <h3>update password here</h3>
-      <input type="text" id="raj-new" placeholder="new password" required>
-      <input type="text" id="raj-cnew" placeholder="conform password" required>
+      <h3>Create New Password</h3>
+      <input type="password" id="raj-new" placeholder="Enter New Password Here" required>
+      <input type="password" id="raj-cnew" placeholder="Re-Enter Password Here" required>
       <div class="raj-btn-box">
-        <button type="submit" id="raj-next3">Submit</button>
+        <button type="submit" id="raj-next3">Update Password</button>
       </div>
     </form>
     <div class="raj-step-row">
@@ -38,9 +40,10 @@
       <div class="raj-step-col"><small>Step 3</small></div>
     </div>
   </div>
-  
-  
-  
+
+
+
 </body>
 <script src="../Scripts/forgetpass.js"></script>
+
 </html>

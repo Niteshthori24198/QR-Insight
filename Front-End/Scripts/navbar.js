@@ -1,5 +1,5 @@
 
-// const BaseUrl_navbar = `https://angry-cummerbund-newt.cyclic.app`
+const BaseUrl_navbarJS = `https://angry-cummerbund-newt.cyclic.app`
 
 // const userIdInURL = new URLSearchParams(window.location.search)
 
@@ -55,9 +55,11 @@ function showUsername() {
 }
 
 function clearLocalStorage() {
-    localStorage.removeItem('qrcodeuserdetails');
-    document.getElementById("logoutBtn").style.display = "none"
-    document.getElementById("loginBtn").style.display = "block"
+    
+    // localStorage.removeItem('qrcodeuserdetails');
+
+    document.getElementById("logoutBtn").style.display = "none";
+    document.getElementById("loginBtn").style.display = "block";
 
     document.getElementById('Dashboard_admin_nav').style.display = "none"
 
@@ -78,5 +80,26 @@ function clearLocalStorage() {
         history.replaceState(null, null, newUrl);
     }
 
-    alert("Logout Successfully")
+    
+    logoutUser()
+    // alert("Logout Successfully");
+
 }
+
+
+function logoutUser(){
+    console.log('fetch request call huvi');
+    fetch(`${BaseUrl_navbarJS}/user/logout`)
+    .then((res)=>{
+        return res.json()
+    })
+    .then((data)=>{
+        console.log(data);
+        localStorage.removeItem("qrcodeuserdetails");
+        alert(data.msg)
+        location.reload()
+    }).catch(err=>{
+        console.log(err);
+    })
+}
+

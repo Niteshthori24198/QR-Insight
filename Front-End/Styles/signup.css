@@ -75,6 +75,7 @@ body {
 .login-form > select,
 .login-form > input,
 .login-form > button {
+    text-align: center;
     width: 100%;
     height:40px;
     padding: 0 16px;
@@ -96,11 +97,13 @@ body {
     border:0;
     background:#216ce7;
     color:#f9f9f9;
-    font-weight:600;   
+    font-weight:600;
+    letter-spacing: 1px;
+    font-size: 14px;   
 }
 
 button:hover {
     background: #043e9b;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
 
 }
