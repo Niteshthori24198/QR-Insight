@@ -9,6 +9,7 @@
     <link rel="icon" href="../images/favicon1.png" />
 
     <link rel="stylesheet" href="./Styles/admin.css" type="text/css" />
+    <link rel="stylesheet" href="./Styles/dashboard.css">
     <!-- <link rel="stylesheet" href="./Styles/feedback.css"> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,7 +28,7 @@
 <body>
 
     <div id="mySidenav" class="sidenav">
-        <p class="logo" onclick="goToHomePage()"><img src="../images/logo.png" alt="" id="logoImage--icon"></p>
+        <p class="logo" onclick="goToHomePage()" style="cursor: pointer;"><img src="../images/logo.png" alt="" id="logoImage--icon"></p>
         <a href="#" class="icon-a" onclick="goToDashboardPage()"><i class="fa fa-dashboard icons"></i> Dashboard</a>
         <a href="#" class="icon-a" onclick="goToUserPage()"><i class="fa fa-users icons"></i> Users</a>
         <a href="#" class="icon-a" onclick="goToLogsPage()"><i class="fa fa-list icons"></i> Logs</a>
@@ -47,7 +48,7 @@
                 <div class="profile">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
                         class="pro-img" />
-                    <p>Kishan Sharma <span>Admin</span></p>
+                    <p> <span id="nameOfAdmin">QR Insight</span>  <span>Admin</span></p>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -61,6 +62,69 @@
 
         <div id="Dashboard--page">
             
+            <div id="top_dashboard">
+                <div>
+                    <p>Total Registered Users</p>
+                    <p id="total_count_users">0</p>
+                </div>
+                <div>
+                    <p>Total QR Generated</p>
+                    <p id="total_count_qr">0</p>
+                </div>
+                <div>
+                    <p>Total Feedback Query</p>
+                    <p id="total_count_feedback">0</p>
+                </div>
+            </div>
+
+            <div id="bottom_dashboard">
+                <div>
+                    <div>
+                        <p>Text</p>
+                        <p id="total_text_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>V-Card</p>
+                        <p id="total_vcard_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>Link</p>
+                        <p id="total_link_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>UPI</p>
+                        <p id="total_upi_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>Phone</p>
+                        <p id="total_phone_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>Zoom</p>
+                        <p id="total_zoom_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>Email</p>
+                        <p id="total_email_qr_count">0</p>
+                    </div>
+                    <div>
+                        <p>Wi-Fi</p>
+                        <p id="total_wifi_qr_count">0</p>
+                    </div>
+                    
+                    <div>
+                        <p>Whatsapp</p>
+                        <p id="total_wa_qr_count">0</p>
+                    </div>
+                    
+                    
+                </div>
+                <div>
+                    <div class="chart-container">
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -131,10 +195,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <script src="./Scripts/admin.js"></script>
-    <script src="./Scripts/feedback.js"></script>
-    <script src="./Scripts/users.js"></script>
+    <!-- <script src="./Scripts/feedback.js"></script> -->
+    <!-- <script src="./Scripts/users.js"></script> -->
 
 </body>
 
