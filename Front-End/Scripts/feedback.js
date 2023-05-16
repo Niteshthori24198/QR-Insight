@@ -37,7 +37,7 @@ function feedback() {
       document.getElementById("email-pankaj").value = "";
       document.getElementById("text-message").value = "";
 
-      alert("Thanks for reaching out! I'll be happy to help! we will connect soon your mail")
+      alert("Thanks for reaching out! I'll be happy to help! we will connect to you soon on your mail")
 
 
     })

@@ -16,7 +16,7 @@ function savedata() {
     message: pass,
   };
 
-  fetch(`${BaseUrl_chatbot}/query/savedata`, {
+  fetch(`${BaseUrl_chatbot}/feed/savefeedback`, {
     method: "POST",
     body: JSON.stringify(signdata),
     headers: {
@@ -30,7 +30,7 @@ function savedata() {
       document.getElementById("text-message").value = "";
       if (res.ok) {
         alert(
-          "Thanks for reaching out! I'll be happy to help! we will connect soon on your mail"
+          "Thanks for reaching out! I'll be happy to help! we will connect to you soon on your mail"
         );
         document.getElementById("fom-pankaj").style.display = "none";
       }

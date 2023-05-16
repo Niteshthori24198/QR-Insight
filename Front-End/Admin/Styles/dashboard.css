@@ -1,0 +1,106 @@
+
+
+.chart-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+
+#top_dashboard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+#top_dashboard > div{
+    border-radius: 5px;
+    width: 25%;
+    text-align: center;
+    padding-top: 5px;
+    background-color: #6C6B7B;
+}
+
+#top_dashboard > div:hover{
+    background-color: #484752;
+    cursor: pointer;
+}
+
+#top_dashboard > div > p{
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+
+
+#bottom_dashboard{
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 20px ;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#bottom_dashboard > div{
+    width: 50%;
+}
+
+#bottom_dashboard > div:nth-child(1){
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+#bottom_dashboard > div:nth-child(1) > div{
+    padding-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1px;
+}
+#bottom_dashboard > div:nth-child(1) > div:hover{
+    font-weight: bolder;
+}
+
+
+
+#bottom_dashboard > div:nth-child(1) > div:nth-child(1){
+    background-color: #FF6384;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(2){
+    background-color:#36A2EB ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(3){
+    background-color:#FFCE56 ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(4){
+    background-color:#4BC0C0 ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(5){
+    background-color:#9966FF ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(6){
+    background-color:#FF9F40 ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(7){
+    background-color:#E7E9ED ;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(8){
+    background-color:#FF6384;
+}
+#bottom_dashboard > div:nth-child(1) > div:nth-child(9){
+    background-color:#4BC0C0;
+}
+
+
+
+
+.profile > p > span:nth-child(1) {
+    font-size: 15px;
+    font-weight: bold;
+}
