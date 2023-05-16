@@ -36,43 +36,21 @@ function showUsername() {
 
     let details = localStorage.getItem("qrcodeuserdetails") || null
 
-    if(details){
-        details =  JSON.parse(localStorage.getItem("qrcodeuserdetails"))
+    if (details) {
+        details = JSON.parse(localStorage.getItem("qrcodeuserdetails"))
     }
 
     if (details) {
 
-        fetch(`${BaseUrl_navbarJS}/user/checkAccessToken`)
-        .then(res => res.json())
-        .then(data =>{
+        name1.textContent = details.Name.split(" ")[0]
+        name2.textContent = details.Name.split(" ")[0]
+        document.getElementById("logoutBtn").style.display = "block"
+        document.getElementById("loginBtn").style.display = "none"
+        document.getElementById("userIcon").style.display = "block"
 
-            console.log(data);
-
-            if(data.isValidToken){
-
-                name1.textContent = details.Name.split(" ")[0]
-                name2.textContent = details.Name.split(" ")[0]
-                document.getElementById("logoutBtn").style.display = "block"
-                document.getElementById("loginBtn").style.display = "none"
-                document.getElementById("userIcon").style.display = "block"
-        
-                if (details.Role === "Admin") {
-                    document.getElementById('Dashboard_admin_nav').style.display = "block"
-                }
-
-            }else{
-
-                localStorage.removeItem('qrcodeuserdetails')
-                alert('Please Login Again (Session Time Out)');
-
-            }
-
-        }).catch(err => {
-            console.error(err);
-            localStorage.removeItem('qrcodeuserdetails')
-            alert('Please Login Again (Session Time Out)');
-        })
-
+        if (details.Role === "Admin") {
+            document.getElementById('Dashboard_admin_nav').style.display = "block"
+        }
 
     }
 }
@@ -82,7 +60,11 @@ function showUsername() {
 
 
 function clearLocalStorage() {
-    
+
+    if(!confirm('Do You Want To Logout ?')){
+        return
+    }
+
 
     document.getElementById("logoutBtn").style.display = "none";
     document.getElementById("loginBtn").style.display = "block";
@@ -106,25 +88,53 @@ function clearLocalStorage() {
         history.replaceState(null, null, newUrl);
     }
 
-    
+
     logoutUser()
 
 }
 
 
-function logoutUser(){
+function logoutUser() {
 
     fetch(`${BaseUrl_navbarJS}/user/logout`)
-    .then((res)=>{
-        return res.json()
-    })
-    .then((data)=>{
-        console.log(data);
-        localStorage.removeItem("qrcodeuserdetails");
-        alert(data.msg)
-        location.reload()
-    }).catch(err=>{
-        console.log(err);
-    })
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            console.log(data);
+            localStorage.removeItem("qrcodeuserdetails");
+            alert(data.msg)
+            location.reload()
+        }).catch(err => {
+            console.log(err);
+        })
 }
 
+
+
+// // check access token
+// setTimeout(() => {
+//     fetch(`${BaseUrl_navbarJS}/user/checkAccessToken`)
+//         .then(res => res.json())
+//         .then(data => {
+
+//             console.log(data);
+            
+
+//             if (data.isValidToken) {
+
+//                 console.log('Alright');
+
+//             } else {
+
+//                 localStorage.removeItem('qrcodeuserdetails')
+//                 alert('Please Login Again (Session Time Out)22');
+
+//             }
+
+//         }).catch(err => {
+//             console.error(err);
+//             localStorage.removeItem('qrcodeuserdetails')
+//             alert('Please Login Again (Session Time Out)');
+//         })
+// }, 5000)

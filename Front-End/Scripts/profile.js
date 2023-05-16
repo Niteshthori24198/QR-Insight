@@ -95,7 +95,7 @@ function updateProfile() {
                     localStorage.setItem('qrcodeuserdetails', JSON.stringify(data.user))
 
                 }
-                // window.location.reload()
+                window.location.reload()
             }).catch(err => {
                 console.error(err);
 
@@ -103,10 +103,12 @@ function updateProfile() {
                 document.getElementById('user-profile-updateBtn').disabled = false;
 
                 alert('Something Went Wrong.(Please Try After Some Time)')
+                location.reload()
             })
     } else {
         document.getElementById('user-profile-updateBtn').innerHTML = `Update Profile`;
         document.getElementById('user-profile-updateBtn').disabled = false;
+        location.reload()
     }
 
 
@@ -132,24 +134,47 @@ function deleteProfile() {
         return
     }
 
+    document.getElementById('user-profile-deleteBtn').innerHTML = `<i class="fa fa-refresh fa-spin"></i> Delete My Account`;
+    document.getElementById('user-profile-deleteBtn').disabled = true;
 
-    fetch(`${BaseUrl_profile}/profile/deleteProfile/${detailsforuserid._id}`, {
-        method: "DELETE"
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.success) {
-                console.log('Your Accout Successfully Deleted');
-                localStorage.removeItem('qrcodeuserdetails');
-                location.href = '../index.html'
-            } else {
-                alert(`You can't Able to Delete Account Yet. Please Contact To Manager`)
-            }
 
-        }).catch(err => {
-            console.error(err);
-            alert('something went wrong. try after some time')
+    if (confirm('Do You Want To Delete Your Account?')){
+        fetch(`${BaseUrl_profile}/profile/deleteProfile/${detailsforuserid._id}`, {
+            method: "DELETE"
         })
+            .then(res => res.json())
+            .then(data => {
+
+                document.getElementById('user-profile-deleteBtn').innerHTML = `Delete My Account`;
+                document.getElementById('user-profile-deleteBtn').disabled = false;
+
+                console.log(data);
+
+                if (data.success) {
+    
+                    localStorage.removeItem('qrcodeuserdetails');
+    
+                    location.href = '../index.html';
+    
+                } else {
+                    alert(`You can't Able to Delete Account Yet. Please Contact To Manager`)
+                }
+    
+            }).catch(err => {
+                console.error(err);
+
+                document.getElementById('user-profile-deleteBtn').innerHTML = `Delete My Account`;
+                document.getElementById('user-profile-deleteBtn').disabled = false;
+
+                alert('Something Went Wrong.(Please Try After Some Time)')
+                location.reload()
+            })
+    }else{
+        document.getElementById('user-profile-deleteBtn').innerHTML = `Delete My Account`;
+        document.getElementById('user-profile-deleteBtn').disabled = false;
+        location.reload()
+    }
+
+    
 
 }

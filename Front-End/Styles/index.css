@@ -110,6 +110,7 @@ nav div:hover {
 }
 
 #logoutBtn {
+  padding-bottom: 20px;
   display: none;
 }
 
