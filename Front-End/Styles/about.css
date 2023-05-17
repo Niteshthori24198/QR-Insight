@@ -183,7 +183,7 @@ img {
 
 
 #dis-pankaj > p:nth-child(10) span{
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: blue;
 }
 

@@ -84,13 +84,13 @@ body {
 .profile {
   /* display: inline-block; */
   float: right;
-  width: 160px;
+  width: 200px;
 }
 
 .pro-img {
   float: left;
   width: 40px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .profile p {
@@ -272,27 +272,28 @@ th {
 #Feedback--page,
 #Logs--page,
 #Users--page,
-#Dashboard--page {
+#Dashboard--page,
+#Logs--page {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 20px;
 }
 
 
-#raj-div>table, #userinfo_box>table {
+#raj-div>table, #userinfo_box>table, #qr_codes_admins>table {
   border-collapse: collapse;
   width: 100%;
   margin: 0 auto;
   border-radius: 10px;
 }
 
-#raj-div>table>thead , #userinfo_box>table>thead {
+#raj-div>table>thead , #userinfo_box>table>thead, #qr_codes_admins>table>thead {
   font-weight: bold;
   background-color: #dad7d7;
 }
 
 
 #raj-div>table th,
-#raj-div>table td, #userinfo_box th, #userinfo_box td {
+#raj-div>table td, #userinfo_box th, #userinfo_box td, #qr_codes_admins th, #qr_codes_admins td {
   text-align: center;
   padding: 8px;
   border: 1px solid #ddd;
@@ -368,4 +369,59 @@ th {
   align-items: center;
   height: 100vh;
   background-color: black;
+}
+
+
+
+
+
+
+
+
+/* Select QR */
+
+.selectTagboxForQR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#select_qr_formate{
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 20%;
+  text-align: center;
+  background-color: #dad7d7;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+
+.usersearchBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+#userSearchInput{
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 30%;
+  text-align: center;
+  /* background-color: #dad7d7; */
+  border-bottom: 1px solid #666;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+#userSearchInput:hover{
+  border-top: 1px solid #666;
 }

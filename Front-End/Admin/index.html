@@ -40,9 +40,9 @@
                     id="logoImage--icon"></p>
             <a href="#" class="icon-a" onclick="goToDashboardPage()"><i class="fa fa-dashboard icons"></i> Dashboard</a>
             <a href="#" class="icon-a" onclick="goToUserPage()"><i class="fa fa-users icons"></i> Users</a>
-            <a href="#" class="icon-a" onclick="goToLogsPage()"><i class="fa fa-list icons"></i> Logs</a>
+            <a href="#" class="icon-a" onclick="goToLogsPage()"><i class="fa fa-list icons"></i> QR Codes</a>
             <a href="#" class="icon-a" onclick="goToFeedbackPage()"><i class="fa fa-shopping-bag icons"></i> Feedback</a>
-            <a href="#" class="icon-a" onclick="logoutAdminFunc()"><i class="fa-solid fa-right-to-bracket"></i> Logout</a>
+            <a href="#" class="icon-a" onclick="logoutAdminFunc()"><i class="fa-solid fa-right-to-bracket icons"></i> Logout</a>
         </div>
     
         <div id="main">
@@ -141,6 +141,11 @@
     
     
             <div id="Users--page">
+
+                <div class="usersearchBox">
+                    <input type="text" placeholder="Search user here" id="userSearchInput">
+                </div>
+
                 <div id="userinfo_box">
                     <table>
                         <thead>
@@ -167,7 +172,34 @@
     
     
             <div id="Logs--page">
-                Logging details
+                <div class="selectTagboxForQR">
+                    <select id="select_qr_formate">
+                        <option value="">Select QR Code</option>
+                        <option value="text">Text</option>
+                        <option value="link">Link</option>
+                        <option value="upi">UPI</option>
+                        <option value="phone">Phone</option>
+                        <option value="email">Email</option>
+                        <option value="zoom">Zoom</option>
+                        <option value="vcard">V-Card</option>
+                        <option value="whatsapp">Whatsapp</option>
+                    </select>
+                </div>
+                <div id="qr_codes_admins">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody id="append_qrcodes">
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
     
     
@@ -211,8 +243,6 @@
 
 
     <script src="./Scripts/admin.js"></script>
-    <!-- <script src="./Scripts/feedback.js"></script> -->
-    <!-- <script src="./Scripts/users.js"></script> -->
 
 </body>
 
