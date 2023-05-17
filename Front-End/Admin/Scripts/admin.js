@@ -27,14 +27,17 @@ $(".nav2").click(function () {
 let totalFeedbacks = 0;
 let totalUsers = 0;
 let qrCodeDetailsDb = {}
+let userDetailById = {}
+let allQRCodeInformation = []
+let allUsersInformation = []
 
 
 const qrcodeuserdetails_adminpage = JSON.parse(localStorage.getItem('qrcodeuserdetails')) || null;
-if(qrcodeuserdetails_adminpage){
+if (qrcodeuserdetails_adminpage) {
     console.log(qrcodeuserdetails_adminpage);
     const USERNAME = qrcodeuserdetails_adminpage.Name
     document.getElementById('nameOfAdmin').innerText = USERNAME
-}else{
+} else {
     location.href = '../View/login.html'
 }
 
@@ -44,10 +47,10 @@ const mainbody = document.getElementById('mainbody')
 mainbody.style.display = "none"
 
 
-setTimeout(()=>{
+setTimeout(() => {
     loader.style.display = 'none';
     mainbody.style.display = 'block'
-},6000)
+}, 5500)
 
 
 // *******************   API REQUEST *************************//
@@ -69,7 +72,7 @@ fetch(`${BaseUrl_adminPage}/feed/getdata`)
 
 
 fetchAllUsers()
-function fetchAllUsers(){
+function fetchAllUsers() {
     fetch(`${BaseUrl_adminPage}/user/getallusers`)
         .then((res) => {
             return res.json()
@@ -79,6 +82,7 @@ function fetchAllUsers(){
             // console.log('===>', data.msg);
             totalUsers = data?.users?.length;
             document.getElementById('total_count_users').innerText = totalUsers;
+            allUsersInformation = data.users
             displaydataUsers(data.users);
         })
 }
@@ -89,14 +93,50 @@ function fetchAllUsers(){
 fetch(`${BaseUrl_adminPage}/qrcode/getallQR`).then(res => res.json())
     .then(data => {
         console.log(data);
-       
+
         makeQRCodeArray(data.Qrcodesdata);
+
+        showAllQrCodes(data.Qrcodesdata);
+
     }).catch(err => {
         console.log(err);
     })
 
 
 
+function showAllQrCodes(data){
+    console.log('data===>',data);
+    const arr = data.reduce((acc,curr)=>{
+
+        let nameOfUser = 'Unknown'
+        let emailOfUser = 'Unknown'
+
+        if(curr.UserID){
+            if(userDetailById[curr.UserID]){
+                nameOfUser = userDetailById[curr.UserID].Name
+                emailOfUser = userDetailById[curr.UserID].Email
+            }
+        }
+
+        const a = curr.QRCodes.map((item)=>{
+            return {
+                UserID : curr.UserID,
+                Name : nameOfUser,
+                Email : emailOfUser,
+                Formate : item.Formate,
+                Detail : item.Detail
+            }
+
+        })
+
+        acc.push(...a)
+
+        return acc
+
+    },[])
+    allQRCodeInformation = arr;
+    displaydataQRCodes(arr);
+}
 
 let DashboardPage = document.getElementById("Dashboard--page")
 let UsersPage = document.getElementById("Users--page")
@@ -121,7 +161,7 @@ function goToDashboardPage() {
 function makeQRCodeArray(data) {
     let count = 0
     const obj = data.reduce((acc, curr) => {
-        // console.log(curr.QRCodes);
+
         curr.QRCodes.forEach((item) => {
             const key = item.Formate
             count++
@@ -134,19 +174,20 @@ function makeQRCodeArray(data) {
 
         return acc
     }, {})
+
     console.log(obj);
 
     document.getElementById('total_count_qr').innerText = count;
 
-    document.getElementById('total_text_qr_count').innerText = obj['text'] || 0; 
-    document.getElementById('total_link_qr_count').innerText = obj['link'] || 0; 
-    document.getElementById('total_upi_qr_count').innerText = obj['upi'] || 0; 
-    document.getElementById('total_zoom_qr_count').innerText = obj['zoom'] || 0; 
-    document.getElementById('total_wifi_qr_count').innerText = obj['wifi'] || 0; 
-    document.getElementById('total_phone_qr_count').innerText = obj['phone'] || 0; 
-    document.getElementById('total_wa_qr_count').innerText = obj['whatsapp'] || 0; 
-    document.getElementById('total_vcard_qr_count').innerText = obj['vcard'] || 0; 
-    document.getElementById('total_email_qr_count').innerText = obj['email'] || 0; 
+    document.getElementById('total_text_qr_count').innerText = obj['text'] || 0;
+    document.getElementById('total_link_qr_count').innerText = obj['link'] || 0;
+    document.getElementById('total_upi_qr_count').innerText = obj['upi'] || 0;
+    document.getElementById('total_zoom_qr_count').innerText = obj['zoom'] || 0;
+    document.getElementById('total_wifi_qr_count').innerText = obj['wifi'] || 0;
+    document.getElementById('total_phone_qr_count').innerText = obj['phone'] || 0;
+    document.getElementById('total_wa_qr_count').innerText = obj['whatsapp'] || 0;
+    document.getElementById('total_vcard_qr_count').innerText = obj['vcard'] || 0;
+    document.getElementById('total_email_qr_count').innerText = obj['email'] || 0;
 
     qrCodeDetailsDb = obj;
     dashboardPageFunctions(obj)
@@ -211,7 +252,6 @@ function goToUserPage() {
 
 
 
-
 // ................................. Logs .........................................//
 function goToLogsPage() {
     document.getElementById("headingOfPage").innerHTML = "☰ Activity Details";
@@ -221,8 +261,6 @@ function goToLogsPage() {
     LogsPage.style.display = "block";
     FeedbackPage.style.display = "none";
 }
-
-
 
 
 
@@ -275,7 +313,23 @@ function displaydataFeedbacks(data) {
 }
 
 
+let userSearchInput = document.getElementById('userSearchInput');
+userSearchInput.addEventListener('input', ()=>{
+    console.log(userSearchInput.value);
+    if(userSearchInput.value){
+        const filterdData = allUsersInformation.filter((item) => {
+            return item.Name.toLowerCase().includes(userSearchInput.value.toLowerCase())
+        })
+        displaydataUsers(filterdData);
+    }else{
+        displaydataUsers(allUsersInformation);
+    }
+
+
+})
+
 function displaydataUsers(data) {
+
     console.log(data)
 
     let main = document.getElementById("usersDetailbody");
@@ -283,7 +337,14 @@ function displaydataUsers(data) {
     main.innerHTML = '';
 
     data.forEach((element) => {
-        // console.log(element);
+
+
+        // store user details for showing qr codes
+        userDetailById[element._id] = {
+            Name : element.Name,
+            Email : element.Email
+        }
+
         let tr = document.createElement("tr")
 
         let td1 = document.createElement("td")
@@ -300,7 +361,7 @@ function displaydataUsers(data) {
 
         let td5 = document.createElement("td")
         td5.innerText = element.Role
-        if(element.Role==='Admin'){
+        if (element.Role === 'Admin') {
             td5.style.color = 'purple'
             td5.style.fontWeight = 'bolder'
         }
@@ -309,7 +370,7 @@ function displaydataUsers(data) {
         if (element.ismailverified) {
             td6.innerText = 'Active';
             td6.setAttribute('class', "verifiedUserBtn");
-        }else{
+        } else {
             td6.innerText = 'Freez';
             td6.setAttribute('class', "notVerifiedUserBtn");
         }
@@ -321,24 +382,24 @@ function displaydataUsers(data) {
         td7.innerText = element.Role === 'Admin' ? "Change to User" : "Change to Admin"
         td7.setAttribute('class', "updateRoleBtn");
         td7.addEventListener("click", () => {
-            if(!confirm(`Do you want to change the role of this user \n ${element.Name}`)){
+            if (!confirm(`Do you want to change the role of this user \n ${element.Name}`)) {
                 return
             }
             fetch(`${BaseUrl_adminPage}/user/updateRole/${element._id}`, {
-                method : 'PUT',
-                headers : {
-                    "Content-type" : "application/json"
+                method: 'PUT',
+                headers: {
+                    "Content-type": "application/json"
                 }
             }).then(res => res.json())
-            .then(data => {
-                console.log(data);
-                fetchAllUsers();
-                alert(data.msg);
-            })
-            .catch(err => {
-                console.log(err);
-                alert('Something Went Wrong')
-            })
+                .then(data => {
+                    console.log(data);
+                    fetchAllUsers();
+                    alert(data.msg);
+                })
+                .catch(err => {
+                    console.log(err);
+                    alert('Something Went Wrong')
+                })
         })
 
 
@@ -356,7 +417,7 @@ function displaydataUsers(data) {
 
 
 
-        tr.append(td1, td2, td3, td4, td5, td6, td7,td8)
+        tr.append(td1, td2, td3, td4, td5, td6, td7, td8)
         main.append(tr)
     });
 
@@ -364,6 +425,70 @@ function displaydataUsers(data) {
 }
 
 
+
+const select_qr_formate = document.getElementById('select_qr_formate');
+select_qr_formate.addEventListener('change', ()=>{
+    // console.log(select_qr_formate.value);
+    if(select_qr_formate.value){
+        let filteredData = allQRCodeInformation.filter((item)=> (item.Formate==select_qr_formate.value) )
+        displaydataQRCodes(filteredData)
+    }else{
+        displaydataQRCodes(allQRCodeInformation)
+    }
+})
+
+
+function displaydataQRCodes(data) {
+    console.log(data)
+
+    let main = document.getElementById("append_qrcodes")
+    main.innerHTML = ''
+
+    data.forEach((element) => {
+        let tr = document.createElement("tr")
+
+        let td1 = document.createElement("td")
+        td1.innerText = element.Name
+
+        let td2 = document.createElement("td")
+        td2.innerText = element.Email
+
+        let td3 = document.createElement("td")
+        td3.innerText = element.Formate
+
+        let td4 = document.createElement("td")
+        td4.innerText = element.Detail
+
+        tr.append(td1, td2, td3, td4)
+        main.append(tr)
+    });
+
+}
+
+
+
 function goToHomePage() {
     location.href = '../index.html'
+}
+
+function logoutAdminFunc() {
+
+    if (confirm('Do you want to logout ?')) {
+
+        fetch(`${BaseUrl_adminPage}/user/logout`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                console.log(data);
+                localStorage.removeItem("qrcodeuserdetails");
+                alert(data.msg)
+                location.href = '../View/login.html'
+            }).catch(err => {
+                console.log(err);
+            })
+
+    }
+
+
 }

@@ -108,10 +108,9 @@ body {
 }
 
 #forgotPassBtn{
-    float: right;
+    /* float: right; */
     padding-left: 65%;
     text-decoration: none;
-    /* border: 1px solid red; */
 }
 #forgotPassBtn:hover{
     cursor: pointer;
@@ -172,4 +171,10 @@ button:hover {
     letter-spacing: 1px;
     border-radius: 10px;
     font-size: 14px;
+}
+
+@media screen and (max-width : 500px){
+    #forgotPassBtn{
+        padding-left: 52%;
+    }
 }
