@@ -346,16 +346,26 @@ th {
 }
 
 .verifiedUserBtn{
-  background-color: rgb(10, 24, 98);
+  background-color: green;
   letter-spacing: 1px;
   cursor: pointer;
   font-weight: bolder;
   color: white;
 }
 .notVerifiedUserBtn{
-  background-color: red;
+  background-color: rgb(249, 43, 43);
   letter-spacing: 1px;
   cursor: pointer;
   font-weight: bolder;
   color: white;
+}
+
+
+
+#loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
 }

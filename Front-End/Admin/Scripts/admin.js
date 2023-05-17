@@ -35,8 +35,20 @@ if(qrcodeuserdetails_adminpage){
     const USERNAME = qrcodeuserdetails_adminpage.Name
     document.getElementById('nameOfAdmin').innerText = USERNAME
 }else{
-    location.href = '../../View/login.html'
+    location.href = '../View/login.html'
 }
+
+
+const loader = document.getElementById('loader');
+const mainbody = document.getElementById('mainbody')
+mainbody.style.display = "none"
+
+
+setTimeout(()=>{
+    loader.style.display = 'none';
+    mainbody.style.display = 'block'
+},6000)
+
 
 // *******************   API REQUEST *************************//
 
@@ -56,18 +68,22 @@ fetch(`${BaseUrl_adminPage}/feed/getdata`)
     })
 
 
+fetchAllUsers()
+function fetchAllUsers(){
+    fetch(`${BaseUrl_adminPage}/user/getallusers`)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            console.log('users==>', data)
+            // console.log('===>', data.msg);
+            totalUsers = data?.users?.length;
+            document.getElementById('total_count_users').innerText = totalUsers;
+            displaydataUsers(data.users);
+        })
+}
 
-fetch(`${BaseUrl_adminPage}/user/getallusers`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        console.log('users==>', data)
-        // console.log('===>', data.msg);
-        totalUsers = data?.users?.length;
-        document.getElementById('total_count_users').innerText = totalUsers;
-        displaydataUsers(data.users);
-    })
+
 
 
 fetch(`${BaseUrl_adminPage}/qrcode/getallQR`).then(res => res.json())
@@ -262,9 +278,12 @@ function displaydataFeedbacks(data) {
 function displaydataUsers(data) {
     console.log(data)
 
-    let main = document.getElementById("usersDetailbody")
+    let main = document.getElementById("usersDetailbody");
+
+    main.innerHTML = '';
+
     data.forEach((element) => {
-        console.log(element);
+        // console.log(element);
         let tr = document.createElement("tr")
 
         let td1 = document.createElement("td")
@@ -281,6 +300,10 @@ function displaydataUsers(data) {
 
         let td5 = document.createElement("td")
         td5.innerText = element.Role
+        if(element.Role==='Admin'){
+            td5.style.color = 'purple'
+            td5.style.fontWeight = 'bolder'
+        }
 
         let td6 = document.createElement("td")
         if (element.ismailverified) {
@@ -298,7 +321,24 @@ function displaydataUsers(data) {
         td7.innerText = element.Role === 'Admin' ? "Change to User" : "Change to Admin"
         td7.setAttribute('class', "updateRoleBtn");
         td7.addEventListener("click", () => {
-            console.log('update role clicked');
+            if(!confirm(`Do you want to change the role of this user \n ${element.Name}`)){
+                return
+            }
+            fetch(`${BaseUrl_adminPage}/user/updateRole/${element._id}`, {
+                method : 'PUT',
+                headers : {
+                    "Content-type" : "application/json"
+                }
+            }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+                fetchAllUsers();
+                alert(data.msg);
+            })
+            .catch(err => {
+                console.log(err);
+                alert('Something Went Wrong')
+            })
         })
 
 
@@ -310,7 +350,7 @@ function displaydataUsers(data) {
             let name = element.Name.split(' ').join('%20')
             let body = `Dear%20${name}`
             const url = `mailto:${element.Email}?subject=${subject}&body=${body}`
-            console.log(url);
+            // console.log(url);
             window.location.href = url
         })
 
