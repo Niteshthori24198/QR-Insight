@@ -90,7 +90,7 @@ let FeedbackPage = document.getElementById("Feedback--page")
 
 
 
-// when page load first show Dasboard Page
+// ................................. Dashboard .........................................//
 goToDashboardPage();
 
 function goToDashboardPage() {
@@ -100,9 +100,6 @@ function goToDashboardPage() {
     UsersPage.style.display = "none";
     LogsPage.style.display = "none";
     FeedbackPage.style.display = "none";
-
-    // dashboardPageFunctions()
-
 }
 
 function makeQRCodeArray(data) {
@@ -140,9 +137,7 @@ function makeQRCodeArray(data) {
 }
 
 
-
 function dashboardPageFunctions(obj) {
-
 
     // Extract labels and counts from the data
     const labels = Object.keys(obj).map((word => {
@@ -188,9 +183,7 @@ function dashboardPageFunctions(obj) {
 
 
 
-
-
-
+// ................................. Users .........................................//
 function goToUserPage() {
     document.getElementById("headingOfPage").innerHTML = "☰ Users Details";
     document.getElementById("headingOfPage2").innerHTML = "☰ Users Details";
@@ -198,11 +191,12 @@ function goToUserPage() {
     UsersPage.style.display = "block";
     LogsPage.style.display = "none";
     FeedbackPage.style.display = "none";
-
 }
 
 
 
+
+// ................................. Logs .........................................//
 function goToLogsPage() {
     document.getElementById("headingOfPage").innerHTML = "☰ Activity Details";
     document.getElementById("headingOfPage2").innerHTML = "☰ Activity Details";
@@ -210,15 +204,13 @@ function goToLogsPage() {
     UsersPage.style.display = "none";
     LogsPage.style.display = "block";
     FeedbackPage.style.display = "none";
-
-
 }
 
 
 
 
 
-
+// ................................. Feedbacks .........................................//
 async function goToFeedbackPage() {
     document.getElementById("headingOfPage").innerHTML = "☰ Feedback Details";
     document.getElementById("headingOfPage2").innerHTML = "☰ Feedback Details";
@@ -226,7 +218,6 @@ async function goToFeedbackPage() {
     UsersPage.style.display = "none";
     LogsPage.style.display = "none";
     FeedbackPage.style.display = "block";
-
 }
 
 
@@ -273,7 +264,7 @@ function displaydataUsers(data) {
 
     let main = document.getElementById("usersDetailbody")
     data.forEach((element) => {
-        // console.log(element);
+        console.log(element);
         let tr = document.createElement("tr")
 
         let td1 = document.createElement("td")
@@ -291,19 +282,30 @@ function displaydataUsers(data) {
         let td5 = document.createElement("td")
         td5.innerText = element.Role
 
-
         let td6 = document.createElement("td")
-        td6.innerText = element.Role === 'Admin' ? "Change to User" : "Change to Admin"
-        td6.setAttribute('class', "updateRoleBtn");
-        td6.addEventListener("click", () => {
+        if (element.ismailverified) {
+            td6.innerText = 'Active';
+            td6.setAttribute('class', "verifiedUserBtn");
+        }else{
+            td6.innerText = 'Freez';
+            td6.setAttribute('class', "notVerifiedUserBtn");
+        }
+
+
+
+
+        let td7 = document.createElement("td")
+        td7.innerText = element.Role === 'Admin' ? "Change to User" : "Change to Admin"
+        td7.setAttribute('class', "updateRoleBtn");
+        td7.addEventListener("click", () => {
             console.log('update role clicked');
         })
 
 
-        let td7 = document.createElement("td")
-        td7.innerText = "Reply"
-        td7.setAttribute('class', "anouncemnetbtnUser");
-        td7.addEventListener("click", () => {
+        let td8 = document.createElement("td")
+        td8.innerText = "Reply"
+        td8.setAttribute('class', "anouncemnetbtnUser");
+        td8.addEventListener("click", () => {
             let subject = 'Important QR Insight Announcement'
             let name = element.Name.split(' ').join('%20')
             let body = `Dear%20${name}`
@@ -314,7 +316,7 @@ function displaydataUsers(data) {
 
 
 
-        tr.append(td1, td2, td3, td4, td5, td6, td7)
+        tr.append(td1, td2, td3, td4, td5, td6, td7,td8)
         main.append(tr)
     });
 
