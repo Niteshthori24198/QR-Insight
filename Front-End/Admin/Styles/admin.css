@@ -344,3 +344,18 @@ th {
   color: blue;
   font-weight: bold;
 }
+
+.verifiedUserBtn{
+  background-color: rgb(10, 24, 98);
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: bolder;
+  color: white;
+}
+.notVerifiedUserBtn{
+  background-color: red;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: bolder;
+  color: white;
+}
