@@ -18,7 +18,9 @@
   - Start the server: npm run server
   
 # Features
+
   - This project has the following features:
+
     - QR Code Generation
     - QR Code Scanner
     - QR Code Analysis
@@ -66,7 +68,7 @@
 
   ![Homepage](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/a7f1163d-783b-4715-8c33-64e28fe0bbf9)
   
-  # ChatBot
+  ## ChatBot
 
   ![cb](https://github.com/Niteshthori24198/substantial-money-3994/assets/62844049/64e691cf-9ab5-4049-bc66-d888ef01ed7e)
 
