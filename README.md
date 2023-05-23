@@ -139,7 +139,7 @@
   # Deployment
 
   - The backend of this project has been deployed using Cyclick, and the front end has been deployed using Netlify.
-     - Netlify :  https://qr-insight-app.netlify.app/
+     - Netlify :  https://qr-insight-craft.netlify.app/
      - BackEnd :  https://angry-cummerbund-newt.cyclic.app/
      - Github  :  https://github.com/Niteshthori24198/substantial-money-3994
 
