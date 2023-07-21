@@ -15,6 +15,10 @@ const  {feedbackRouter} = require("./Routes/feedback.router");
 
 const { profileRouter } = require('./Routes/profile.route');
 
+const swaggerJSdoc=require("swagger-jsdoc")
+
+const swaggerUI=require("swagger-ui-express")
+
 require('dotenv').config();
 
 
@@ -36,6 +40,26 @@ app.use("/feed",feedbackRouter)
 app.use('/profile', profileRouter)
 
 app.use('/qrcode', qrRouter)
+
+const options={
+    definition:{
+        openapi:"3.0.0",
+        info:{
+            title:"Learning Swagger",
+            version:"1.0.0"
+        },
+        servers:[
+            {
+                url:"http://localhost:3000"
+            }
+        ]
+    },
+    apis:["./Routes/*.js"]
+}
+//specification
+const swaggerSpec= swaggerJSdoc(options)
+//building UI
+app.use("/doc",swaggerUI.serve,swaggerUI.setup(swaggerSpec))
 
 app.listen(process.env.Port, async (req,res)=>{
 
